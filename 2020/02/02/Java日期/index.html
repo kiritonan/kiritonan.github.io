@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第一篇文章 | Hexo</title>
+  <title>Java日期 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
-<meta property="og:url" content="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/index.html">
+  <meta name="description" content="Java日期格式1.JDK7之前的方式 java.util.Date  new Date():以当前时间为准 new Date(Long date):以毫秒时间创建对象 object.getTime():获取毫秒数   java.sql.Date  与数据库的Date类型对接的类型.是java.util.Date的子类 new Date(Long date):以毫秒时间创建对象 通过毫秒数与jav">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java日期">
+<meta property="og:url" content="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Java日期格式1.JDK7之前的方式 java.util.Date  new Date():以当前时间为准 new Date(Long date):以毫秒时间创建对象 object.getTime():获取毫秒数   java.sql.Date  与数据库的Date类型对接的类型.是java.util.Date的子类 new Date(Long date):以毫秒时间创建对象 通过毫秒数与jav">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-28T14:07:20.000Z">
-<meta property="article:modified_time" content="2020-01-28T14:07:20.656Z">
+<meta property="article:published_time" content="2020-02-02T09:27:50.930Z">
+<meta property="article:modified_time" content="2020-02-02T09:45:30.338Z">
 <meta property="article:author" content="Yang Nan">
 <meta name="twitter:card" content="summary">
   
@@ -70,12 +72,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-第一篇文章" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java日期" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="article-date">
-  <time class="post-time" datetime="2020-01-28T14:07:20.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">28</span>
+    <a href="/2020/02/02/Java%E6%97%A5%E6%9C%9F/" class="article-date">
+  <time class="post-time" datetime="2020-02-02T09:27:50.930Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">02</span>
   </time>
 </a>
    
@@ -87,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第一篇文章
+      Java日期
     </h1>
   
 
@@ -102,11 +104,51 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="Java日期格式"><a href="#Java日期格式" class="headerlink" title="Java日期格式"></a>Java日期格式</h1><h2 id="1-JDK7之前的方式"><a href="#1-JDK7之前的方式" class="headerlink" title="1.JDK7之前的方式"></a>1.JDK7之前的方式</h2><ol>
+<li><p>java.util.Date</p>
+<ul>
+<li>new Date():以当前时间为准</li>
+<li>new Date(Long date):以毫秒时间创建对象</li>
+<li>object.getTime():获取毫秒数</li>
+</ul>
+</li>
+<li><p>java.sql.Date</p>
+<ul>
+<li>与数据库的Date类型对接的类型.是java.util.Date的子类</li>
+<li>new Date(Long date):以毫秒时间创建对象</li>
+<li>通过毫秒数与java.util.Date进行转换</li>
+</ul>
+</li>
+<li><p>java.text.SimpleDateFormat</p>
+<ul>
+<li>格式化日期类</li>
+<li>new SimpleDateFormat():默认格式</li>
+<li>new SimpleDateFormat(String pattern):通过指定格式来格式化日期</li>
+<li>object.format(Date date):格式化Date返回一个字符串</li>
+<li>object.parse(String source):解析一个字符串返回Date对象</li>
+<li>注意:Date指的都是java.util.Date</li>
+</ul>
+</li>
+<li><p>java.util.Calendar</p>
+<ul>
+<li>日历类</li>
+<li>Calendar.getInstance():创建一个Calendar对象</li>
+<li>object.get(int field):获取类中定义的常量字段</li>
+<li>object.set(int field, int value):设置类中定义的常量字段,改变对象</li>
+<li>object.add(int field, int amount):增加类中定义的常量字段,改变对象</li>
+<li>object.getTime():返回对应的Date对象</li>
+<li>object.setTime(Date date):通过对应的Date对象,设置Calendar,改变对象</li>
+<li>注意:Date指的都是java.util.Date    </li>
+</ul>
+</li>
+<li><p>因为上述的处理线程不同步,且对日期的处理并不完善在JDK8中有提出了新方式</p>
+</li>
+</ol>
+<h2 id="2-JDK8的新方式"><a href="#2-JDK8的新方式" class="headerlink" title="2.JDK8的新方式"></a>2.JDK8的新方式</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" data-id="ck64uc23e0004e8ub305lcznq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck64uc2370000e8ubg54w1t79" class="article-share-link">分享</a>
       
       
     </footer>
@@ -115,19 +157,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          JDBC中出现的问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">Java复习</div>
     </a>
   
 </nav>

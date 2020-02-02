@@ -42,7 +42,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>2</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>
@@ -69,6 +69,204 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-Java日期" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/02/Java%E6%97%A5%E6%9C%9F/" class="article-date">
+  <time class="post-time" datetime="2020-02-02T09:27:50.930Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">02</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/02/Java%E6%97%A5%E6%9C%9F/">Java日期</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java日期格式"><a href="#Java日期格式" class="headerlink" title="Java日期格式"></a>Java日期格式</h1><h2 id="1-JDK7之前的方式"><a href="#1-JDK7之前的方式" class="headerlink" title="1.JDK7之前的方式"></a>1.JDK7之前的方式</h2><ol>
+<li><p>java.util.Date</p>
+<ul>
+<li>new Date():以当前时间为准</li>
+<li>new Date(Long date):以毫秒时间创建对象</li>
+<li>object.getTime():获取毫秒数</li>
+</ul>
+</li>
+<li><p>java.sql.Date</p>
+<ul>
+<li>与数据库的Date类型对接的类型.是java.util.Date的子类</li>
+<li>new Date(Long date):以毫秒时间创建对象</li>
+<li>通过毫秒数与java.util.Date进行转换</li>
+</ul>
+</li>
+<li><p>java.text.SimpleDateFormat</p>
+<ul>
+<li>格式化日期类</li>
+<li>new SimpleDateFormat():默认格式</li>
+<li>new SimpleDateFormat(String pattern):通过指定格式来格式化日期</li>
+<li>object.format(Date date):格式化Date返回一个字符串</li>
+<li>object.parse(String source):解析一个字符串返回Date对象</li>
+<li>注意:Date指的都是java.util.Date</li>
+</ul>
+</li>
+<li><p>java.util.Calendar</p>
+<ul>
+<li>日历类</li>
+<li>Calendar.getInstance():创建一个Calendar对象</li>
+<li>object.get(int field):获取类中定义的常量字段</li>
+<li>object.set(int field, int value):设置类中定义的常量字段,改变对象</li>
+<li>object.add(int field, int amount):增加类中定义的常量字段,改变对象</li>
+<li>object.getTime():返回对应的Date对象</li>
+<li>object.setTime(Date date):通过对应的Date对象,设置Calendar,改变对象</li>
+<li>注意:Date指的都是java.util.Date    </li>
+</ul>
+</li>
+<li><p>因为上述的处理线程不同步,且对日期的处理并不完善在JDK8中有提出了新方式</p>
+</li>
+</ol>
+<h2 id="2-JDK8的新方式"><a href="#2-JDK8的新方式" class="headerlink" title="2.JDK8的新方式"></a>2.JDK8的新方式</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck64uc2370000e8ubg54w1t79" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java复习" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time class="post-time" datetime="2020-02-01T08:00:42.462Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/01/Java%E5%A4%8D%E4%B9%A0/">Java复习</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="1-对java-lang-Class类的理解"><a href="#1-对java-lang-Class类的理解" class="headerlink" title="1.对java.lang.Class类的理解"></a>1.对java.lang.Class类的理解</h2><h3 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h3><p>程序经过javac.exe命令以后会生成一个或多个字节码文件(.class结尾)  接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件加载到内存中,这个过程称为类的加载,加载到内存中的类称作运行时类,作为Class的一个实例。换句话说，Class的一个实例就对应一个运行时类。<br></p>
+<h3 id="获取一个类的Class类对象"><a href="#获取一个类的Class类对象" class="headerlink" title="获取一个类的Class类对象"></a>获取一个类的Class类对象</h3><ul>
+<li><p>T.class</p>
+</li>
+<li><p>new T(xxx).getClass();</p>
+</li>
+<li><p>Class.forName(完整类名);</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" data-id="ck64uc23d0002e8ubbiby1s7r" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-JDBC中出现的问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="post-time" datetime="2020-01-31T07:02:20.000Z" itemprop="datePublished">
+    <span class="post-month">1月</span><br/>
+    <span class="post-day">31</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/">JDBC中出现的问题</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>update order set order_name = ? where order_id = ?</p>
+<p>ResultSetMetaData metaData = rs.getMetaData();</p>
+<p>//可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况  </p>
+<p>如果没有别名则获取原名</p>
+<p>String columnName = metaData.getColumnLabel(j+1);</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck64uc23c0001e8ub2wfbhlz6" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-第一篇文章" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -106,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" data-id="ck60eu3m600022sub1oa1723f" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" data-id="ck64uc23e0004e8ub305lcznq" class="article-share-link">分享</a>
       
       
     </footer>
@@ -167,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/28/hello-world/" data-id="ck60eu3m100002sub2ymn5ii3" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/28/hello-world/" data-id="ck64uc23d0003e8ub6buv1rqd" class="article-share-link">分享</a>
       
       
     </footer>
@@ -219,7 +417,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>2</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
       <a href="/tags"><div><strong>0</strong><br>标签</div></a>
     </div>

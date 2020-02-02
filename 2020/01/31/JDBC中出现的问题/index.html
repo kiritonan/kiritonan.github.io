@@ -3,15 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>第一篇文章 | Hexo</title>
+  <title>JDBC中出现的问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇文章">
-<meta property="og:url" content="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/index.html">
+  <meta name="description" content="update order set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDBC中出现的问题">
+<meta property="og:url" content="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="update order set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-01-28T14:07:20.000Z">
-<meta property="article:modified_time" content="2020-01-28T14:07:20.656Z">
+<meta property="article:published_time" content="2020-01-31T07:02:20.000Z">
+<meta property="article:modified_time" content="2020-02-01T02:59:11.002Z">
 <meta property="article:author" content="Yang Nan">
 <meta name="twitter:card" content="summary">
   
@@ -70,12 +72,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-第一篇文章" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-JDBC中出现的问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="article-date">
-  <time class="post-time" datetime="2020-01-28T14:07:20.000Z" itemprop="datePublished">
+    <a href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="post-time" datetime="2020-01-31T07:02:20.000Z" itemprop="datePublished">
     <span class="post-month">1月</span><br/>
-    <span class="post-day">28</span>
+    <span class="post-day">31</span>
   </time>
 </a>
    
@@ -87,7 +89,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      第一篇文章
+      JDBC中出现的问题
     </h1>
   
 
@@ -102,11 +104,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>update order set order_name = ? where order_id = ?</p>
+<p>ResultSetMetaData metaData = rs.getMetaData();</p>
+<p>//可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况  </p>
+<p>如果没有别名则获取原名</p>
+<p>String columnName = metaData.getColumnLabel(j+1);</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" data-id="ck64uc23e0004e8ub305lcznq" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck64uc23c0001e8ub2wfbhlz6" class="article-share-link">分享</a>
       
       
     </footer>
@@ -115,19 +122,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          JDBC中出现的问题
+          Java复习
         
       </div>
     </a>
   
   
-    <a href="/2020/01/28/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/01/28/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">第一篇文章</div>
     </a>
   
 </nav>
