@@ -44,7 +44,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>4</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>1</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck654y47n0000tgub5758e2e8" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck65zzcpl0000g4ubfw9i4qoe" class="article-share-link">分享</a>
       
       
     </footer>
@@ -151,13 +151,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Java日期格式"><a href="#Java日期格式" class="headerlink" title="Java日期格式"></a>Java日期格式</h1><h2 id="1-JDK7之前的方式"><a href="#1-JDK7之前的方式" class="headerlink" title="1.JDK7之前的方式"></a>1.JDK7之前的方式</h2><ol>
-<li><p>java.util.Date</p>
-<ul>
+<li>java.util.Date<ul>
 <li>new Date():以当前时间为准</li>
 <li>new Date(Long date):以毫秒时间创建对象</li>
 <li>object.getTime():获取毫秒数</li>
 </ul>
 </li>
+</ol>
+<ul>
+<li>form(Instant instant):通过Instant对象创建Date对象-static<ul>
+<li>object.toInstant():返回对应date的Instant对象</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
 <li><p>java.sql.Date</p>
 <ul>
 <li>与数据库的Date类型对接的类型.是java.util.Date的子类</li>
@@ -187,17 +194,69 @@
 <li>注意:Date指的都是java.util.Date    </li>
 </ul>
 </li>
-<li><p>因为上述的处理线程不同步,且对日期的处理并不完善在JDK8中有提出了新方式</p>
+</ol>
+<ul>
+<li>月份从0(一月)开始，星期从1(周日)开始<ul>
+<li>对象可变</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>因为上述的处理线程不同步,且对日期的处理并不完善在JDK8中有提出了新方式</li>
+</ol>
+<h2 id="2-JDK8的新方式"><a href="#2-JDK8的新方式" class="headerlink" title="2.JDK8的新方式"></a>2.JDK8的新方式</h2><ol>
+<li><p>java.time.LocalDate,java.time.LocalTime,java.time.LocalDateTime</p>
+<ul>
+<li>都是线程安全且不可变对象</li>
+<li>通用方法:</li>
+<li>now():创建当前时间的对象-static</li>
+<li>of(xxxxxx):创建指定时间的对象-static</li>
+<li>object.getXXX():获取指定的信息</li>
+<li>object.withXXX(xxxx)[等于set]:设置指定信息并返回相应对象</li>
+<li>object.plusXXX(xxxx):给对应信息加上指定数值并返回相应对象</li>
+<li>object.minusXXX(xxxx):给对应信息减去指定数值并返回相应对象</li>
+<li>parse(CharSequence text, DateTimeFormatter formatter):解析指定字符串并返回相应对象-static</li>
+<li>obj.format(DateTimeFormatter formatter):返回格式化对象</li>
+</ul>
+</li>
+<li><p>java.time.Instant</p>
+<ul>
+<li>时间线上的瞬时点</li>
+<li>注意如果不设置时区偏移,则返回的时间是本初子午线上的时间</li>
+<li>now():创建当前时间的对象-static</li>
+<li>ofEpochMill(long epochMill):设置指定毫秒数的对象-static</li>
+<li>object.toEpochMill():返回毫秒数</li>
+<li>obj.atOffset(ZoneOffset offset):设置时区的偏移如ZoneOffset.ofHours(8)</li>
+</ul>
+</li>
+<li><p>java.time.format.DateTimeFormatter</p>
+<ul>
+<li>ofPattern(String pattern):创建对应格式的DateTimeFormatter对象-static</li>
+<li>注意在DateTimeFormatter格式字符串中小时用H表示</li>
+</ul>
+</li>
+<li><p>各种转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 01. java.util.Date --&gt; java.time.LocalDateTime</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalDateTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 02. java.util.Date --&gt; java.time.LocalDate</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">    LocalDate localDate = localDateTime.toLocalDate();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 03. java.util.Date --&gt; java.time.LocalTime</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">    LocalTime localTime = localDateTime.toLocalTime();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 04. java.time.LocalDateTime --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalDateTimeToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDateTime.atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 05. java.time.LocalDate --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalDateToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalDate localDate = LocalDate.now();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 06. java.time.LocalTime --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalTimeToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalTime localTime = LocalTime.now();</span><br><span class="line">    LocalDate localDate = LocalDate.now();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDateTime.atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码来自博客 <a href="https://www.cnblogs.com/exmyth/p/6425878.html" target="_blank" rel="noopener" title="转换">Java日期转换</a></p>
+</li>
+<li><p>遇到的一个问题</p>
+<ul>
+<li><pre><code class="java">LocalDateTime dateTime = LocalDateTime.parse(<span class="string">"2020-02-02 03:10:10"</span>, DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd hh:mm:ss"</span>));</code></pre>
+</li>
+<li><p>上面的代码使用H可以运行但是换成h就无法运行</p>
+</li>
+</ul>
 </li>
 </ol>
-<h2 id="2-JDK8的新方式"><a href="#2-JDK8的新方式" class="headerlink" title="2.JDK8的新方式"></a>2.JDK8的新方式</h2>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck654y4840004tgubepbf7rd1" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck65zzcqn0001g4ubgkr8g0qk" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%AD%98%E7%96%91/" rel="tag">Java存疑</a></li></ul>
 
     </footer>
   </div>
@@ -253,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" data-id="ck654y4830003tgub7pg44rd4" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/01/Java%E5%A4%8D%E4%B9%A0/" data-id="ck65zzcr40006g4ub3a3x9259" class="article-share-link">分享</a>
       
       
     </footer>
@@ -306,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck654y4820001tgub0ta984nt" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck65zzcr50008g4ub9tetg9jy" class="article-share-link">分享</a>
       
       
     </footer>
@@ -360,7 +419,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>4</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>1</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
 
 
