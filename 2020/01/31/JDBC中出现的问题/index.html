@@ -5,16 +5,17 @@
   
   <title>JDBC中出现的问题 | little Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="update order set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
+  <meta name="description" content="update &#96;order&#96; set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDBC中出现的问题">
 <meta property="og:url" content="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="little Blog">
-<meta property="og:description" content="update order set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
+<meta property="og:description" content="update &#96;order&#96; set order_name &#x3D; ? where order_id &#x3D; ? ResultSetMetaData metaData &#x3D; rs.getMetaData(); &#x2F;&#x2F;可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况   如果没有别名则获取原名 String columnName &#x3D; metaData.getColumnLabel(j+1);">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-31T07:02:20.000Z">
-<meta property="article:modified_time" content="2020-02-01T02:59:11.002Z">
+<meta property="article:modified_time" content="2020-02-03T05:20:26.789Z">
 <meta property="article:author" content="Yang Nan">
+<meta property="article:tag" content="JDBC">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
@@ -48,7 +49,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>4</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -104,18 +105,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>update order set order_name = ? where order_id = ?</p>
-<p>ResultSetMetaData metaData = rs.getMetaData();</p>
+        <p>update `order` set order_name = ? where order_id = ?</p>
+<p><code>ResultSetMetaData metaData = rs.getMetaData();</code></p>
 <p>//可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况  </p>
 <p>如果没有别名则获取原名</p>
-<p>String columnName = metaData.getColumnLabel(j+1);</p>
+<p><code>String columnName = metaData.getColumnLabel(j+1);</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck66062j80001e4ub6kwh6sa6" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck6609yhm0003p8ubc4559p16" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li></ul>
+
     </footer>
   </div>
   
@@ -180,7 +183,7 @@
     <div class="count-box">
       <a href="/archives"><div><strong>4</strong><br>文章</div></a>
       <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
+      <a href="/tags"><div><strong>3</strong><br>标签</div></a>
     </div>
 
 
