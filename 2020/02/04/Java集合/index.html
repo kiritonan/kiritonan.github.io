@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java集合 | little Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="集合问题 既然有数组了为什么还要有集合 答:因为数组定长且只能存储一种类型的数据  为什么会有这么多的容器 答:内部的数据存储结构不同   集合继承实现图 Collection接口 List和Set接口的父接口 List和Set接口的区别 List:元素可以重复,有索引 Set:元素无序且不能重复 此处指的顺序是指存入和取出顺序不同   要记得特有方法 obj.isEmpty(); obj.siz">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java集合">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/index.html">
+<meta property="og:site_name" content="little Blog">
+<meta property="og:description" content="集合问题 既然有数组了为什么还要有集合 答:因为数组定长且只能存储一种类型的数据  为什么会有这么多的容器 答:内部的数据存储结构不同   集合继承实现图 Collection接口 List和Set接口的父接口 List和Set接口的区别 List:元素可以重复,有索引 Set:元素无序且不能重复 此处指的顺序是指存入和取出顺序不同   要记得特有方法 obj.isEmpty(); obj.siz">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg">
+<meta property="article:published_time" content="2020-02-04T08:47:35.840Z">
+<meta property="article:modified_time" content="2020-02-09T02:28:03.021Z">
+<meta property="article:author" content="Yang Nan">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Java集合" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/04/Java%E9%9B%86%E5%90%88/" class="article-date">
+  <time class="post-time" datetime="2020-02-04T08:47:35.840Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java集合
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p>既然有数组了为什么还要有集合</p>
+<p>答:因为数组定长且只能存储一种类型的数据</p>
+</li>
+<li><p>为什么会有这么多的容器</p>
+<p>答:内部的数据存储结构不同</p>
+</li>
+</ol>
+<h2 id="集合继承实现图"><a href="#集合继承实现图" class="headerlink" title="集合继承实现图"></a>集合继承实现图</h2><p><img src="D:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg" alt="集合" title="集合"></p>
+<h2 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h2><ul>
+<li>List和Set接口的父接口</li>
+<li>List和Set接口的区别<ul>
+<li>List:元素可以重复,有索引</li>
+<li>Set:元素无序且不能重复</li>
+<li>此处指的顺序是指存入和取出顺序不同</li>
+</ul>
+</li>
+<li>要记得特有方法<ul>
+<li><code>obj.isEmpty();</code></li>
+<li><code>obj.size();</code></li>
+<li><code>obj.contains(Object o);</code></li>
+<li><code>obj.retainAll(Collection&lt;?&gt; c)</code>:求交集并改变调用的集合</li>
+<li><code>obj.add(E e)</code></li>
+<li><code>obj.remove(Object o)</code></li>
+</ul>
+</li>
+<li>迭代器(Iterator接口)<ul>
+<li><code>Iterator obj.iterator();</code></li>
+<li>每一个容器中都定义了一个迭代器用于操作容器本身</li>
+</ul>
+</li>
+</ul>
+<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><ul>
+<li><p>集合的常用方法</p>
+<ul>
+<li>增:add(）    </li>
+<li>删:remove()</li>
+<li>改:set()</li>
+<li>查:get(),subList()[对其操作会反馈到原集合],ListIterator()</li>
+<li>获取下标:indexOf()</li>
+</ul>
+</li>
+<li><p>List集合中引入了ListIterator迭代器</p>
+<ul>
+<li>因为原来的Iterator接口只提供了remove和next两种操作,为了避免并发修改异常在该迭代器中提供了增删改查操作,以及与next相反的previous操作</li>
+<li>java.util.ConcurrentModificationException 并发修改异常 出现在使用迭代器的next的同时使用了集合的修改方法引发的异常</li>
+</ul>
+</li>
+<li><p>引出的子类对象</p>
+<ul>
+<li><p>ArrayList:数组结构,查找快增删慢,jdk1.2出现用于替代Vector,空间增长为50%增长,线程不同步</p>
+</li>
+<li><p>LinkedList:链表结构,查找慢,增删快,线程不同步</p>
+<ul>
+<li>特有方法(First/Last)<ul>
+<li>removeFirst/Last()[集合为空会出异常] —–pollFirst/Last()[jdk1.6]集合为空返回null</li>
+<li>addFirst/Last()void —–offerFirst/Last()[jdk1.6]Boolean</li>
+<li>getFirst/Last()[集合为空会出异常]  —–peekFirst/Last()[jdk1.6]集合为空返回null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vector:数组结构,jdk1.0出现,线程同步,空间100%增长</p>
+<ul>
+<li>特有方法(Element)<ul>
+<li><code>Enumeration obj.elements();</code></li>
+<li>Enumeration 枚举类型 其实就是Iterator前身,用法相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断元素是否相同根据equals方法来确定</p>
+</li>
+</ul>
+<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><ul>
+<li><p>基本方法于Collection接口相同</p>
+</li>
+<li><p>引出的子类对象</p>
+<ul>
+<li>HashSet:哈希表结构,线程不同步,避免哈希冲突的方式类似于链地址法<ul>
+<li>存储时先比较hashCode方法值是否相同,不同则存储,相同则比较equals判断,如果仍然相同,认为是统一对象,否则在hachCode值存储的位置下扩展链。</li>
+<li>比较对象是否相同先比较hashCode再比较equals,只有两者都相同才认为两对象相等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TreeSet:红黑树结构(属于二叉排序树),线程不同步,有两种比较方式</p>
+<ul>
+<li>存储类实现java.lang.Comparable接口,实现compareTo方法,称为自然顺序,很多类都实现了(String,Integer)</li>
+<li>构造器类实现java.util.Comparator接口,实现compare方法,称为构造器,将构造器传入集合构造方法,实现排序</li>
+<li>如果上述两种方式都实现了以构造器为主</li>
+<li>TreeSet标识元素相等的条件为compareTo方法或者compare方法的返回值(0)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Java泛型-jdk1-5"><a href="#Java泛型-jdk1-5" class="headerlink" title="Java泛型(jdk1.5)"></a>Java泛型(jdk1.5)</h2><ul>
+<li>虽然集合可以存储任意对象带来了方便,但是因为类型不明确导致强制类型转换操作过多,且代码不明确,引入了泛型,泛型只能用于引用数据类型</li>
+<li><code>ArrayList &lt;String&gt; list = new ArrayList&lt;String&gt;();</code></li>
+<li>泛型可以定义在类上,方法上,接口上</li>
+<li>注意:在静态方法中是不能访问定义在类上的泛型的,因为只有在定义对象时才能确定类上的泛型,而在此之前静态方法已经出现</li>
+<li><code>this.&lt;String&gt;show();</code></li>
+<li>调用定义了泛型的方法为:在方法名前加&lt;具体数据类型&gt;,但是可以通过形式参数来推断,所以大多数时候可以省略</li>
+<li>&lt;?&gt;代表任意类型,?代表统配符,之后又提出了泛型限定&lt;? extends E&gt;,&lt;? super E&gt;,前者在Collection中有应用,后者在Comparator接口中有应用。泛型限定用于对？的功能进行进一步的限定。</li>
+</ul>
+<h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><ul>
+<li><p>虽然Map接口并没有实现Collection接口但是仍然属于集合框架</p>
+</li>
+<li><p>Map&lt;K,V&gt;,用于存储键值对,其中键唯一,值不唯一</p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><p>1.添加:</p>
+<ul>
+<li><code>V put(K key, V value)</code>:存相同的键会替代前键值对并返回原来的值,如果没有相同的键会返回null(与Set集合不同要注意)</li>
+</ul>
+</li>
+<li><p>2.删除</p>
+<ul>
+<li><p><code>clear()</code></p>
+</li>
+<li><p><code>remove(Object key)</code></p>
+</li>
+</ul>
+</li>
+<li><p>3.判断</p>
+<ul>
+<li><p><code>containsKey(Object key)</code></p>
+</li>
+<li><p><code>isEmpty()</code></p>
+</li>
+</ul>
+</li>
+<li><p>4.获取</p>
+<ul>
+<li><p><code>get(Object key)</code></p>
+</li>
+<li><p><code>size()</code></p>
+</li>
+<li><p><code>Set&lt;V&gt; values()</code>:获取值的Set集合</p>
+</li>
+<li><p>Map.Entry&lt;K, V&gt;[内部的静态接口] entrySet()</p>
+</li>
+<li><p><code>Set&lt;K&gt; keySet()</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常用的子类(所用比较的方法都是对键操作,与Set集合类似)</p>
+</li>
+<li><p>Hashtable</p>
+<ul>
+<li>底层是哈希表,不能存入null键或null值 jdk1.0 线程同步 </li>
+</ul>
+</li>
+<li><p>HashMap</p>
+<ul>
+<li>底层也是哈希表,允许使用null键或null值 jdk1.2  线程不同步 效率高  </li>
+</ul>
+</li>
+<li><p>TreeMap</p>
+<ul>
+<li>底层二叉树排序树结构,线程不同步,给map集合中的键进行排序</li>
+</ul>
+</li>
+<li><p>Set底层就是用了Map的相关实现方法</p>
+</li>
+</ul>
+<h2 id="Utils接口"><a href="#Utils接口" class="headerlink" title="Utils接口"></a>Utils接口</h2><ul>
+<li><p>Collections类(里面全是静态方法)</p>
+<ul>
+<li><p>常用方法</p>
+</li>
+<li><p>排序</p>
+<ul>
+<li><code>&lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</code></li>
+<li><code>void sort(List&lt;T&gt; list,Comparator&lt;? super T&gt; c)</code></li>
+</ul>
+</li>
+<li><p>最大最小</p>
+<ul>
+<li><code>&lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</code></li>
+<li><code>&lt;T&gt; T max(Collection&lt;? extends T&gt; coll,Comparator&lt;? super T&gt; comp)</code></li>
+<li>为什么只有List有比较和最大值/最小值  因为Set有TreeSet,Map有TreeMap且它们都有相对应的First/Last方法</li>
+</ul>
+</li>
+<li><p>查找</p>
+<ul>
+<li><code>int binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list,T key)</code></li>
+<li><code>&lt;T&gt; int binarySearch(List&lt;? extends T&gt; list,T key,Comparator&lt;? super T&gt; c)</code></li>
+<li>为什么只有List有二分查找,因为只有它有脚标</li>
+</ul>
+</li>
+<li><p>填充/替换/反转/交换/随机排序</p>
+<ul>
+<li><code>&lt;T&gt; void fill(List&lt;? super T&gt; list,T obj)</code></li>
+<li><code>boolean replaceAll(List&lt;T&gt; list,T oldVal,T newVal)</code></li>
+<li><code>void reverse(List&lt;?&gt; list)</code></li>
+<li><code>void swap(List&lt;?&gt; list,int i,int j)</code></li>
+<li><code>void shuffle(List&lt;?&gt; list)</code></li>
+<li>如果要对列表的一部分填充的话可以用list中的subList对原列表进行填充</li>
+</ul>
+</li>
+<li><p>获取逆向的比较器</p>
+<ul>
+<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder()</code>:获取自然顺序逆序的比较器</li>
+<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder(Comparator&lt;T&gt; cmp)</code>:获取指定比较器的逆向比较器</li>
+</ul>
+</li>
+<li><p>获取线程同步的集合</p>
+<ul>
+<li><code>&lt;T&gt; List&lt;T&gt; synchronizedList(List&lt;T&gt; list)</code></li>
+<li><code>&lt;T&gt; Set&lt;T&gt; synchronizedSet(Set&lt;T&gt; s)</code></li>
+<li><code>&lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组与集合的转换"><a href="#数组与集合的转换" class="headerlink" title="数组与集合的转换"></a>数组与集合的转换</h2><ul>
+<li><p>Arrays类提供了许多数组操作的方法[数组转集合]</p>
+<ul>
+<li><code>&lt;T&gt; List &lt;T&gt; asList(T... a)</code>:数组转换为List集合,</li>
+</ul>
+</li>
+<li><p>原因在于可以方便去判断元素包含于集合[使用集合的方法来操作数组]</p>
+</li>
+<li><p>生成的集合是定长的且改变会反馈到数组</p>
+</li>
+<li><p>如果数组中的元素是基本数据类型,则会直接把数组本身存入到集合中</p>
+</li>
+<li><p>Collection类中的toArray方法[集合变数组]</p>
+<ul>
+<li><p><code>Object[] toArray()</code></p>
+</li>
+<li><p><code>&lt;T&gt; T[] toArray(T[] a)</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>arrayList.toArray(new String[arrayList.size()])</code></p>
+<ul>
+<li><p>注意如果指定类型的数组长度小于集合的长度,那么方法内部会创建一个新的数组。长度为集合的长度</p>
+</li>
+<li><p>如果如果指定类型的数组长度大于集合的长度,那么方法内部会使用传入的数组。多余的空间设置为null</p>
+</li>
+<li><p>所以尽量指定一个大小刚好的数组,可以节省空间</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="jdk1-5引入的新特性"><a href="#jdk1-5引入的新特性" class="headerlink" title="jdk1.5引入的新特性"></a>jdk1.5引入的新特性</h2><ol>
+<li><p>foreach循环</p>
+</li>
+<li><p>可变参数</p>
+<ul>
+<li>一个方法 可以有可变参数和普通参数，但是可变参数必须放到参数列表末尾；</li>
+<li>一个方法 有且只能有一个可变参数;</li>
+</ul>
+</li>
+<li><p>静态导入</p>
+<ul>
+<li><code>import static java.util.Arrays.*</code></li>
+<li>导入一个类/接口的静态成员，之后调用可以省略类名/接口名</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>如果出现重名的函数,则要恢复会原来的调用方式<ul>
+<li>主要用于对都是静态成员的工具类的引入,简化书写。比如Collections,Arrays</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6eeudx50006b4ubfkz37as7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/08/JavaWeb01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          JavaWeb01
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/03/Java%E5%BC%82%E5%B8%B8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java异常</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">little Blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/kiritonan" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2019 - 2020 Yang Nan<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana" target="_blank" rel="noopener">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

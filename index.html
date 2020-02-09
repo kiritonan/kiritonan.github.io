@@ -42,9 +42,9 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
      
@@ -70,6 +70,408 @@
 
         <section id="main">
   
+    <article id="post-JavaWeb01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/08/JavaWeb01/" class="article-date">
+  <time class="post-time" datetime="2020-02-08T14:01:13.223Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">08</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/08/JavaWeb01/">JavaWeb01</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaWeb/">-JavaWeb</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-tomcat端口更改"><a href="#1-tomcat端口更改" class="headerlink" title="1.tomcat端口更改"></a>1.tomcat端口更改</h2><p>tomcat默认端口为8080,在conf/server.xml中70行左右connector标签的port值修改</p>
+<h2 id="2-状态码"><a href="#2-状态码" class="headerlink" title="2.状态码"></a>2.状态码</h2><p>200:一切正常<br>3xx:重定向<br>403:权限问题<br>404:资源不存在<br>4xx:客户端错误<br>5xx:服务器端错误<br>500:服务器端错误</p>
+<h2 id="3-把项目放到其他路径配置"><a href="#3-把项目放到其他路径配置" class="headerlink" title="3.把项目放到其他路径配置"></a>3.把项目放到其他路径配置</h2><p>1.在conf/server.xml的Host标签中配置<br><code>&lt;Context docBase = &quot;表示实际转定位到的路径&quot; path = &quot;表示网页要访问的路径&quot; /&gt;</code><br>path:可以写相对(相对于webapps因为Host在localhost中首先找的就是webapps),写绝对也没事<br>例如 /jspTest<br>docBase:表示实际转定位到的路径<br>D:\apache-tomcat-8.5.50\jspTest<br>写完重启服务器<br>另一种方法<br>2.conf\Catalina\localhost  新建项目名.xml文件<br>在里面写<code>&lt;Context docBase = &quot;实际项目路径&quot;/&gt;</code><br>就行</p>
+<h2 id="4-其他的细节"><a href="#4-其他的细节" class="headerlink" title="4.其他的细节"></a>4.其他的细节</h2><ol>
+<li><p>浏览器可以直接访问WebContent中的文件<br>但是其中WEB-INF中的文件无法通过客户端直接进行访问,可以通过请求转发来访问</p>
+</li>
+<li><p>Jsp中的编码问题</p>
+<ol>
+<li><p>pageEncoding:<code>&lt;%@ page pageEncoding=&quot;UTF-8&quot;%&gt;</code></p>
+<p>jsp页面编码: jsp文件本身的编码 </p>
+</li>
+<li><p>contentType: <code>&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot;%&gt;</code></p>
+<p>web页面显示编码:jsp的输出流在浏览器中显示的编码 </p>
+</li>
+<li><p>html页面charset:<code>&lt;META http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</code></p>
+<p>web页面输入编码: 输入框输入的字体编码  </p>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6eeudww0000b4ubdahvg1x7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java集合" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/04/Java%E9%9B%86%E5%90%88/" class="article-date">
+  <time class="post-time" datetime="2020-02-04T08:47:35.840Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/04/Java%E9%9B%86%E5%90%88/">Java集合</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li><p>既然有数组了为什么还要有集合</p>
+<p>答:因为数组定长且只能存储一种类型的数据</p>
+</li>
+<li><p>为什么会有这么多的容器</p>
+<p>答:内部的数据存储结构不同</p>
+</li>
+</ol>
+<h2 id="集合继承实现图"><a href="#集合继承实现图" class="headerlink" title="集合继承实现图"></a>集合继承实现图</h2><p><img src="D:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg" alt="集合" title="集合"></p>
+<h2 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h2><ul>
+<li>List和Set接口的父接口</li>
+<li>List和Set接口的区别<ul>
+<li>List:元素可以重复,有索引</li>
+<li>Set:元素无序且不能重复</li>
+<li>此处指的顺序是指存入和取出顺序不同</li>
+</ul>
+</li>
+<li>要记得特有方法<ul>
+<li><code>obj.isEmpty();</code></li>
+<li><code>obj.size();</code></li>
+<li><code>obj.contains(Object o);</code></li>
+<li><code>obj.retainAll(Collection&lt;?&gt; c)</code>:求交集并改变调用的集合</li>
+<li><code>obj.add(E e)</code></li>
+<li><code>obj.remove(Object o)</code></li>
+</ul>
+</li>
+<li>迭代器(Iterator接口)<ul>
+<li><code>Iterator obj.iterator();</code></li>
+<li>每一个容器中都定义了一个迭代器用于操作容器本身</li>
+</ul>
+</li>
+</ul>
+<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><ul>
+<li><p>集合的常用方法</p>
+<ul>
+<li>增:add(）    </li>
+<li>删:remove()</li>
+<li>改:set()</li>
+<li>查:get(),subList()[对其操作会反馈到原集合],ListIterator()</li>
+<li>获取下标:indexOf()</li>
+</ul>
+</li>
+<li><p>List集合中引入了ListIterator迭代器</p>
+<ul>
+<li>因为原来的Iterator接口只提供了remove和next两种操作,为了避免并发修改异常在该迭代器中提供了增删改查操作,以及与next相反的previous操作</li>
+<li>java.util.ConcurrentModificationException 并发修改异常 出现在使用迭代器的next的同时使用了集合的修改方法引发的异常</li>
+</ul>
+</li>
+<li><p>引出的子类对象</p>
+<ul>
+<li><p>ArrayList:数组结构,查找快增删慢,jdk1.2出现用于替代Vector,空间增长为50%增长,线程不同步</p>
+</li>
+<li><p>LinkedList:链表结构,查找慢,增删快,线程不同步</p>
+<ul>
+<li>特有方法(First/Last)<ul>
+<li>removeFirst/Last()[集合为空会出异常] —–pollFirst/Last()[jdk1.6]集合为空返回null</li>
+<li>addFirst/Last()void —–offerFirst/Last()[jdk1.6]Boolean</li>
+<li>getFirst/Last()[集合为空会出异常]  —–peekFirst/Last()[jdk1.6]集合为空返回null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Vector:数组结构,jdk1.0出现,线程同步,空间100%增长</p>
+<ul>
+<li>特有方法(Element)<ul>
+<li><code>Enumeration obj.elements();</code></li>
+<li>Enumeration 枚举类型 其实就是Iterator前身,用法相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断元素是否相同根据equals方法来确定</p>
+</li>
+</ul>
+<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><ul>
+<li><p>基本方法于Collection接口相同</p>
+</li>
+<li><p>引出的子类对象</p>
+<ul>
+<li>HashSet:哈希表结构,线程不同步,避免哈希冲突的方式类似于链地址法<ul>
+<li>存储时先比较hashCode方法值是否相同,不同则存储,相同则比较equals判断,如果仍然相同,认为是统一对象,否则在hachCode值存储的位置下扩展链。</li>
+<li>比较对象是否相同先比较hashCode再比较equals,只有两者都相同才认为两对象相等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TreeSet:红黑树结构(属于二叉排序树),线程不同步,有两种比较方式</p>
+<ul>
+<li>存储类实现java.lang.Comparable接口,实现compareTo方法,称为自然顺序,很多类都实现了(String,Integer)</li>
+<li>构造器类实现java.util.Comparator接口,实现compare方法,称为构造器,将构造器传入集合构造方法,实现排序</li>
+<li>如果上述两种方式都实现了以构造器为主</li>
+<li>TreeSet标识元素相等的条件为compareTo方法或者compare方法的返回值(0)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Java泛型-jdk1-5"><a href="#Java泛型-jdk1-5" class="headerlink" title="Java泛型(jdk1.5)"></a>Java泛型(jdk1.5)</h2><ul>
+<li>虽然集合可以存储任意对象带来了方便,但是因为类型不明确导致强制类型转换操作过多,且代码不明确,引入了泛型,泛型只能用于引用数据类型</li>
+<li><code>ArrayList &lt;String&gt; list = new ArrayList&lt;String&gt;();</code></li>
+<li>泛型可以定义在类上,方法上,接口上</li>
+<li>注意:在静态方法中是不能访问定义在类上的泛型的,因为只有在定义对象时才能确定类上的泛型,而在此之前静态方法已经出现</li>
+<li><code>this.&lt;String&gt;show();</code></li>
+<li>调用定义了泛型的方法为:在方法名前加&lt;具体数据类型&gt;,但是可以通过形式参数来推断,所以大多数时候可以省略</li>
+<li>&lt;?&gt;代表任意类型,?代表统配符,之后又提出了泛型限定&lt;? extends E&gt;,&lt;? super E&gt;,前者在Collection中有应用,后者在Comparator接口中有应用。泛型限定用于对？的功能进行进一步的限定。</li>
+</ul>
+<h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><ul>
+<li><p>虽然Map接口并没有实现Collection接口但是仍然属于集合框架</p>
+</li>
+<li><p>Map&lt;K,V&gt;,用于存储键值对,其中键唯一,值不唯一</p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><p>1.添加:</p>
+<ul>
+<li><code>V put(K key, V value)</code>:存相同的键会替代前键值对并返回原来的值,如果没有相同的键会返回null(与Set集合不同要注意)</li>
+</ul>
+</li>
+<li><p>2.删除</p>
+<ul>
+<li><p><code>clear()</code></p>
+</li>
+<li><p><code>remove(Object key)</code></p>
+</li>
+</ul>
+</li>
+<li><p>3.判断</p>
+<ul>
+<li><p><code>containsKey(Object key)</code></p>
+</li>
+<li><p><code>isEmpty()</code></p>
+</li>
+</ul>
+</li>
+<li><p>4.获取</p>
+<ul>
+<li><p><code>get(Object key)</code></p>
+</li>
+<li><p><code>size()</code></p>
+</li>
+<li><p><code>Set&lt;V&gt; values()</code>:获取值的Set集合</p>
+</li>
+<li><p>Map.Entry&lt;K, V&gt;[内部的静态接口] entrySet()</p>
+</li>
+<li><p><code>Set&lt;K&gt; keySet()</code></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常用的子类(所用比较的方法都是对键操作,与Set集合类似)</p>
+</li>
+<li><p>Hashtable</p>
+<ul>
+<li>底层是哈希表,不能存入null键或null值 jdk1.0 线程同步 </li>
+</ul>
+</li>
+<li><p>HashMap</p>
+<ul>
+<li>底层也是哈希表,允许使用null键或null值 jdk1.2  线程不同步 效率高  </li>
+</ul>
+</li>
+<li><p>TreeMap</p>
+<ul>
+<li>底层二叉树排序树结构,线程不同步,给map集合中的键进行排序</li>
+</ul>
+</li>
+<li><p>Set底层就是用了Map的相关实现方法</p>
+</li>
+</ul>
+<h2 id="Utils接口"><a href="#Utils接口" class="headerlink" title="Utils接口"></a>Utils接口</h2><ul>
+<li><p>Collections类(里面全是静态方法)</p>
+<ul>
+<li><p>常用方法</p>
+</li>
+<li><p>排序</p>
+<ul>
+<li><code>&lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</code></li>
+<li><code>void sort(List&lt;T&gt; list,Comparator&lt;? super T&gt; c)</code></li>
+</ul>
+</li>
+<li><p>最大最小</p>
+<ul>
+<li><code>&lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</code></li>
+<li><code>&lt;T&gt; T max(Collection&lt;? extends T&gt; coll,Comparator&lt;? super T&gt; comp)</code></li>
+<li>为什么只有List有比较和最大值/最小值  因为Set有TreeSet,Map有TreeMap且它们都有相对应的First/Last方法</li>
+</ul>
+</li>
+<li><p>查找</p>
+<ul>
+<li><code>int binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list,T key)</code></li>
+<li><code>&lt;T&gt; int binarySearch(List&lt;? extends T&gt; list,T key,Comparator&lt;? super T&gt; c)</code></li>
+<li>为什么只有List有二分查找,因为只有它有脚标</li>
+</ul>
+</li>
+<li><p>填充/替换/反转/交换/随机排序</p>
+<ul>
+<li><code>&lt;T&gt; void fill(List&lt;? super T&gt; list,T obj)</code></li>
+<li><code>boolean replaceAll(List&lt;T&gt; list,T oldVal,T newVal)</code></li>
+<li><code>void reverse(List&lt;?&gt; list)</code></li>
+<li><code>void swap(List&lt;?&gt; list,int i,int j)</code></li>
+<li><code>void shuffle(List&lt;?&gt; list)</code></li>
+<li>如果要对列表的一部分填充的话可以用list中的subList对原列表进行填充</li>
+</ul>
+</li>
+<li><p>获取逆向的比较器</p>
+<ul>
+<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder()</code>:获取自然顺序逆序的比较器</li>
+<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder(Comparator&lt;T&gt; cmp)</code>:获取指定比较器的逆向比较器</li>
+</ul>
+</li>
+<li><p>获取线程同步的集合</p>
+<ul>
+<li><code>&lt;T&gt; List&lt;T&gt; synchronizedList(List&lt;T&gt; list)</code></li>
+<li><code>&lt;T&gt; Set&lt;T&gt; synchronizedSet(Set&lt;T&gt; s)</code></li>
+<li><code>&lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组与集合的转换"><a href="#数组与集合的转换" class="headerlink" title="数组与集合的转换"></a>数组与集合的转换</h2><ul>
+<li><p>Arrays类提供了许多数组操作的方法[数组转集合]</p>
+<ul>
+<li><code>&lt;T&gt; List &lt;T&gt; asList(T... a)</code>:数组转换为List集合,</li>
+</ul>
+</li>
+<li><p>原因在于可以方便去判断元素包含于集合[使用集合的方法来操作数组]</p>
+</li>
+<li><p>生成的集合是定长的且改变会反馈到数组</p>
+</li>
+<li><p>如果数组中的元素是基本数据类型,则会直接把数组本身存入到集合中</p>
+</li>
+<li><p>Collection类中的toArray方法[集合变数组]</p>
+<ul>
+<li><p><code>Object[] toArray()</code></p>
+</li>
+<li><p><code>&lt;T&gt; T[] toArray(T[] a)</code></p>
+</li>
+</ul>
+</li>
+<li><p><code>arrayList.toArray(new String[arrayList.size()])</code></p>
+<ul>
+<li><p>注意如果指定类型的数组长度小于集合的长度,那么方法内部会创建一个新的数组。长度为集合的长度</p>
+</li>
+<li><p>如果如果指定类型的数组长度大于集合的长度,那么方法内部会使用传入的数组。多余的空间设置为null</p>
+</li>
+<li><p>所以尽量指定一个大小刚好的数组,可以节省空间</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="jdk1-5引入的新特性"><a href="#jdk1-5引入的新特性" class="headerlink" title="jdk1.5引入的新特性"></a>jdk1.5引入的新特性</h2><ol>
+<li><p>foreach循环</p>
+</li>
+<li><p>可变参数</p>
+<ul>
+<li>一个方法 可以有可变参数和普通参数，但是可变参数必须放到参数列表末尾；</li>
+<li>一个方法 有且只能有一个可变参数;</li>
+</ul>
+</li>
+<li><p>静态导入</p>
+<ul>
+<li><code>import static java.util.Arrays.*</code></li>
+<li>导入一个类/接口的静态成员，之后调用可以省略类名/接口名</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>如果出现重名的函数,则要恢复会原来的调用方式<ul>
+<li>主要用于对都是静态成员的工具类的引入,简化书写。比如Collections,Arrays</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6eeudx50006b4ubfkz37as7" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-Java异常" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/02/03/Java%E5%BC%82%E5%B8%B8/" class="article-date">
@@ -93,6 +495,10 @@
 
         <div>
           
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
           
               
 
@@ -102,13 +508,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p> 注意事项</p>
+<ul>
+<li>try 代码后不能既没 catch 块也没 finally 块。</li>
+<li>子类继承的方法声明的异常不能比父类声明的异常更通用</li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck660us5n0000jkubh0p60p4q" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck6eeudx60007b4ubefzfht19" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -135,7 +548,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">标签测试</a>
+      <a class="article-title" href="/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a>
     </h1>
   
 
@@ -150,11 +563,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="1-交换两个数的简写形式出现的问题"><a href="#1-交换两个数的简写形式出现的问题" class="headerlink" title="1.交换两个数的简写形式出现的问题"></a>1.交换两个数的简写形式出现的问题</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	arr[p] += arr[q];</span><br><span class="line">	arr[q] = arr[p] - arr[q];</span><br><span class="line">	arr[p] -= arr[q];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在写快速排序的时候使用发现出现了问题,在p==q时出错,因为你在改变arr[p]的同时也改变了arr[q]使得arr[p]变为了0。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确写法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p == q)<span class="keyword">return</span>;</span><br><span class="line">	arr[p] += arr[q];</span><br><span class="line">	arr[q] = arr[p] - arr[q];</span><br><span class="line">	arr[p] -= arr[q];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck660us670006jkubeqsf78gv" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck6eeudx9000cb4ub8q5z9dgv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" rel="tag">算法笔记</a></li></ul>
@@ -303,7 +721,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck660us660005jkub56gz9vkr" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck6eeudxa000db4ub160wgu5j" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%AD%98%E7%96%91/" rel="tag">Java存疑</a></li></ul>
@@ -349,11 +767,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>tags:  </p>
-<ul>
-<li>Java</li>
-</ul>
-<h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="1-对java-lang-Class类的理解"><a href="#1-对java-lang-Class类的理解" class="headerlink" title="1.对java.lang.Class类的理解"></a>1.对java.lang.Class类的理解</h2><h3 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h3><p>程序经过javac.exe命令以后会生成一个或多个字节码文件(.class结尾)  接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件加载到内存中,这个过程称为类的加载,加载到内存中的类称作运行时类,作为Class的一个实例。换句话说，Class的一个实例就对应一个运行时类。<br></p>
+        <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="1-对java-lang-Class类的理解"><a href="#1-对java-lang-Class类的理解" class="headerlink" title="1.对java.lang.Class类的理解"></a>1.对java.lang.Class类的理解</h2><h3 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h3><p>程序经过javac.exe命令以后会生成一个或多个字节码文件(.class结尾)  接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件加载到内存中,这个过程称为类的加载,加载到内存中的类称作运行时类,作为Class的一个实例。换句话说，Class的一个实例就对应一个运行时类。<br></p>
 <h3 id="获取一个类的Class类对象"><a href="#获取一个类的Class类对象" class="headerlink" title="获取一个类的Class类对象"></a>获取一个类的Class类对象</h3><ul>
 <li><p>T.class</p>
 </li>
@@ -366,9 +780,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/Java%E5%8F%8D%E5%B0%84/" data-id="ck660us640003jkubg2vz7j21" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/01/Java%E5%8F%8D%E5%B0%84/" data-id="ck6eeudx10002b4ubcvqc7h35" class="article-share-link">分享</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
     </footer>
   </div>
   
@@ -419,7 +835,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck660us620001jkubbaeq3x0k" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck6eeudx70008b4ubdjt1hssj" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li></ul>
@@ -473,9 +889,9 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>5</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>0</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>2</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
 
 
