@@ -42,7 +42,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
@@ -69,6 +69,294 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-Java继承" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/Java%E7%BB%A7%E6%89%BF/" class="article-date">
+  <time class="post-time" datetime="2020-02-12T03:38:09.705Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">12</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/Java%E7%BB%A7%E6%89%BF/">Java继承</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java继承"><a href="#Java继承" class="headerlink" title="Java继承"></a>Java继承</h2><ol>
+<li><p>方法覆盖(重写)</p>
+<ul>
+<li><p>注意事项</p>
+<ol>
+<li>子类覆盖父类方法保证权限大于等于父类</li>
+<li><strong>静态方法只能被静态方法覆盖</strong></li>
+</ol>
+</li>
+<li><p>重写和重载的区别</p>
+<ol>
+<li>重载:只看同名函数的参数列表</li>
+<li>子父类方法要一模一样(除了多态下返回类型可以用子父类兼容)</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>继承下的构造函数</p>
+<ol>
+<li>构造函数函数名一定不同,不可能出现覆盖</li>
+<li>子类构造函数默认会调用空参构造函数(super()),如果显示调用了父类构造函数,则不会隐式调用,调用构造器的语句只能在构造器函数的第一行</li>
+<li>因为this构造器调用也要写在第一行,所以如果第一行写了this语句也不会存在隐式调用super语句,其实调用的其他本类构造函数一定调用了父类的构造函数(隐式或者显式)</li>
+</ol>
+</li>
+<li><p>final关键字</p>
+<ol>
+<li>final修饰的类不能被继承</li>
+<li>final修饰的函数不能被重写</li>
+<li>final修饰的变量值不能改变且必须初始化,既可以修饰成员变量也可以修饰局部变量(名称全大写多个单词间加_),这样可以增强阅读性,推荐使用</li>
+<li>内部类定义在类的局部位置上时,只能访问该局部被final修饰的局部变量</li>
+</ol>
+</li>
+<li><p>Java方法和变量在继承中的覆盖和隐藏</p>
+<ol>
+<li><p>父类的实例变量和静态变量能被子类的同名变量<strong>隐藏</strong> </p>
+</li>
+<li><p>父类的静态方法被子类的同名静态方法<strong>隐藏</strong> </p>
+</li>
+<li><p>父类的实例方法被子类的同名实例变量<strong>覆盖</strong> </p>
+<p>注意:</p>
+<ul>
+<li>不能用子类的静态方法<strong>隐藏</strong> 父类中同样标示（也就是返回值 名字 参数都一样）的实例方法 </li>
+<li>不能用子类的实例方法<strong>覆盖</strong> 父类中同样标示的静态方法 </li>
+<li>变量只会被<strong>隐藏</strong> 不会被<strong>覆盖</strong> ，无论他是实例变量还是静态变量，而且，子类的静态变量可以<strong>隐藏</strong> 父类的实例变量，子类的实例变量可以<strong>隐藏</strong> 父类的静态变量 </li>
+<li><strong>隐藏</strong> 和<strong>覆盖</strong> 的区别在于，子类对象转换成父类对象后，能够访问父类被<strong>隐藏</strong> 的变量和方法，而不能访问父类被<strong>覆盖</strong> 的方法 </li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>接口(interface)</p>
+<ol>
+<li><p>public static final  域</p>
+</li>
+<li><p>public abstract  方法</p>
+</li>
+<li><p>接口被类多实现,接口与接口之间存在多继承</p>
+</li>
+<li><p>抽象类与接口的不同点</p>
+<ul>
+<li>抽象类用于对对象的共性抽取(基本功能)用继承拿到</li>
+<li>接口用于对类的功能扩展,使用实现来扩展(扩展功能)</li>
+</ul>
+</li>
+<li><p>jdk1.8引入的新功能</p>
+<ul>
+<li>接口中可以定义静态函数</li>
+<li>接口的抽象函数可以通过default关键字为抽象方法提供一种默认实现(写了default就不用abstract了)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/Java%E7%BB%A7%E6%89%BF/" data-id="ck6kswttp0009bcub3kpz96qy" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java对象" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="post-time" datetime="2020-02-09T03:21:34.076Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">09</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/">Java对象</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-一些细节知识点"><a href="#1-一些细节知识点" class="headerlink" title="1. 一些细节知识点"></a>1. 一些细节知识点</h2><ul>
+<li><p>堆内存中都有默认初始化值</p>
+</li>
+<li><p>成员变量和局部变量的区别</p>
+<ul>
+<li>存储位置不同,成员变量在堆内存,局部变量在栈内存</li>
+<li>作用域不同</li>
+</ul>
+</li>
+<li><p>if-else与三元运算符的区别</p>
+</li>
+<li><p>三元运算符一定会有一个返回值,但if-else不需要</p>
+</li>
+<li><p>第三块内存区域(方法区/数据区/共享区)</p>
+<ul>
+<li>用于存放方法代码和static成员变量</li>
+</ul>
+</li>
+<li><p>构造代码块{}</p>
+<ul>
+<li>作用:给对象进行统一初始化,优先于构造函数执行</li>
+</ul>
+</li>
+<li><p>和构造函数的区别:构造代码块是给所有对象进行统一初始化,而构造函数是给对应的对象进行初始化</p>
+</li>
+<li><p>静态代码块static{}</p>
+<ul>
+<li>作用:给类进行初始化</li>
+<li>注意:只有使用到类中的内容才进行类的加载，dataType d = null可不会进行类的加载</li>
+<li>随着类的加载而执行且<strong>只执行一次</strong></li>
+</ul>
+</li>
+<li><p>静态的使用注意</p>
+<ul>
+<li><p>随着类的加载而加载,随着类的消失而消失</p>
+</li>
+<li><p>静态成员是用于对所有对象<strong>共享</strong>的数据进行存储</p>
+</li>
+<li><p>静态成员生命周期过长,不要定义过多的静态变量</p>
+</li>
+<li><p>静态函数中不能使用this,super关键字</p>
+</li>
+</ul>
+</li>
+<li><p>什么时候定义静态函数?</p>
+<ul>
+<li>当功能内部没有访问到非静态数据,那么该功能可以定义成静态的</li>
+</ul>
+</li>
+<li><p>由系统生成的默认空参构造函数的权限</p>
+<ul>
+<li>一个类中默认会有一个空参构造函数,这个构造函数的权限和所属类的权限相同(public/default)</li>
+</ul>
+</li>
+<li><p>封装(Encapsulation)</p>
+<ul>
+<li><p>好处</p>
+<ul>
+<li>内部变化不会显式出现</li>
+<li>便于使用</li>
+<li>提高重用性</li>
+<li>提高安全性</li>
+</ul>
+</li>
+<li><p>注意:private仅仅是封装的一种的表现形式,不要认为封装就是private</p>
+</li>
+</ul>
+</li>
+<li><p>this关键字</p>
+<ul>
+<li>代表一个调用本函数的本类对象,可以用于构造函数之间互相调用</li>
+<li>this语句(就是指构造函数之间互相调用)必须放在构造函数的第一行(只能调用一次),因为初始化动作要最先发生,且只有一次。</li>
+</ul>
+</li>
+<li><p>eclipse传入命令行参数方法</p>
+<ul>
+<li>Run as按钮下有Run Configurations可以配置</li>
+</ul>
+</li>
+<li><p>对象的加载过程(无继承)</p>
+<ul>
+<li>加载类(加载方法区的方法代码和静态成员)-&gt;执行静态成员默认初始化-&gt;执行静态成员显式初始化-&gt;static代码块执行-&gt;堆中开辟对象空间-&gt;执行成员变量默认初始化-&gt;执行成员变量显式初始化-&gt;执行构造代码块-&gt;执行对应的构造函数-&gt;将内存地址返回</li>
+</ul>
+</li>
+<li><p>枚举类型(enum)</p>
+<ul>
+<li>定义:<code>enum Result{SUCCESS,FAIL;}</code></li>
+<li>默认继承java.lang.Enum类实现Comparable和Serializable接口,里面定义的都是实例对象且为public static final</li>
+<li>判断枚举类型相等可以直接用==</li>
+<li>java.lang.Enum类有一些方法可以直接用</li>
+</ul>
+</li>
+<li><p>常用修饰符</p>
+<ul>
+<li>public static final void </li>
+</ul>
+</li>
+<li><p>继承的小知识</p>
+<ul>
+<li>对父类私有的方法不视为重写,因为对子类不可见</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-包与访问权限"><a href="#2-包与访问权限" class="headerlink" title="2.包与访问权限"></a>2.包与访问权限</h2><ul>
+<li><p>Java中有四种访问权限(public/protected/default/private)</p>
+<p><img src="D:%5Cblog%5Csource%5Casset%5Cjava%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90.jpg" alt="Java访问权限"></p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" data-id="ck6kswtts000dbcub0t4x5t6o" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-JavaWeb01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -125,12 +413,128 @@
 </li>
 </ol>
 </li>
+<li><p>重定向与请求转发的区别</p>
+<ul>
+<li>重定向地址栏改变,转发不改变</li>
+<li>请求转发保留第一次请求时的数据,而重定向不会</li>
+<li>重定向请求2次响应2次,转发请求1次响应1次</li>
+<li>转发在服务器端跳转,重定向在客户端跳转</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-jSP的页面元素"><a href="#5-jSP的页面元素" class="headerlink" title="5.jSP的页面元素"></a>5.jSP的页面元素</h2><ol>
+<li><p>jsp脚本标识</p>
+<ul>
+<li>&lt;%  局部变量/Java语句   %&gt;–JSP表达式</li>
+<li>&lt;%!  成员变量/成员方法  %&gt;–声明标识</li>
+<li>&lt;%= 变量/有返回值的函数或表达式%&gt;不用分号,会调用对象的toString方法–脚本程序</li>
+</ul>
+</li>
+<li><p>jsp指令标识(&lt;%@指令名称 属性1=”” 属性2=””%&gt;)</p>
+<ul>
+<li>page指令(页面指令)<ul>
+<li>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”  pageEncoding=”UTF-8” import=”java.util.Date”%&gt;</li>
+<li>主要是import指令引入java类,多个包之间用,分隔</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>Html注释<!-- --></li>
+<li>jsp注释:&lt;%– –%&gt;</li>
+<li>java程序中的注释</li>
+<li>其中第2,3不会被用户在浏览器中查看源码时看见</li>
+</ul>
+</li>
+</ol>
+<h2 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h2><ol>
+<li><p>out –输出流</p>
+</li>
+<li><p>request –请求对象,客户端向服务器端发送的请求</p>
+<ul>
+<li><p>常用方法</p>
+<ul>
+<li><p>String getParameter(String name)</p>
+</li>
+<li><p>String[]getParameterValues(String name):根据name,返回多个值[用于多选框]</p>
+</li>
+<li><p>void setCharacterEncoding(String name):设置post请求编码(如果不设置服务器会使用默认的,如果是tomcat7以前是iso-885901,8及以后都是utf-8)</p>
+</li>
+<li><p>getRequestDispatcher(String pagePath).forward(request.response);:请求转发</p>
+</li>
+<li><p>getServletContext();:获取项目的ServletContext对象</p>
+</li>
+<li><p>用get/post方式提交的乱码解决问题方式</p>
+<ul>
+<li><p>get:</p>
+<ol>
+<li><p>统一乱码变量的编码(不推荐)</p>
+<ul>
+<li>改变字符串变量的编码方式</li>
+<li>new String(str.getBytes(“旧编码”),”新编码”);</li>
+</ul>
+</li>
+<li><p>修改server.xml,一次性修改tomcat默认get提交方式的编码</p>
+<ul>
+<li>在修改端口的标签中加入URIEncoding = “所需编码”</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>post:</p>
+<ol>
+<li>request.setCharacterEncoding(“所需编码”)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>response:响应对象</p>
+<ul>
+<li>常用方法<ul>
+<li>void addCookie(Cookie cookie):服务端向客户端增加Cookie对象</li>
+<li>void sendRedirect(String path)[throws IOException]:页面重定向</li>
+<li>void setContentType(String type):设置相应类型和编码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cookie(客户端,不是内置对象)伪</p>
+<ul>
+<li><p>Cookie是服务端生成的,在发给客户端保存,包含键值对[java.servlet.http.Cookie]</p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li>public Cookie(String name,String value);</li>
+<li>String getName();</li>
+<li>String getValue();</li>
+<li>void setMaxAge(int expiry);最大有效期</li>
+</ul>
+</li>
+<li><p>服务端准备客户端Cookie,重定向/转发时返回客户端时添加</p>
+<ul>
+<li>response.addCookie(Cookie cookie);</li>
+</ul>
+</li>
+<li><p>客户端获取Cookie:</p>
+<ul>
+<li>request.getCookies();—没有拿特定Cookie的方法</li>
+</ul>
+</li>
+<li><p>服务端会自动产生一个名称为JSEESSIONID的Cookie</p>
+</li>
+</ul>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6eeudww0000b4ubdahvg1x7" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6kswtt80000bcub16gc9gj9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
@@ -285,6 +689,8 @@
 <li><code>this.&lt;String&gt;show();</code></li>
 <li>调用定义了泛型的方法为:在方法名前加&lt;具体数据类型&gt;,但是可以通过形式参数来推断,所以大多数时候可以省略</li>
 <li>&lt;?&gt;代表任意类型,?代表统配符,之后又提出了泛型限定&lt;? extends E&gt;,&lt;? super E&gt;,前者在Collection中有应用,后者在Comparator接口中有应用。泛型限定用于对？的功能进行进一步的限定。</li>
+<li><code>ArrayList &lt;Object&gt; list = new ArrayList&lt;String&gt;();</code></li>
+<li>上面这样的代码会出错,泛型并不支持这种多态,这样会导致声明为String的列表中有可能会存放其他Object的子类对象造成类型转换异常。</li>
 </ul>
 <h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><ul>
 <li><p>虽然Map接口并没有实现Collection接口但是仍然属于集合框架</p>
@@ -458,7 +864,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6eeudx50006b4ubfkz37as7" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6kswtub000pbcubaxa91p81" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -517,7 +923,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck6eeudx60007b4ubefzfht19" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck6kswttr000bbcubc0076hef" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -572,7 +978,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck6eeudx9000cb4ub8q5z9dgv" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck6kswtud000rbcubhd9u8ovf" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" rel="tag">算法笔记</a></li></ul>
@@ -721,7 +1127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck6eeudxa000db4ub160wgu5j" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck6kswtue000ubcubhypq2a74" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%AD%98%E7%96%91/" rel="tag">Java存疑</a></li></ul>
@@ -780,7 +1186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/Java%E5%8F%8D%E5%B0%84/" data-id="ck6eeudx10002b4ubcvqc7h35" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/01/Java%E5%8F%8D%E5%B0%84/" data-id="ck6kswtto0008bcubh9pq2jk9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -835,7 +1241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck6eeudx70008b4ubdjt1hssj" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck6kswtte0001bcub49b45wvz" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li></ul>
@@ -889,7 +1295,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>

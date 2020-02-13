@@ -13,7 +13,7 @@
 <meta property="og:description" content="1.tomcat端口更改tomcat默认端口为8080,在conf&#x2F;server.xml中70行左右connector标签的port值修改 2.状态码200:一切正常3xx:重定向403:权限问题404:资源不存在4xx:客户端错误5xx:服务器端错误500:服务器端错误 3.把项目放到其他路径配置1.在conf&#x2F;server.xml的Host标签中配置&lt;Context docBase &#x3D;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-08T14:01:13.223Z">
-<meta property="article:modified_time" content="2020-02-08T14:34:54.548Z">
+<meta property="article:modified_time" content="2020-02-13T13:50:33.988Z">
 <meta property="article:author" content="Yang Nan">
 <meta property="article:tag" content="JavaWeb">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>
@@ -128,12 +128,128 @@
 </li>
 </ol>
 </li>
+<li><p>重定向与请求转发的区别</p>
+<ul>
+<li>重定向地址栏改变,转发不改变</li>
+<li>请求转发保留第一次请求时的数据,而重定向不会</li>
+<li>重定向请求2次响应2次,转发请求1次响应1次</li>
+<li>转发在服务器端跳转,重定向在客户端跳转</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-jSP的页面元素"><a href="#5-jSP的页面元素" class="headerlink" title="5.jSP的页面元素"></a>5.jSP的页面元素</h2><ol>
+<li><p>jsp脚本标识</p>
+<ul>
+<li>&lt;%  局部变量/Java语句   %&gt;–JSP表达式</li>
+<li>&lt;%!  成员变量/成员方法  %&gt;–声明标识</li>
+<li>&lt;%= 变量/有返回值的函数或表达式%&gt;不用分号,会调用对象的toString方法–脚本程序</li>
+</ul>
+</li>
+<li><p>jsp指令标识(&lt;%@指令名称 属性1=”” 属性2=””%&gt;)</p>
+<ul>
+<li>page指令(页面指令)<ul>
+<li>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”  pageEncoding=”UTF-8” import=”java.util.Date”%&gt;</li>
+<li>主要是import指令引入java类,多个包之间用,分隔</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>Html注释<!-- --></li>
+<li>jsp注释:&lt;%– –%&gt;</li>
+<li>java程序中的注释</li>
+<li>其中第2,3不会被用户在浏览器中查看源码时看见</li>
+</ul>
+</li>
+</ol>
+<h2 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h2><ol>
+<li><p>out –输出流</p>
+</li>
+<li><p>request –请求对象,客户端向服务器端发送的请求</p>
+<ul>
+<li><p>常用方法</p>
+<ul>
+<li><p>String getParameter(String name)</p>
+</li>
+<li><p>String[]getParameterValues(String name):根据name,返回多个值[用于多选框]</p>
+</li>
+<li><p>void setCharacterEncoding(String name):设置post请求编码(如果不设置服务器会使用默认的,如果是tomcat7以前是iso-885901,8及以后都是utf-8)</p>
+</li>
+<li><p>getRequestDispatcher(String pagePath).forward(request.response);:请求转发</p>
+</li>
+<li><p>getServletContext();:获取项目的ServletContext对象</p>
+</li>
+<li><p>用get/post方式提交的乱码解决问题方式</p>
+<ul>
+<li><p>get:</p>
+<ol>
+<li><p>统一乱码变量的编码(不推荐)</p>
+<ul>
+<li>改变字符串变量的编码方式</li>
+<li>new String(str.getBytes(“旧编码”),”新编码”);</li>
+</ul>
+</li>
+<li><p>修改server.xml,一次性修改tomcat默认get提交方式的编码</p>
+<ul>
+<li>在修改端口的标签中加入URIEncoding = “所需编码”</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>post:</p>
+<ol>
+<li>request.setCharacterEncoding(“所需编码”)</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>response:响应对象</p>
+<ul>
+<li>常用方法<ul>
+<li>void addCookie(Cookie cookie):服务端向客户端增加Cookie对象</li>
+<li>void sendRedirect(String path)[throws IOException]:页面重定向</li>
+<li>void setContentType(String type):设置相应类型和编码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Cookie(客户端,不是内置对象)伪</p>
+<ul>
+<li><p>Cookie是服务端生成的,在发给客户端保存,包含键值对[java.servlet.http.Cookie]</p>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li>public Cookie(String name,String value);</li>
+<li>String getName();</li>
+<li>String getValue();</li>
+<li>void setMaxAge(int expiry);最大有效期</li>
+</ul>
+</li>
+<li><p>服务端准备客户端Cookie,重定向/转发时返回客户端时添加</p>
+<ul>
+<li>response.addCookie(Cookie cookie);</li>
+</ul>
+</li>
+<li><p>客户端获取Cookie:</p>
+<ul>
+<li>request.getCookies();—没有拿特定Cookie的方法</li>
+</ul>
+</li>
+<li><p>服务端会自动产生一个名称为JSEESSIONID的Cookie</p>
+</li>
+</ul>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6eeudww0000b4ubdahvg1x7" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6kswtt80000bcub16gc9gj9" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
@@ -143,6 +259,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java对象
+        
+      </div>
+    </a>
   
   
     <a href="/2020/02/04/Java%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
@@ -196,7 +321,7 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
       <a href="/categories"><div><strong>2</strong><br>分类</div></a>
       <a href="/tags"><div><strong>5</strong><br>标签</div></a>
     </div>

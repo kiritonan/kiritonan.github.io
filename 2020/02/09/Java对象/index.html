@@ -3,20 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java异常 | little Blog</title>
+  <title>Java对象 | little Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="注意事项  try 代码后不能既没 catch 块也没 finally 块。 子类继承的方法声明的异常不能比父类声明的异常更通用">
+  <meta name="description" content="1. 一些细节知识点 堆内存中都有默认初始化值  成员变量和局部变量的区别  存储位置不同,成员变量在堆内存,局部变量在栈内存 作用域不同   if-else与三元运算符的区别  三元运算符一定会有一个返回值,但if-else不需要  第三块内存区域(方法区&#x2F;数据区&#x2F;共享区)  用于存放方法代码和static成员变量   构造代码块{}  作用:给对象进行统一初始化,优先于构造函数执行   和构造">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java异常">
-<meta property="og:url" content="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:title" content="Java对象">
+<meta property="og:url" content="http://yoursite.com/2020/02/09/Java%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="little Blog">
-<meta property="og:description" content="注意事项  try 代码后不能既没 catch 块也没 finally 块。 子类继承的方法声明的异常不能比父类声明的异常更通用">
+<meta property="og:description" content="1. 一些细节知识点 堆内存中都有默认初始化值  成员变量和局部变量的区别  存储位置不同,成员变量在堆内存,局部变量在栈内存 作用域不同   if-else与三元运算符的区别  三元运算符一定会有一个返回值,但if-else不需要  第三块内存区域(方法区&#x2F;数据区&#x2F;共享区)  用于存放方法代码和static成员变量   构造代码块{}  作用:给对象进行统一初始化,优先于构造函数执行   和构造">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-03T05:21:47.473Z">
-<meta property="article:modified_time" content="2020-02-08T09:16:41.477Z">
+<meta property="og:image" content="d:%5Cblog%5Csource%5Casset%5Cjava%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90.jpg">
+<meta property="article:published_time" content="2020-02-09T03:21:34.076Z">
+<meta property="article:modified_time" content="2020-02-13T02:14:01.020Z">
 <meta property="article:author" content="Yang Nan">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5Cblog%5Csource%5Casset%5Cjava%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90.jpg">
   
     <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
   
@@ -73,12 +75,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-Java异常" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java对象" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/02/03/Java%E5%BC%82%E5%B8%B8/" class="article-date">
-  <time class="post-time" datetime="2020-02-03T05:21:47.473Z" itemprop="datePublished">
+    <a href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="post-time" datetime="2020-02-09T03:21:34.076Z" itemprop="datePublished">
     <span class="post-month">2月</span><br/>
-    <span class="post-day">03</span>
+    <span class="post-day">09</span>
   </time>
 </a>
    
@@ -90,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java异常
+      Java对象
     </h1>
   
 
@@ -109,16 +111,119 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> 注意事项</p>
+        <h2 id="1-一些细节知识点"><a href="#1-一些细节知识点" class="headerlink" title="1. 一些细节知识点"></a>1. 一些细节知识点</h2><ul>
+<li><p>堆内存中都有默认初始化值</p>
+</li>
+<li><p>成员变量和局部变量的区别</p>
 <ul>
-<li>try 代码后不能既没 catch 块也没 finally 块。</li>
-<li>子类继承的方法声明的异常不能比父类声明的异常更通用</li>
+<li>存储位置不同,成员变量在堆内存,局部变量在栈内存</li>
+<li>作用域不同</li>
+</ul>
+</li>
+<li><p>if-else与三元运算符的区别</p>
+</li>
+<li><p>三元运算符一定会有一个返回值,但if-else不需要</p>
+</li>
+<li><p>第三块内存区域(方法区/数据区/共享区)</p>
+<ul>
+<li>用于存放方法代码和static成员变量</li>
+</ul>
+</li>
+<li><p>构造代码块{}</p>
+<ul>
+<li>作用:给对象进行统一初始化,优先于构造函数执行</li>
+</ul>
+</li>
+<li><p>和构造函数的区别:构造代码块是给所有对象进行统一初始化,而构造函数是给对应的对象进行初始化</p>
+</li>
+<li><p>静态代码块static{}</p>
+<ul>
+<li>作用:给类进行初始化</li>
+<li>注意:只有使用到类中的内容才进行类的加载，dataType d = null可不会进行类的加载</li>
+<li>随着类的加载而执行且<strong>只执行一次</strong></li>
+</ul>
+</li>
+<li><p>静态的使用注意</p>
+<ul>
+<li><p>随着类的加载而加载,随着类的消失而消失</p>
+</li>
+<li><p>静态成员是用于对所有对象<strong>共享</strong>的数据进行存储</p>
+</li>
+<li><p>静态成员生命周期过长,不要定义过多的静态变量</p>
+</li>
+<li><p>静态函数中不能使用this,super关键字</p>
+</li>
+</ul>
+</li>
+<li><p>什么时候定义静态函数?</p>
+<ul>
+<li>当功能内部没有访问到非静态数据,那么该功能可以定义成静态的</li>
+</ul>
+</li>
+<li><p>由系统生成的默认空参构造函数的权限</p>
+<ul>
+<li>一个类中默认会有一个空参构造函数,这个构造函数的权限和所属类的权限相同(public/default)</li>
+</ul>
+</li>
+<li><p>封装(Encapsulation)</p>
+<ul>
+<li><p>好处</p>
+<ul>
+<li>内部变化不会显式出现</li>
+<li>便于使用</li>
+<li>提高重用性</li>
+<li>提高安全性</li>
+</ul>
+</li>
+<li><p>注意:private仅仅是封装的一种的表现形式,不要认为封装就是private</p>
+</li>
+</ul>
+</li>
+<li><p>this关键字</p>
+<ul>
+<li>代表一个调用本函数的本类对象,可以用于构造函数之间互相调用</li>
+<li>this语句(就是指构造函数之间互相调用)必须放在构造函数的第一行(只能调用一次),因为初始化动作要最先发生,且只有一次。</li>
+</ul>
+</li>
+<li><p>eclipse传入命令行参数方法</p>
+<ul>
+<li>Run as按钮下有Run Configurations可以配置</li>
+</ul>
+</li>
+<li><p>对象的加载过程(无继承)</p>
+<ul>
+<li>加载类(加载方法区的方法代码和静态成员)-&gt;执行静态成员默认初始化-&gt;执行静态成员显式初始化-&gt;static代码块执行-&gt;堆中开辟对象空间-&gt;执行成员变量默认初始化-&gt;执行成员变量显式初始化-&gt;执行构造代码块-&gt;执行对应的构造函数-&gt;将内存地址返回</li>
+</ul>
+</li>
+<li><p>枚举类型(enum)</p>
+<ul>
+<li>定义:<code>enum Result{SUCCESS,FAIL;}</code></li>
+<li>默认继承java.lang.Enum类实现Comparable和Serializable接口,里面定义的都是实例对象且为public static final</li>
+<li>判断枚举类型相等可以直接用==</li>
+<li>java.lang.Enum类有一些方法可以直接用</li>
+</ul>
+</li>
+<li><p>常用修饰符</p>
+<ul>
+<li>public static final void </li>
+</ul>
+</li>
+<li><p>继承的小知识</p>
+<ul>
+<li>对父类私有的方法不视为重写,因为对子类不可见</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-包与访问权限"><a href="#2-包与访问权限" class="headerlink" title="2.包与访问权限"></a>2.包与访问权限</h2><ul>
+<li><p>Java中有四种访问权限(public/protected/default/private)</p>
+<p><img src="D:%5Cblog%5Csource%5Casset%5Cjava%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90.jpg" alt="Java访问权限"></p>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck6kswttr000bbcubc0076hef" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" data-id="ck6kswtts000dbcub0t4x5t6o" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -129,19 +234,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/02/04/Java%E9%9B%86%E5%90%88/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/02/12/Java%E7%BB%A7%E6%89%BF/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Java集合
+          Java继承
         
       </div>
     </a>
   
   
-    <a href="/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/02/08/JavaWeb01/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">算法笔记</div>
+      <div class="article-nav-title">JavaWeb01</div>
     </a>
   
 </nav>
