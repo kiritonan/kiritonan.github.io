@@ -5,19 +5,19 @@
   
   <title>JavaWeb01 | little Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.tomcat端口更改tomcat默认端口为8080,在conf&#x2F;server.xml中70行左右connector标签的port值修改 2.状态码200:一切正常3xx:重定向403:权限问题404:资源不存在4xx:客户端错误5xx:服务器端错误500:服务器端错误 3.把项目放到其他路径配置1.在conf&#x2F;server.xml的Host标签中配置&lt;Context docBase &#x3D;">
+  <meta name="description" content="tags:    - JavaWeb    - JavaWeb存疑categories:    - JavaWeb    - JavaWeb存疑 1.tomcat端口更改tomcat默认端口为8080,在conf&#x2F;server.xml中70行左右connector标签的port值修改 2.状态码200:一切正常3xx:重定向403:权限问题404:资源不存在4xx:客户端错误5xx:服务器端错误5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaWeb01">
 <meta property="og:url" content="http://yoursite.com/2020/02/08/JavaWeb01/index.html">
 <meta property="og:site_name" content="little Blog">
-<meta property="og:description" content="1.tomcat端口更改tomcat默认端口为8080,在conf&#x2F;server.xml中70行左右connector标签的port值修改 2.状态码200:一切正常3xx:重定向403:权限问题404:资源不存在4xx:客户端错误5xx:服务器端错误500:服务器端错误 3.把项目放到其他路径配置1.在conf&#x2F;server.xml的Host标签中配置&lt;Context docBase &#x3D;">
+<meta property="og:description" content="tags:    - JavaWeb    - JavaWeb存疑categories:    - JavaWeb    - JavaWeb存疑 1.tomcat端口更改tomcat默认端口为8080,在conf&#x2F;server.xml中70行左右connector标签的port值修改 2.状态码200:一切正常3xx:重定向403:权限问题404:资源不存在4xx:客户端错误5xx:服务器端错误5">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:%5Cblog%5Csource%5Casset%5Cjstl%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84varStatus%E7%9A%84%E5%B1%9E%E6%80%A7.jpg">
 <meta property="article:published_time" content="2020-02-08T14:01:13.223Z">
-<meta property="article:modified_time" content="2020-02-13T13:52:43.337Z">
+<meta property="article:modified_time" content="2020-03-05T12:28:15.073Z">
 <meta property="article:author" content="Yang Nan">
-<meta property="article:tag" content="JavaWeb">
-<meta property="article:tag" content="JavaWeb存疑">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5Cblog%5Csource%5Casset%5Cjstl%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84varStatus%E7%9A%84%E5%B1%9E%E6%80%A7.jpg">
   
     <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
   
@@ -48,8 +48,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
@@ -97,10 +97,6 @@
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaWeb/">JavaWeb</a>,<a class="article-category-link" href="/categories/JavaWeb/JavaWeb%E5%AD%98%E7%96%91/">JavaWeb存疑</a>
-  </div>
-
           
               
 
@@ -110,7 +106,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-tomcat端口更改"><a href="#1-tomcat端口更改" class="headerlink" title="1.tomcat端口更改"></a>1.tomcat端口更改</h2><p>tomcat默认端口为8080,在conf/server.xml中70行左右connector标签的port值修改</p>
+        <p>tags:<br>    - JavaWeb<br>    - JavaWeb存疑<br>categories:<br>    - JavaWeb<br>    - JavaWeb存疑</p>
+<h2 id="1-tomcat端口更改"><a href="#1-tomcat端口更改" class="headerlink" title="1.tomcat端口更改"></a>1.tomcat端口更改</h2><p>tomcat默认端口为8080,在conf/server.xml中70行左右connector标签的port值修改</p>
 <h2 id="2-状态码"><a href="#2-状态码" class="headerlink" title="2.状态码"></a>2.状态码</h2><p>200:一切正常<br>3xx:重定向<br>403:权限问题<br>404:资源不存在<br>4xx:客户端错误<br>5xx:服务器端错误<br>500:服务器端错误</p>
 <h2 id="3-把项目放到其他路径配置"><a href="#3-把项目放到其他路径配置" class="headerlink" title="3.把项目放到其他路径配置"></a>3.把项目放到其他路径配置</h2><p>1.在conf/server.xml的Host标签中配置<br><code>&lt;Context docBase = &quot;表示实际转定位到的路径&quot; path = &quot;表示网页要访问的路径&quot; /&gt;</code><br>path:可以写相对(相对于webapps因为Host在localhost中首先找的就是webapps),写绝对也没事<br>例如 /jspTest<br>docBase:表示实际转定位到的路径<br>D:\apache-tomcat-8.5.50\jspTest<br>写完重启服务器<br>另一种方法<br>2.conf\Catalina\localhost  新建项目名.xml文件<br>在里面写<code>&lt;Context docBase = &quot;实际项目路径&quot;/&gt;</code><br>就行</p>
 <h2 id="4-其他的细节"><a href="#4-其他的细节" class="headerlink" title="4.其他的细节"></a>4.其他的细节</h2><ol>
@@ -141,8 +138,8 @@
 <h2 id="5-jSP的页面元素"><a href="#5-jSP的页面元素" class="headerlink" title="5.jSP的页面元素"></a>5.jSP的页面元素</h2><ol>
 <li><p>jsp脚本标识</p>
 <ul>
-<li>&lt;%  局部变量/Java语句   %&gt;–JSP表达式</li>
-<li>&lt;%!  成员变量/成员方法  %&gt;–声明标识</li>
+<li>&lt;%  局部变量/Java语句   %&gt;  JSP表达式 本页面有效</li>
+<li>&lt;%!  成员变量/成员方法  %&gt;  声明标识</li>
 <li>&lt;%= 变量/有返回值的函数或表达式%&gt;不用分号,会调用对象的toString方法–脚本程序</li>
 </ul>
 </li>
@@ -164,7 +161,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h2><ol>
+<h2 id="6-九大内置对象（一些不常用就不写了）"><a href="#6-九大内置对象（一些不常用就不写了）" class="headerlink" title="6.九大内置对象（一些不常用就不写了）"></a>6.九大内置对象（一些不常用就不写了）</h2><ol>
 <li><p>out –输出流</p>
 </li>
 <li><p>request –请求对象,客户端向服务器端发送的请求</p>
@@ -217,11 +214,16 @@
 <li>void setContentType(String type):设置相应类型和编码</li>
 </ul>
 </li>
+<li>更改response的out使用编码和浏览器显示out的输出解析编码<ul>
+<li>response.setCharacterEncoding(“utf-8”);Sets the character encoding (MIME charset) of the response being sent to the client</li>
+<li>response.setContentType(“text/html;charset=UTF-8”);Sets the content type of the response being sent to the client</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>Cookie(客户端,不是内置对象)伪</p>
 <ul>
-<li><p>Cookie是服务端生成的,在发给客户端保存,包含键值对[java.servlet.http.Cookie]</p>
+<li><p>Cookie是服务端生成的,在发给客户端保存,包含键值对[javax.servlet.http.Cookie]</p>
 </li>
 <li><p>常用方法</p>
 <ul>
@@ -245,16 +247,550 @@
 </li>
 </ul>
 </li>
+<li><p>Session</p>
+<ul>
+<li><p>生成方式</p>
+<ul>
+<li>客户端第一次请求时,(匹配失败则)服务器端生成一个seesion,会自带一个唯一的sessionID,随后会生成一个JSEESSIONID的Cookie值相同,随响应传递给客户端,客户端与服务端的会话的对应是由JSEESSIONID的值和sessionID对应来实现的.客户端第n次请求时,不需要再创建session了,用JSEESSIONID找到session,如果找到,则匹配成功,说明以前访问过。</li>
+</ul>
+</li>
+<li><p>和Cookie的不同</p>
+<ul>
+<li>存放位置不同</li>
+<li>安全性不同(Session保存在服务器端更安全些)</li>
+<li>保存的内容(Cookie内容只能存String而Session可以存任意对象</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p><code>String getId()</code>–获取sessionID</p>
+</li>
+<li><p><code>boolean isNew()</code>:判断是否是第一次访问</p>
+</li>
+<li><p><code>void invalidate()</code>:使session失效</p>
+</li>
+<li><p><code>void setMaxInactiveInterval(s)</code>:设置最大有效非活动时间</p>
+</li>
+<li><p><code>int getMaxInactiveInterval()</code>:获取最大有效非活动时间</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><code>int getMaxInactiveInterval()</code>:获取最大有效非活动时间</p>
+<ol start="6">
+<li><p>application—全局对象</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li><p><code>String getContextPath()</code>:项目的虚拟路径  网页访问的路径</p>
+</li>
+<li><p><code>String getRealPath(String name)</code>:获取应用任意虚拟路径对应的绝对文件路径</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-四大范围对象"><a href="#7-四大范围对象" class="headerlink" title="7.四大范围对象"></a>7.四大范围对象</h2><ol>
+<li>PageContext :当前页面有效</li>
+<li>request : 同一次请求有效</li>
+<li>session : 同一次会话(默认浏览器打开到关闭算一次会话)有效</li>
+<li>application : 同一个项目有效</li>
+</ol>
+<ul>
+<li><p>共有方法</p>
+<ul>
+<li><code>Object getAttribute(String name)</code></li>
+<li><code>void setAttribute(String name,Object obj)</code>–可以增加也可以修改</li>
+<li><code>void removeAttribute(String name)</code></li>
+</ul>
+</li>
+<li><p>使用注意</p>
+<ul>
+<li>以上范围对象,尽量使用最小的范围对象,因为范围大的对象开销也大</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-JDBC-Java-DateBase-Connectivity"><a href="#8-JDBC-Java-DateBase-Connectivity" class="headerlink" title="8.JDBC(Java DateBase Connectivity)"></a>8.JDBC(Java DateBase Connectivity)</h2><ul>
+<li><p>用到的类/接口:</p>
+<ul>
+<li><p>DriverManger:管理数据库驱动,获取连接</p>
+</li>
+<li><p>Connection:连接,产生Statement对象</p>
+<ul>
+<li><code>Statement createStatement()</code></li>
+<li><code>PreparedStatement prepareStatement(String sql);</code></li>
+<li><code>CallableStatement prepareCall(String sql);</code></li>
+</ul>
+</li>
+<li><p>Statement: 增删改查</p>
+<ul>
+<li><code>excuteUpdate();</code></li>
+<li><code>excuteQuery();</code></li>
+</ul>
+</li>
+<li><p>PreparedStatement(PreparedStatement extend Statement预编译):</p>
+<ul>
+<li>void setXXX(int parameterIndex(从1开始), int x)</li>
+</ul>
+</li>
+<li><p>CallableStatement(CallableStatement extends PreparedStatement 预编译) </p>
+</li>
+<li><p>ResultSet: 返回结果集(通过上面的xxxStatment产生)</p>
+<ol>
+<li><p>rs.next():1.下移  2.判断下移之后是否有数据</p>
+</li>
+<li><p>结果集的元数据</p>
+<ul>
+<li><code>ResultSetMetaData metaData = rs.getMetaData();</code></li>
+<li><code>int columnCount = metaData.getColumnCount();</code>:获取结果集的行数</li>
+<li><code>metaData.getColumnLabel(int col);</code>:获取列的别名</li>
+</ul>
+</li>
+<li><p>选取字段名获取的方法</p>
+<ul>
+<li><code>int getInt(String columnLabel);</code>而不用int getInt(String columnLabel)</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>使用方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">"com.mysql.jdbc.Driver"</span>);</span><br><span class="line">String url = <span class="string">"jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf8"</span>;</span><br><span class="line">String user = <span class="string">"root"</span>;</span><br><span class="line">String password = <span class="string">"root"</span>;</span><br><span class="line">Connection conn = DriverManager.getConnection(url, user, password);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不同数据库的驱动区别</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>数据库</th>
+<th>驱动jar</th>
+<th>具体驱动类</th>
+<th>连接字符串</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Oracle</td>
+<td>ojdbc-x.jdr</td>
+<td>oracle.jdbc.OracleDriver</td>
+<td>jdbc:oracle:thin:@localhost:1521:ORCL</td>
+</tr>
+<tr>
+<td>Mysql</td>
+<td>mysql-connector-java-x.jar</td>
+<td>com.mysql.jdbc.Driver</td>
+<td>jdbc:mysql://localhost:3306/数据库名</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>一个小知识</p>
+<ul>
+<li>Sql中使用<strong>--代表注释</strong>可以用于SQL注入中<ul>
+<li>abc’ or 1 = 1 --</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>读入什么类型,读出就什么类型</p>
+</li>
+<li><p>处理CLOB/BLOB  大文本数据</p>
+<ul>
+<li><p>CLOB和BLOB的区别</p>
+<ul>
+<li>CLOB使用CHAR来保存数据。 　如：保存XML文档。MySql中是Text</li>
+<li>BLOB就是使用二进制保存数据。 　如：保存位图。</li>
+</ul>
+</li>
+<li><p>写入CLOB/Text可以使用<br><code>preparedStatement的prep.setCharacterStream(2, new FileReader(&quot;D:\\诛仙.txt&quot;));</code><br>来进行写入字符输入流</p>
+</li>
+<li><p>写入Blob使用<br><code>prep.setBinaryStream(2, new FileInputStream(&quot;D:\\对象的序列化.avi&quot;));</code>来写入字节输入流</p>
+</li>
+<li><p>在写入的时候可能会遇到可能会遇到packet(包)太大的问题</p>
+<ul>
+<li>改Mysql数据库配置的max_allowed_packet的值就行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-上传文件"><a href="#9-上传文件" class="headerlink" title="9.上传文件"></a>9.上传文件</h2><ul>
+<li><p>用到的包</p>
+<ul>
+<li>commons-fileupload依赖于后者</li>
+<li>commons-io</li>
+</ul>
+</li>
+<li><p>条件</p>
+<ol>
+<li>表单必须用post方式提交</li>
+<li>提交文件的表单中增加一个属性 enctype=”multipart/form-data”,表明表单不会被字符编码处理。</li>
+</ol>
+</li>
+<li><p>servlet代码展示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> UnsupportedEncodingException</span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		String sno,sname;</span><br><span class="line">		<span class="keyword">boolean</span> multipartContent = ServletFileUpload.isMultipartContent(request);</span><br><span class="line">		<span class="keyword">if</span>(multipartContent)<span class="comment">//判断前端的表单是否有 multipart</span></span><br><span class="line">		&#123;</span><br><span class="line"><span class="comment">//			FileItemFactory  factory = new DiskFileItemFactory();</span></span><br><span class="line">			DiskFileItemFactory  factory = <span class="keyword">new</span> DiskFileItemFactory();</span><br><span class="line">			ServletFileUpload upload = <span class="keyword">new</span> ServletFileUpload(factory);</span><br><span class="line">			<span class="comment">//设置临时文件缓冲区</span></span><br><span class="line">			factory.setSizeThreshold(<span class="number">1024</span>);</span><br><span class="line">			<span class="comment">//设置临时文件缓冲区的目录</span></span><br><span class="line">			File file2 = <span class="keyword">new</span> File(<span class="string">"d:\\uploadtemp"</span>);</span><br><span class="line">			file2.mkdir();</span><br><span class="line">			factory.setRepository(file2);</span><br><span class="line">			System.out.println(file2);</span><br><span class="line">			<span class="comment">//单位是字节B</span></span><br><span class="line">			upload.setSizeMax(<span class="number">302400</span>);</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				<span class="comment">//解析表单的数据</span></span><br><span class="line">				List&lt;FileItem&gt; list = upload.parseRequest(request);</span><br><span class="line">					String itemName = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">for</span>(FileItem item:list) </span><br><span class="line">				&#123;</span><br><span class="line">					itemName = item.getFieldName();</span><br><span class="line">					<span class="comment">//判断是否是普通的form字段</span></span><br><span class="line">					<span class="keyword">if</span>(item.isFormField()) </span><br><span class="line">					&#123;</span><br><span class="line">						<span class="keyword">if</span>(itemName.equals(<span class="string">"sno"</span>)) </span><br><span class="line">						&#123;</span><br><span class="line">							sno = item.getString(<span class="string">"utf-8"</span>);</span><br><span class="line">							System.out.println(sno);</span><br><span class="line">						&#125;<span class="keyword">else</span> <span class="keyword">if</span>(itemName.equals(<span class="string">"sname"</span>)) </span><br><span class="line">						&#123;</span><br><span class="line">							sname = item.getString(<span class="string">"utf-8"</span>);</span><br><span class="line">							System.out.println(sname);</span><br><span class="line">						&#125;<span class="keyword">else</span> </span><br><span class="line">						&#123;</span><br><span class="line">							System.out.println(<span class="string">"其他字段"</span>);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;<span class="keyword">else</span> </span><br><span class="line">					&#123;</span><br><span class="line">						String filename = item.getName();<span class="comment">//获取文件名</span></span><br><span class="line">						<span class="comment">//控制上传文件的类型</span></span><br><span class="line">						String filenameEnds = filename.substring(filename.indexOf(<span class="string">"."</span>)+<span class="number">1</span>);</span><br><span class="line">						<span class="keyword">if</span>(filenameEnds.equals(<span class="string">"png"</span>)||filenameEnds.equals(<span class="string">"jpg"</span>)) </span><br><span class="line">						&#123;</span><br><span class="line">							</span><br><span class="line">							<span class="comment">//定义上传路径</span></span><br><span class="line">							File file = <span class="keyword">new</span> File(request.getServletContext().getRealPath(<span class="string">"upload"</span>),filename);</span><br><span class="line">							System.out.println(file);</span><br><span class="line">							<span class="comment">//上传文件</span></span><br><span class="line">							item.write(file);</span><br><span class="line">							System.out.println(<span class="string">"上传成功!!!"</span>);</span><br><span class="line">						&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">							System.out.println(<span class="string">"上传文件的类型只能为png和jpg"</span>);</span><br><span class="line">							<span class="keyword">return</span>;</span><br><span class="line">						&#125;</span><br><span class="line">						</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span>(FileUploadBase.SizeLimitExceededException e) </span><br><span class="line">			&#123;</span><br><span class="line">				<span class="comment">/*</span></span><br><span class="line"><span class="comment">				 * 上传文件Size太大</span></span><br><span class="line"><span class="comment">				 */</span></span><br><span class="line">				System.out.println(<span class="string">"文件太大!!!"</span>);</span><br><span class="line">			&#125;<span class="keyword">catch</span> (FileUploadException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-El表达式-Expression-Language"><a href="#10-El表达式-Expression-Language" class="headerlink" title="10.El表达式(Expression Language)"></a>10.El表达式(Expression Language)</h2><ul>
+<li><p>简介</p>
+<ul>
+<li>用于替换JSP页面的Java代码</li>
+</ul>
+</li>
+<li><p>对于不存在的属性和为null的属性显示为空</p>
+<ul>
+<li>EL中的字符串只要是引号就行</li>
+<li>注意:通过EL表达式取自定义对象的属性,它只会去调用get/set方法</li>
+</ul>
+</li>
+<li><p>用法</p>
+<ol start="0">
+<li>基本格式:${}</li>
+<li>取对象属性操作符(map中的键的值):[]或. []可以放特殊字符也可以使用变量,可以访问数组元素,如果使用名字要加引号</li>
+<li>运算符:加减乘除取余,empty前缀运算符(判断值为null或者就不存在),关系运算符,逻辑运算符,三元运算符</li>
+<li>el中不能用+来进行字符串连接</li>
+</ol>
+</li>
+<li><p>EL中的常用隐式对象</p>
+<ol>
+<li><p>作用域对象</p>
+<ul>
+<li>applicationScope/sessionScope/requestScope/pageScope</li>
+<li>如果不写域对象的变量,则会按照作用域的大小从小到大进行搜索</li>
+</ul>
+</li>
+<li><p>参数访问对象</p>
+<ul>
+<li>获取请求中的属性和属性列表</li>
+<li>param==request.getParameter();</li>
+<li>paramValues==request.getParameterValues()</li>
+</ul>
+</li>
+<li><p>Jsp隐式对象</p>
+<ul>
+<li>PageContext</li>
+<li>在jsp中可以通过此对象获取到一切其他的内置对象在el中也可以访问到。通过.或[]</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-JSTL标准标签库"><a href="#10-JSTL标准标签库" class="headerlink" title="10.JSTL标准标签库"></a>10.JSTL标准标签库</h2><ol>
+<li><p>导包</p>
+<ul>
+<li>jstl.jar</li>
+<li>standard.jar</li>
+</ul>
+</li>
+<li><p>使用taglib指令标识</p>
+<ul>
+<li><code>&lt;%taglib uri=&quot;http://java.sun.com/jsp/jstl/xxx&quot; prefix=&quot;&quot;%&gt;</code></li>
+</ul>
+</li>
+<li><p>JSTL有5种标签库</p>
+<ol>
+<li><p>核心标签库</p>
+<ol>
+<li>表达式</li>
+</ol>
+<ul>
+<li><p>&lt;c:set/&gt;:用于定义变量和修改变量</p>
+<ul>
+<li>&lt;c:set scope=”request” var=”jstl” value=”test”/&gt;</li>
+<li>&lt;c:set value=”yang” target=”${requestScope.uStudent}” property=”name”/&gt;</li>
+<li>其中target可以是JavaBean也可以是Map对象</li>
+</ul>
+</li>
+<li><p>&lt;c:out/&gt;:用于替代&lt;%= %&gt;</p>
+<ul>
+<li>更加强大的输出</li>
+<li>对于不存在的属性和为null的属性显示为空</li>
+<li>&lt;c:out value=”${sessionScope.map}” default=”111” escapeXml=”true”/&gt;</li>
+</ul>
+</li>
+<li><p>&lt;c: remove /&gt;:用于移除指定Jsp作用域中指定的变量</p>
+<ul>
+<li>&lt;c:remove var=”a” scope=”request”/&gt;</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><p>流程控制</p>
+<ul>
+<li><p>&lt;c:if&gt;&lt;/c:if&gt;:代替if</p>
+<ul>
+<li>&lt;c:if test=”${10&gt;7}”&gt;真&lt;/c:if&gt;</li>
+</ul>
+</li>
+<li><p><code>&lt;c:choose&gt;&lt;/c:choose&gt;/&lt;c:when&gt;&lt;/c:when&gt;/&lt;c:otherwise&gt;&lt;/c:otherwise&gt;</code>:实现if-else/switch(其中可以不写otherwise)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:choose&gt;</span><br><span class="line">		&lt;c:when test=<span class="string">"$&#123;10&lt;2&#125;"</span>&gt;</span><br><span class="line">			假</span><br><span class="line">		&lt;/c:when&gt;</span><br><span class="line">		&lt;c:otherwise&gt;</span><br><span class="line">			默认</span><br><span class="line">		&lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>循环控制</p>
+<ul>
+<li><p><code>&lt;c:forEach&gt;&lt;/c:forEach&gt;</code></p>
+<ul>
+<li>即可以以实现普通循环也可以实现foreach</li>
+<li>varStatus用el使用其属性值</li>
+<li><img src="D:%5Cblog%5Csource%5Casset%5Cjstl%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%9A%84varStatus%E7%9A%84%E5%B1%9E%E6%80%A7.jpg" alt=""></li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach begin=<span class="string">"1"</span> end=<span class="string">"5"</span> step=<span class="string">"2"</span> varStatus=<span class="string">"id"</span>&gt;</span><br><span class="line">		$&#123; id.count &#125; </span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:forEach items ="" var=""&gt;&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="11-文件下载"><a href="#11-文件下载" class="headerlink" title="11.文件下载"></a>11.文件下载</h2><ul>
+<li><p>必要条件</p>
+<ul>
+<li><p>必须设置响应消息头信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.addHeader(<span class="string">"contentType"</span>, <span class="string">"application/octet-stream"</span>);</span><br><span class="line">response .addHeader(<span class="string">"content-Disposition"</span>, <span class="string">"attachment;filename="</span>+filename);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>下载中文名文件会出现问题的解决方案</p>
+<ul>
+<li>firefox<ul>
+<li>加前缀和后缀</li>
+<li>前缀:=?UTF-8?B?</li>
+<li>后缀?=</li>
+<li>Base64.encodeBase64(导入的包带有binary)和String构造方法</li>
+<li>示例:<code>response.addHeader(&quot;content-Disposition&quot;, &quot;attachment;filename==?UTF-8?B?&quot;+new String(Base64.encodeBase64(filename.getBytes(&quot;utf-8&quot;)))+&quot;?=&quot;);</code></li>
+</ul>
+</li>
+<li>Chrome内核(edge,Chrome)<ul>
+<li><code>response.addHeader(&quot;content-Disposition&quot;, &quot;attachment;filename=&quot;+URLEncoder.encode(filename,&quot;UTF-8&quot;));</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>下载示例代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		request.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">		String agent = request.getHeader(<span class="string">"User-Agent"</span>);</span><br><span class="line">		String filename = request.getParameter(<span class="string">"filename"</span>);</span><br><span class="line">		response.addHeader(<span class="string">"contentType"</span>, <span class="string">"application/octet-stream"</span>);</span><br><span class="line">		<span class="keyword">if</span>(agent.contains(<span class="string">"Firefox"</span>)) </span><br><span class="line">		&#123;</span><br><span class="line">			response.addHeader(<span class="string">"content-Disposition"</span>, <span class="string">"attachment;filename==?UTF-8?B?"</span>+<span class="keyword">new</span> String(Base64.encodeBase64(filename.getBytes(<span class="string">"utf-8"</span>)))+<span class="string">"?="</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			response.addHeader(<span class="string">"content-Disposition"</span>, 		     <span class="string">"attachment;filename="</span>+URLEncoder.encode(filename,<span class="string">"UTF-8"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(filename);</span><br><span class="line">		InputStream in = getServletContext().getResourceAsStream(<span class="string">"/download/"</span>+filename);</span><br><span class="line">		<span class="comment">//输出到响应体</span></span><br><span class="line">		ServletOutputStream out = response.getOutputStream();</span><br><span class="line">		<span class="keyword">byte</span> [] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">		<span class="keyword">int</span> len = -<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span>((len = in.read(bytes))!=-<span class="number">1</span>) </span><br><span class="line">		&#123;</span><br><span class="line">			out.write(bytes, <span class="number">0</span>, len);</span><br><span class="line">			out.flush();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(agent);</span><br><span class="line">		out.close();</span><br><span class="line">		in.close();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h2 id="12-Servlet"><a href="#12-Servlet" class="headerlink" title="12.Servlet"></a>12.Servlet</h2><ol>
+<li><p>特点</p>
+<ul>
+<li>extends javax.servlet.http.HttpServlet</li>
+<li>重写doGet()和doPost()方法</li>
+<li>单例模式,线程不同步</li>
+</ul>
+</li>
+<li><p>配置方法</p>
+<ul>
+<li><p>servlet2.5中</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.yang.WelcomeServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/WelcomeServlet<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>servlet3.0及以上注解<ul>
+<li>@WebServlet(“url-pattern”):写在servlet类上</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>Servlet生命周期(5个阶段)</p>
+<ol>
+<li><p>加载–Servlet容器自动控制</p>
+</li>
+<li><p>初始化–init(),该方法再Servlet被加载并实例化以后执行,初始化只执行一次,默认为第一次访问执行,可以修改</p>
+<ul>
+<li>Servlet初始化时机的配置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- servlet2.5 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Welcome<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.yang.WelcomeServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>servlet3.0及以上注解</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@WebServlet(value="/WelcomeServlet",loadOnStartup = 1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务–service()[HttpServlet]</p>
+</li>
+<li><p>销毁–destroy(),Servlet被系统回收时执行() 关闭服务器</p>
+</li>
+<li><p>卸载–Servlet容器自动控制</p>
+</li>
+</ol>
+</li>
+<li><p>自定义Servlet的继承层次</p>
+<ul>
+<li>extends HttpServlet</li>
+<li>HttpServlet extends GenericServlet [定义doGet/doPost]</li>
+<li>GenericServlet implements Servlet, ServletConfig, java.io.Serializable</li>
+</ul>
+</li>
+<li><p>Servlet API</p>
+<ul>
+<li><p>ServletConfig</p>
+<ul>
+<li><p><code>public ServletContext getServletContext();</code> 获取Application对象</p>
+</li>
+<li><p><code>public String getInitParameter(String name);</code> 获取当前Servlet的初始化参数</p>
+<p>配置初始化参数</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xml形式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span><span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span><span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注解形式</p>
+<ul>
+<li><code>@WebServlet(value=&quot;/WelcomeServlet&quot;,loadOnStartup = 1,initParams = {@WebInitParam(name = &quot;servletParm&quot;,value = &quot;current&quot;)})</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ServletContext中的常见方法</p>
+<ul>
+<li><p>除开Application对象中说到的</p>
+</li>
+<li><p>public String getInitParameter(String name); 获取当前Web应用的初始化参数</p>
+</li>
+<li><p>全局配置参数</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>WebParm<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Context<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>在Servlet中拿到jsp的内置对象</p>
+<ul>
+<li>Session: request.getSession();</li>
+<li>out: response.getWriter();</li>
+<li>Application: request.getServletContext();</li>
+</ul>
+</li>
+</ol>
+<h2 id="13-过滤器（Filter）"><a href="#13-过滤器（Filter）" class="headerlink" title="13.过滤器（Filter）"></a>13.过滤器（Filter）</h2><ol>
+<li><p>生命周期:服务器开启时初始化,关闭时销毁</p>
+</li>
+<li><p>配置和Servlet相似</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- xml方式--&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>com.yang.MyFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>MyFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>WelcomeServlet2<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dispatcher</span>&gt;</span>REQUEST<span class="tag">&lt;/<span class="name">dispatcher</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注解方式</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@WebFilter("/MyFilter2")</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>filter映射中可以使用通配符*</li>
+<li>dispatcher方式(&lt;dispatcher&gt;&lt;/dispatcher&gt;)<ul>
+<li>REQUEST:只拦截Http请求</li>
+<li>FORWARD:只拦截请求转发的请求</li>
+<li>还有两种不常用INCLUDE/ERROR</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>自定义Filter</p>
+<ul>
+<li>实现Filter接口并实现方法</li>
+<li>通过doFilter执行过滤操作</li>
+<li>通过其中chain.doFilter(request, response);传递</li>
+</ul>
+</li>
+<li><p>不同过滤器过滤同一资源的执行顺序</p>
+<ul>
+<li>通过web.xml中的filter-mapping的顺序进行执行</li>
+<li>注解方式并未提供相关顺序的规定,可以用xml方式配置</li>
+</ul>
+</li>
+</ol>
+<h2 id="14-监听器-Listener"><a href="#14-监听器-Listener" class="headerlink" title="14.监听器(Listener)"></a>14.监听器(Listener)</h2><ol>
+<li><p>配置</p>
+<ul>
+<li>@WebListener</li>
+<li><code>&lt;listener&gt;&lt;listener-class&gt;xxx&lt;/listener-class&gt;&lt;/listener&gt;</code></li>
+<li>通过实现不同的接口来实现监听操作,通过参数(不同Event对象)来获取监听的对象以此来对其进行操作。</li>
+</ul>
+</li>
+<li><p>监听对象</p>
+<ul>
+<li>request:ServletRequest</li>
+<li>session:HttpSession</li>
+<li>application:ServletContext</li>
+</ul>
+</li>
+<li><p>第一类监听器</p>
+<ul>
+<li><p>由服务器来创建对象,我们只需定义</p>
+</li>
+<li><p>监听对象的创建和销毁</p>
+<ul>
+<li>ServletContextListener</li>
+<li>HttpSessionListener</li>
+<li>ServletRequestLinseter</li>
+</ul>
+</li>
+<li><p>监听对象中属性的变更</p>
+<ul>
+<li>ServletContextAttributeListener</li>
+<li>HttpSessionAttributeListener</li>
+<li>ServletRequestAttributeLinseter</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>第二类监听器</p>
+<ul>
+<li><p>我们要自己创建对象来进行监听</p>
+</li>
+<li><p>这两个监视器都不需要进行配置</p>
+</li>
+<li><p>Session中监听器对象的绑定/解绑</p>
+<ul>
+<li>HttpBindingListener</li>
+<li>绑定指的就是设置Session的属性,定义和修改都算</li>
+<li>解绑就指的是移除Session中的监听器对象</li>
+</ul>
+</li>
+<li><p>Session的钝化/活化</p>
+<ul>
+<li><p>HttpSessionActivationListener</p>
+</li>
+<li><p>钝化和活化(其实就是对象的序列化和反序列化所以存放到硬盘上的自定义对象要实现Serializable)</p>
+</li>
+<li><p>如何钝化/活化</p>
+<ul>
+<li><p>钝化(生成的文件名就是SessionId)</p>
+</li>
+<li><p>在tomcat的/conf/context.xml里配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">	className:表明使用的类</span></span><br><span class="line"><span class="comment">	MaxIdleSwap:不活动经过多久钝化</span></span><br><span class="line"><span class="comment">	directory:钝化文件存储目录:相对的话是设定在tomcat的work/../项目/中的</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Manager</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.session.PersistentManager"</span> <span class="attr">MaxIdleSwap</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">Store</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.session.FileStore"</span> <span class="attr">directory</span>=<span class="string">"lq"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Manager</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>活化</p>
+</li>
+<li><p>活化自动进行,访问服务器会去硬盘中寻找符合的session,不符合就重新创建,符合就活化该session并使用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6ksz7zg0003nwub8zur77z6" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck7eqa13g0002rkubgshr2ba5" class="article-share-link">分享</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb%E5%AD%98%E7%96%91/" rel="tag">JavaWeb存疑</a></li></ul>
-
     </footer>
   </div>
   
@@ -322,8 +858,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
 

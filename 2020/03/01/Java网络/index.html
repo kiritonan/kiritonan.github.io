@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java网络 | little Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Java网络编程综述 规则:  先通过IP找到对方 通过逻辑端口找到对应的应用程序 使用定义通信规则(协议)[UDP&#x2F;TCP]   网络模型  OSI参考模型(八层) TCP&#x2F;IP参考模型(四层)   Socket  网络通信两端都有Socket 网络通信其实就是Socket间的通信 数据在两个Socket间通过IO传输 这里的Socket并不是计算机网络TCP中特指的Socket   UDP与T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网络">
+<meta property="og:url" content="http://yoursite.com/2020/03/01/Java%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="little Blog">
+<meta property="og:description" content="Java网络编程综述 规则:  先通过IP找到对方 通过逻辑端口找到对应的应用程序 使用定义通信规则(协议)[UDP&#x2F;TCP]   网络模型  OSI参考模型(八层) TCP&#x2F;IP参考模型(四层)   Socket  网络通信两端都有Socket 网络通信其实就是Socket间的通信 数据在两个Socket间通过IO传输 这里的Socket并不是计算机网络TCP中特指的Socket   UDP与T">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="d:%5Cblog%5Csource%5Casset%5Cudp%E5%92%8Ctcp%E5%8C%BA%E5%88%AB.jpg">
+<meta property="article:published_time" content="2020-03-01T14:41:47.733Z">
+<meta property="article:modified_time" content="2020-03-04T15:08:42.806Z">
+<meta property="article:author" content="Yang Nan">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="d:%5Cblog%5Csource%5Casset%5Cudp%E5%92%8Ctcp%E5%8C%BA%E5%88%AB.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-Java网络" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/01/Java%E7%BD%91%E7%BB%9C/" class="article-date">
+  <time class="post-time" datetime="2020-03-01T14:41:47.733Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java网络
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java网络编程"><a href="#Java网络编程" class="headerlink" title="Java网络编程"></a>Java网络编程</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><ul>
+<li><p>规则:</p>
+<ol>
+<li>先通过IP找到对方</li>
+<li>通过逻辑端口找到对应的应用程序</li>
+<li>使用定义通信规则(协议)[UDP/TCP]</li>
+</ol>
+</li>
+<li><p>网络模型</p>
+<ul>
+<li>OSI参考模型(八层)</li>
+<li>TCP/IP参考模型(四层)</li>
+</ul>
+</li>
+<li><p>Socket</p>
+<ul>
+<li>网络通信两端都有Socket</li>
+<li>网络通信其实就是Socket间的通信</li>
+<li>数据在两个Socket间通过IO传输</li>
+<li>这里的Socket并不是计算机网络TCP中特指的Socket</li>
+</ul>
+</li>
+<li><p>UDP与TCP的不同</p>
+<p><img src="D:%5Cblog%5Csource%5Casset%5Cudp%E5%92%8Ctcp%E5%8C%BA%E5%88%AB.jpg" alt=""></p>
+</li>
+<li><p>所用到的包java.net</p>
+</li>
+</ul>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><ol>
+<li>IP地址对应对象(InetAddress)<ul>
+<li>方法<ul>
+<li><code>public static InetAddress getByName(String host)</code>在给定主机名的情况下确定主机的 IP 地址。</li>
+<li><code>public static InetAddress[] getAllByName(String host)</code>在给定主机名的情况下，根据系统上配置的名称服务返回其 IP 地址所组成的数组。</li>
+<li><code>public String getHostAddress()</code>返回 IP 地址字符串（以文本表现形式）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>2.UDP(对讲机/寄邮件)相关对象</p>
+<pre><code>1. DatagramSocket
++ 此类表示用来发送和接收数据报包的套接字。
++ `public DatagramSocket(int port)`创建数据报套接字并将其绑定到本地主机上的指定端口
++ `void send(DatagramPacket p)`从此套接字发送数据报包。
++ `void receive(DatagramPacket p)`从此套接字接收数据报包。接收一条就结束</code></pre><ol start="2">
+<li><p>DatagramPacket(数据包)</p>
+<ul>
+<li>此类表示数据报包。</li>
+<li><code>public DatagramPacket(byte[] buf,int length)</code>构造 DatagramPacket，用来接收长度为 length 的数据包。 </li>
+<li><code>public DatagramPacket(byte[] buf,int length,InetAddress address,int port)</code>构造数据报包，用来将长度为 length 的包发送到指定主机上的指定端口号。               </li>
+<li><code>public byte[] getData()</code>返回数据。</li>
+<li><code>public InetAddress getAddress()</code>:返回IP地址</li>
+</ul>
+</li>
+<li><p>TCP(打电话)相关对象</p>
+<ul>
+<li>客户端/服务端</li>
+</ul>
+<ol>
+<li><p>Socket(客户端/服务端使用)</p>
+<ul>
+<li>建立时就可以去连接指定主机</li>
+<li><code>public Socket(String host,int port)</code>创建一个流套接字并将其连接到指定主机上的指定端口号。</li>
+<li><code>public OutputStream getOutputStream()</code>返回此套接字的输出流。</li>
+<li><code>public void shutdownOutput()</code>:禁用此套接字的输出流。对于 TCP 套接字，任何以前写入的数据都将被发送，并且后跟 TCP 的正常连接终止序列(结束标记)。用于结束文件传输</li>
+</ul>
+</li>
+<li><p>class ServerSocket(服务端)</p>
+<ul>
+<li><p><code>public ServerSocket(int port)</code>创建绑定到特定端口的服务器套接字。</p>
+</li>
+<li><p><code>public Socket accept()</code>侦听并接受到此套接字的连接。此方法在连接传入之前一直阻塞。接受到的Socket和客户端进行通信。</p>
+</li>
+<li><p><code>public InputStream getInputStream()</code>返回此套接字的输入流。 </p>
+</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>客户端</p>
+<ol>
+<li>创建Socket对象,指定要连接的主机和端口</li>
+<li>获取socket对象的输出流写入数据,获取输入流接受服务端会写的数据。</li>
+</ol>
+</li>
+<li><p>服务端</p>
+<ol>
+<li>创建ServerSocket绑定接口</li>
+<li>调用accept方法等待连接到来</li>
+<li>获取socket中的输入流,读取数据,输出流回写数据。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>网络层封装对象(上面的都是用于传输层)</p>
+<ol>
+<li><p>URL 封装请求地址对象</p>
+<ul>
+<li>常用方法<ul>
+<li><code>public URL(String spec)</code>:根据 String 表示形式创建 URL 对象。</li>
+<li><code>public String getProtocol()</code> 获取此 URL 的协议名称。 </li>
+<li><code>public String getHost()</code>获取此 URL 的主机名（如果适用）。</li>
+<li><code>public String getPath()</code>获取此 URL 的路径部分。</li>
+<li><code>public int getPort()</code>获取此 URL 的端口号。如果未设置端口号，则返回 -1</li>
+<li><code>public String getQuery()</code>获取此 URL 的查询部分。</li>
+<li><code>public String getFile()</code>:返回的文件部分将与 getPath() 相同，再加上 getQuery() 值的规范化形式（如果有）。</li>
+<li><code>public URLConnection openConnection()</code>:返回一个 URLConnection 对象，它表示到 URL 所引用的远程对象的连接。 </li>
+<li><code>public final InputStream openStream()</code>此方法是下面方法的缩写:openConnection().getInputStream()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>URLConnection抽象类,子类:HttpURLConnection</p>
+<ul>
+<li>常用方法<ul>
+<li><code>public InputStream getInputStream()</code>返回从此打开的连接读取的输入流。返回的内容只有响应体,响应头信息可以通过其他get方法获取到。</li>
+<li><code>public OutputStream getOutputStream()</code>返回写入到此连接的输出流。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/01/Java%E7%BD%91%E7%BB%9C/" data-id="ck7eqa14c0016rkubh8hrdumm" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          机器学习1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/25/Java%E6%AD%A3%E5%88%99/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Java正则</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">little Blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/kiritonan" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2019 - 2020 Yang Nan<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana" target="_blank" rel="noopener">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

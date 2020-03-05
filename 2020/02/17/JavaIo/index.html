@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaIo | little Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="IO技术(java.io) Java对数据的操作通过流的方式,用完要将流关闭  分类  按操作数据分为字节流和字符流,字符流可以指定编码表 按流向分为输入流和输出流   常用基类  字节流(如果不是指定了缓冲流,字节流并不需要刷新操作,基本用法与字符流相同,就是字符数组变成了字节数组)  抽象基类:InputStream,OutputStream   字符流  抽象基类:Reader,Writer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaIo">
+<meta property="og:url" content="http://yoursite.com/2020/02/17/JavaIo/index.html">
+<meta property="og:site_name" content="little Blog">
+<meta property="og:description" content="IO技术(java.io) Java对数据的操作通过流的方式,用完要将流关闭  分类  按操作数据分为字节流和字符流,字符流可以指定编码表 按流向分为输入流和输出流   常用基类  字节流(如果不是指定了缓冲流,字节流并不需要刷新操作,基本用法与字符流相同,就是字符数组变成了字节数组)  抽象基类:InputStream,OutputStream   字符流  抽象基类:Reader,Writer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-17T13:59:49.829Z">
+<meta property="article:modified_time" content="2020-03-02T06:44:43.001Z">
+<meta property="article:author" content="Yang Nan">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="little Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/plugin/bganimation/bg.css">
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-JavaIo" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/17/JavaIo/" class="article-date">
+  <time class="post-time" datetime="2020-02-17T13:59:49.829Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaIo
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IO技术-java-io"><a href="#IO技术-java-io" class="headerlink" title="IO技术(java.io)"></a>IO技术(java.io)</h1><ul>
+<li><p>Java对数据的操作通过流的方式,用完要将流关闭</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li>按操作数据分为字节流和字符流,字符流可以指定编码表</li>
+<li>按流向分为输入流和输出流</li>
+</ul>
+</li>
+<li><p>常用基类</p>
+<ul>
+<li><p>字节流(如果不是指定了缓冲流,字节流并不需要刷新操作,基本用法与字符流相同,就是字符数组变成了字节数组)</p>
+<ul>
+<li>抽象基类:InputStream,OutputStream</li>
+</ul>
+</li>
+<li><p>字符流</p>
+<ul>
+<li>抽象基类:Reader,Writer</li>
+</ul>
+</li>
+<li><p>从上述四个基类中派生出的子类名称都是以父类名作为结尾</p>
+</li>
+</ul>
+</li>
+<li><p>Writer抽象类</p>
+<ul>
+<li><p>常用方法</p>
+<ul>
+<li><code>abstract void write(char[] cbuf, int off, int len) throws IOException</code></li>
+<li><code>void write(char[] cbuf) throws IOException</code></li>
+</ul>
+</li>
+<li><p><code>void write(String str) throws IOException</code></p>
+<ul>
+<li><strong>write方法会写入流的缓冲中,调用flush方法才会刷新,或者用close方法(在关闭前会刷新缓冲)</strong><ul>
+<li><code>void flush()  throws IOException</code></li>
+<li>``void close()  throws IOException  `</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>子类FileWriter</p>
+<ul>
+<li><p>构造方法</p>
+<ul>
+<li><code>FileWriter(String fileName)  throws IOException</code>：:不管原来文件是否存在,都新建文件</li>
+<li><code>FileWriter(String fileName,boolean append)  throws IOException</code>：:通过append布尔值来选定是否可以执行续写操作</li>
+</ul>
+</li>
+<li><p>Windows中换行为\r\n 而Linux中\n代表换行</p>
+</li>
+<li><p>注意<strong>IOException的处理方法:注意要把关闭操作进行判null操作并放在异常处理的finally块中,一定要进行关闭。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>子类BufferWriter缓冲字符流(包装流)</p>
+<ul>
+<li><p>提高封装流对数据的写效率</p>
+</li>
+<li><p>内部封装了缓冲数组</p>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li><code>BufferedWriter(Writer out);</code></li>
+<li><code>BufferedWriter(Writer out,int sz);</code></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><code>void newLine() throws IOException</code> :写入一个行分隔符。不同的系统装的JDK时,实现不同从而可以对不同系统换行的兼容</li>
+<li><code>void close() throws IOException</code>:会关闭<strong>封装的字符流对象</strong>，因此不用重复关闭传入的流对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Reader抽象类</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li><code>int read() throws IOException</code>:读取单个字符,到文件末尾返回-1</li>
+<li><code>int read(char[] cbuf) throws IOException</code>:读取到字符数组中(一般设置为1024的整数倍),返回一次读取的字符数,到文件末尾返回-1</li>
+<li><code>int read(char[] cbuf,int off,int len);</code></li>
+</ul>
+</li>
+<li><p>子类FileReader</p>
+<ul>
+<li>构造方法<ul>
+<li><code>FileReader(String fileName) throws FileNotFoundException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>子类BufferReader缓冲字符流(包装流)</p>
+<ul>
+<li><p>提高封装流对数据的读效率</p>
+</li>
+<li><p>内部封装了缓冲数组</p>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li><code>BufferedReader(Reader in);</code></li>
+<li><code>BufferedReader(Reader in,int sz);</code></li>
+</ul>
+</li>
+<li><p>方法:</p>
+<ul>
+<li><code>String readLine()throws IOException;</code>:读取一个文本行。返回包含该行内容的字符串，不包含任何行终止符，如果已到达流末尾，则返回 null。<strong>(返回的字符串不包含换行符)</strong></li>
+<li><code>void close() throws IOException</code>:会关闭<strong>封装的字符流对象</strong>，因此不用重复关闭传入的流对象</li>
+</ul>
+</li>
+<li><p>子类LineNumberReader(加了行号的缓冲流)</p>
+<ul>
+<li>public class LineNumberReader<pre><code>extends BufferedReader</code></pre></li>
+<li>方法<ul>
+<li><code>int getLineNumber();</code>:获取当前行号,没开始时为0,开始就为1</li>
+<li><code>void setLineNumber(int lineNumber);</code>:设置当前行号。不会实际更改流中的当前位置,只是更改当前行的标识,增加偏移量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>InputStream抽象基类(读取)</p>
+<ul>
+<li><p>一个常用量</p>
+<ul>
+<li>System.in(InputStream的子类对象)</li>
+<li><code>BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</code></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><code>int read() throws IOException</code></li>
+<li><code>int read(byte[] b) throws IOException</code></li>
+<li><code>int read(byte[] b,int off,int len) throws IOException</code></li>
+</ul>
+</li>
+<li><p>子类</p>
+<ul>
+<li>FileInputStream</li>
+<li>BufferedInputStream<ul>
+<li>其中没有readLine方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OutputStream抽象基类(写入)</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li><code>void write(byte[] b);</code></li>
+<li><code>void write(byte[] b,int off,int len);</code></li>
+</ul>
+</li>
+<li><p>子类</p>
+<ul>
+<li>FileOutputStream</li>
+<li>BufferedOutputStream<ul>
+<li>其中没有newLine方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>转换流(将字节输入流转换为字符输入流,将字节输出流转换为字符输出流,可以改变默认编码表)</p>
+<ul>
+<li><p>InputStreamReader</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p>public class InputStreamReader</p>
+<p>​    extends Reader</p>
+</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>InputStreamReader(InputStream in);</code></li>
+<li><code>InputStreamReader(InputStream in,String charsetName) throws UnsupportedEncodingException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OutputStreamWriter</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p>public class OutputStreamWriter</p>
+<p>extends Writer</p>
+</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>OutputStreamWriter(OutputStream out);</code></li>
+<li><code>OutputStreamWriter(OutputStream out,String charsetName) throws UnsupportedEncodingException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>有关于输入输出流的编码自我理解</p>
+<ul>
+<li>中间写入的都是字节只是不同编码表对应的字符的字节内容不同,乱码在于展示时使用什么编码去解读这些字节。</li>
+</ul>
+</li>
+<li><p>改变输入输出流的方法</p>
+<ul>
+<li>使用System类中的方法可以实现<ul>
+<li><code>static void setIn(InputStream in);</code></li>
+<li><code>static void setOut(PrintStream out);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常信息改变打印位置</p>
+<ul>
+<li><p>使用Throwable类中的方法</p>
+<ul>
+<li><p><code>void printStackTrace(PrintStream s);</code>将异常信息输出到指定的输出流。</p>
+</li>
+<li><p><code>void printStackTrace(PrintWriter s);</code>将异常信息输出到指定的 PrintWriter </p>
+</li>
+</ul>
+</li>
+<li><p>开发可以使用log4j工具来打印异常</p>
+</li>
+</ul>
+</li>
+<li><p>File文件对象(前面的流对象的构造方法也可以使用File对象)</p>
+<ul>
+<li><p>文件和目录路径名的抽象表示形式,方便对文件和文件夹的属性信息进行操作</p>
+</li>
+<li><p>字段</p>
+<ul>
+<li><code>public static final String separator;</code>系统的默认分分隔符保证跨系统</li>
+<li>Windows里是\\。</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>public File(String pathname);</code></li>
+<li><code>public File(String parent,String child);</code>:将目录和文件分离</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p>创建</p>
+<ul>
+<li><p><code>boolean createNewFile() throws IOException;</code>:如果指定的文件不存在并成功地创建，则返回 true；如果指定的文件已经存在,不会创建,则返回 false </p>
+</li>
+<li><p><code>static File createTempFile(String prefix, String suffix,File directory)throws IOException</code></p>
+</li>
+<li><p><code>static File createTempFile(String prefix,String suffix)
+  throws IOException</code></p>
+</li>
+<li><p><code>boolean mkdir();</code>:创建此抽象路径名指定的目录。 单层目录           </p>
+</li>
+<li><p><code>boolean mkdirs();</code>:创建此抽象路径名指定的目录，包括所有必需但不存在的父目录。注意，此操作失    败时也可能已经成功地创建了一部分必需的父目录。 </p>
+</li>
+<li><p>删除(这会直接删除,不能从回收站恢复)</p>
+</li>
+<li><p><code>boolean delete();</code>:删除此抽象路径名表示的文件或目录。如果此路径名表示一个目录，则该目录必须    为空才能删除。 </p>
+</li>
+<li><p><code>void deleteOnExit();</code>:在虚拟机终止时，请求删除此抽象路径名表示的文件或目录。</p>
+</li>
+</ul>
+</li>
+<li><p>判断</p>
+<ul>
+<li><p><code>boolean exists();</code>:测试此抽象路径名表示的文件或目录是否存在。 </p>
+<ul>
+<li><code>boolean canExecute();</code>:测试应用程序是否可以执行此抽象路径名表示的文件。 </li>
+<li><code>boolean canRead();</code>:测试应用程序是否可以读取此抽象路径名表示的文件。</li>
+<li><code>boolean canWrite()</code>:测试应用程序是否可以修改此抽象路径名表示的文件。 </li>
+<li><code>int compareTo(File pathname);</code>按字母顺序比较两个抽象路径名</li>
+<li><code>boolean isHidden();</code>测试此抽象路径名指定的文件是否是一个隐藏文件。`</li>
+<li><code>boolean isFile();</code>测试此抽象路径名表示的文件是否是一个标准文件。`</li>
+<li><code>boolean isDirectory();</code>测试此抽象路径名表示的文件是否是一个目录。 </li>
+<li><code>boolean isAbsolute()</code>测试此抽象路径名是否为绝对路径名。</li>
+<li>注意:在判断文件的属性时一定要先判断文件或目录本身是否存在</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取</p>
+<ul>
+<li><p><code>String getName()</code>返回由此抽象路径名表示的文件或目录的名称。该名称是路径名名称序列中的最后一个名称。</p>
+</li>
+<li><p><code>String getPath()==toString()</code>将此抽象路径名转换为一个路径名字符串。</p>
+</li>
+<li><p><code>String getParent()</code>返回此抽象路径名父目录的路径名字符串；如果此路径名没有指定父目录，则返回 null。</p>
+</li>
+<li><p><code>String getAbsolutePath()</code>返回此抽象路径名的绝对路径名字符串。</p>
+</li>
+<li><p><code>long lastModified()</code>返回此抽象路径名表示的文件最后一次被修改的时间。 </p>
+</li>
+<li><p><code>long length()</code>返回由此抽象路径名表示的文件的长度。以字节为单位；</p>
+</li>
+<li><p><code>static File[] listRoots();</code>列出可用的文件系统根。 </p>
+</li>
+<li><p><code>String[] list();</code>返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中的文件和目录。</p>
+</li>
+<li><p><code>String[] list(FilenameFilter filter);</code> 返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中满足指定过滤器的文件和目录。</p>
+</li>
+<li><p><code>File[] listFiles()</code>返回一个抽象路径名数组</p>
+</li>
+<li><p><code>File[] listFiles(FilenameFilter filter)</code>返回抽象路径名数组，这些路径名表示此抽象路径名表示的目录中满足指定过滤器的文件和目录。</p>
+</li>
+</ul>
+</li>
+<li><p>重命名</p>
+<ul>
+<li><code>boolean renameTo(File dest)</code>重新命名此抽象路径名表示的文件。这个操作还可以移动文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列出指定目录下的所有内容(递归)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getLevel</span><span class="params">(<span class="keyword">int</span> level)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="keyword">if</span>(level&gt;=<span class="number">1</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		sb.append(<span class="string">"|--"</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;level-<span class="number">1</span>;i++)</span><br><span class="line">			sb.insert(<span class="number">0</span>, <span class="string">"   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归实现列出指定目录下所有内容</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">practise3</span><span class="params">(File file,<span class="keyword">int</span> level)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	level++;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(getLevel(level)+file2);</span><br><span class="line">			practise3(file2,level);</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(getLevel(level)+ file2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归实现删除指定目录下所有内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeDirOrFile</span><span class="params">(File file)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			removeDirOrFile(file2);</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(file2.toString()+<span class="string">"::"</span>+file2.delete());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(file.toString()+<span class="string">"::"</span>+file.delete());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建清单文件列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fileToList</span><span class="params">(File file,List&lt;File&gt; list)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">if</span>(files !=<span class="keyword">null</span>)</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			fileToList(file2,list);</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(file2.getName().endsWith(<span class="string">".py"</span>)) </span><br><span class="line">			&#123;</span><br><span class="line">				list.add(file2);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Properties对象</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>public class Properties extends Hashtable&lt;Object,Object&gt;</li>
+<li>Properties 类表示了一个持久的属性集。Properties 可保存在流中或从流中加载。<br>属性列表中每个键及其对应值都是一个字符串。 此类是线程安全的：多个线程可以共享单个 Properties 对象而无需进行外部同步。</li>
+<li>在properties的配置文件中#代表单行注释信息</li>
+</ul>
+</li>
+<li><p>构造函数和方法</p>
+<ul>
+<li><code>Properties()</code>创建一个无默认值的空属性列表。</li>
+<li><code>void list(PrintStream out)</code>将属性列表输出到指定的输出流。 </li>
+<li><code>void list(PrintWriter out)</code>将属性列表输出到指定的输出流。</li>
+<li><code>void load(InputStream inStream)throws IOException</code>从输入流中读取属性列表（键和元素对）。</li>
+<li><code>void load(Reader reader)throws IOException</code>按简单的面向行的格式从输入字符流中读取属性列表（键和元素对）。jdk1.6</li>
+<li><code>Set&lt;String&gt; stringPropertyNames()</code>返回此属性列表中的键集</li>
+<li><code>void store(Writer writer,String comments) throws IOException</code>将此 Properties 表中的属性列表（键和元素对）写入输出字符。 </li>
+<li><code>void store(OutputStream out,String comments)throws IOException</code>将此 Properties 表中的属性列表（键和元素对）写入输出流。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>打印流(printStream/printWriter[构造函数字节字符流都可以])</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>为其他输出流添加了功能，使它们能够方便地打印各种数据值表示形式。可以指定<strong>自动刷新和编码集操作</strong></li>
+<li>print,printf，println等相关方法</li>
+</ul>
+</li>
+<li><p>PrintStream构造函数可接受的类型</p>
+<ul>
+<li>File</li>
+<li>字符串路径String</li>
+<li><strong>字节输出流OutputStream</strong></li>
+</ul>
+</li>
+<li><p>PrintWriter构造函数可接受的类型</p>
+<ul>
+<li>File</li>
+<li>字符串路径String</li>
+<li><strong>字节输出流OutputStream</strong></li>
+<li><strong>字符输出流Writer</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>序列流(合并字节输入流)</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>SequenceInputStream 表示其他输入流的逻辑串联。</li>
+<li>它从输入流的有序集合开始，并从第一个输入流开始读取，直到到达文件末尾，接着从第二个输入流读取，依次类推，直到到达包含的最后一个输入流的文件末尾为止。 </li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>SequenceInputStream(InputStream s1,InputStream s2);</code></li>
+<li><code>SequenceInputStream(Enumeration&lt;? extends InputStream&gt; e)</code>通过枚举参数来初始化新创建的 SequenceInputStream。</li>
+</ul>
+</li>
+<li><p>Java并未提供切割文件保存的方式,可以自己实现</p>
+</li>
+</ul>
+</li>
+<li><p>对象流</p>
+<ul>
+<li><p>对象的本地序列化</p>
+<ul>
+<li>操作的对象必须实现java.io.Serializable接口</li>
+<li>只能序列化堆中的内容,并不能序列化静态,如果不想被序列化  可以加上transient(瞬时)</li>
+<li>一般存成的序列化文件为xxx.object</li>
+</ul>
+</li>
+<li><p>ObjectInputStream</p>
+<ul>
+<li><code>ObjectInputStream(InputStream in)throws IOException</code></li>
+<li><code>Object readObject()throws IOException,ClassNotFoundException</code>从 ObjectInputStream 读取对象。一次读一个对象</li>
+</ul>
+</li>
+<li><p>ObjectOutputStream</p>
+<ul>
+<li><code>ObjectOutputStream(OutputStream out)throws IOException</code></li>
+<li><code>final void writeObject(Object obj)throws IOException</code>将指定的对象写入 ObjectOutputStream。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>管道流(用于多线程中)</p>
+<ul>
+<li><p>PipedInputStream/PipedOutputStream(有对应的Reader/Writer的类),输入输出直接对接在一起,结合线程使用,因为如果单线程使用会导致死锁的发生。</p>
+</li>
+<li><p>管道输入流应该连接到管道输出流；管道输入流提供要写入管道输出流的所有数据字节。</p>
+<p>通常，数据由某个线程从 PipedInputStream 对象读取，并由其他线程将其写入到相应的 PipedOutputStream。</p>
+</li>
+<li><p>用途:多线程之间进行通信</p>
+</li>
+<li><p>PipedInputStream</p>
+<ul>
+<li>构造方法和普通方法<ul>
+<li><code>public PipedInputStream()</code>创建尚未连接的 PipedInputStream。</li>
+<li><code>public PipedInputStream(PipedOutputStream src)</code>创建 PipedInputStream，使其连接到管道输出流 src。</li>
+<li><code>public void connect(PipedOutputStream src)</code>使此管道输入流连接到管道输出流 src。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PipedOutputStream</p>
+<ul>
+<li>构造方法和普通方法<ul>
+<li><code>public PipedOutputStream()</code>创建尚未连接到管道输入流的管道输出流。</li>
+<li><code>public PipedOutputStream(PipedInputStream snk)</code>创建连接到指定管道输入流的管道输出流。</li>
+<li><code>public void connect(PipedInputStream snk)</code>将此管道输出流连接到接收者。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>随机读写文件( RandomAccessFile)</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>只继承Object和其他流不同</li>
+<li>内部封装字节流,文件中提供字节指针来进行随机访问</li>
+<li>可以读和写</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>RandomAccessFile(File file,String mode);</code></li>
+<li><code>RandomAccessFile(String name,String mode);</code></li>
+<li>mode解释<ul>
+<li>“r” 以只读方式打开。调用结果对象的任何 write 方法都将导致抛出 IOException。  文件不存在会抛出异常</li>
+<li>“rw” 打开以便读取和写入。如果该文件尚不存在，则尝试创建该文件。 文件存在则使用和输出流不同 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><code>void seek(long pos)</code>设置到此文件开头测量到的文件指针偏移量，在该位置发生下一个读取或写入操作。–任意跳</li>
+<li><code>int skipBytes(int n)</code>尝试跳过输入的 n 个字节以丢弃跳过的字节。 –只能向后跳</li>
+<li>有各种类型的write/read方法</li>
+</ul>
+</li>
+<li><p>用途</p>
+<ul>
+<li>实现数据的多线程分段下载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作基本数据类型的流(DataInputStream/DataOutputStream)</p>
+<ul>
+<li><p>将流和基本数据类型结合在一起</p>
+</li>
+<li><p>DataInputStream</p>
+<ul>
+<li><code>public DataInputStream(InputStream in)</code>使用指定的底层 InputStream 创建一个 DataInputStream。 </li>
+<li><code>public readXXX();</code></li>
+<li><code>static final String readUTF(DataInput in)</code>从流 in 中读取用 UTF-8 修改版格式编码的 Unicode 字符格式的字符串；( UTF-8 修改版和UTF-8不一样)</li>
+</ul>
+</li>
+<li><p>​    DataOutputStream</p>
+<ul>
+<li><code>public DataOutputStream(OutputStream out)</code>创建一个新的数据输出流，将数据写入指定基础输出流。</li>
+<li><code>final void writeUTF(String str)</code>以与机器无关方式使用 UTF-8 修改版编码将一个字符串写入基础输出流。 ( UTF-8 修改版和UTF-8不一样)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作数组(字节/字符)/字符串的对象—先从硬盘读取数据到内存(再从内存读取数据将数据写到自定义的内存数组中)</p>
+<ul>
+<li><p>ByteArrayInputStream/ByteArrayOutputStream</p>
+<ul>
+<li>ByteArrayInputStream<ul>
+<li>ByteArrayInputStream 包含一个内部缓冲区，该缓冲区包含从流中读取的字节。内部计数器跟踪 read 方法要提供的下一个字节。 关闭 ByteArrayInputStream 无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何 IOException。(因为操作的是内存和文件毫无关系) </li>
+<li><code>public ByteArrayInputStream(byte[] buf)</code>创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组。</li>
+</ul>
+</li>
+<li>ByteArrayOutputStream<ul>
+<li>此类实现了一个输出流，其中的数据被写入一个 byte 数组。缓冲区会随着数据的不断写入而自动增长。可使用 toByteArray() 和 toString() 获取数据。 关闭此流无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何 IOException。</li>
+<li><code>public ByteArrayOutputStream()</code>创建一个新的 byte 数组输出流。缓冲区的容量最初是 32 字节，如有必要可增加其大小。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作字符数组的对象CharArrayInputStream/CharArrayOutputStream</p>
+</li>
+<li><p>操作字符串的对象StringReader/StringWriter</p>
+</li>
+<li><p>和操作字节数组的对象基本一样</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/17/JavaIo/" data-id="ck7eqa13f0001rkub5ado8mgv" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/17/Java%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Java常用对象
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/15/JavaString/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">JavaString</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">little Blog</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://wx4.sinaimg.cn/large/a3ba40b9ly1gbifs44zi0j20p00p0ac3.jpg">
+    <h2 class="author">Yang Nan</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>6</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="https://github.com/kiritonan" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2019 - 2020 Yang Nan<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana" target="_blank" rel="noopener">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+
+  
+<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+  
+<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+
+  
+<script src="/plugin/galmenu/GalMenu.js"></script>
+
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title="" class="menuItem">首页</a>
+          
+            <a href="/tags" title="" class="menuItem">标签</a>
+          
+            <a href="/categories" title="" class="menuItem">分类</a>
+          
+            <a href="/archives" title="" class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

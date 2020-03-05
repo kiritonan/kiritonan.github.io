@@ -42,8 +42,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
@@ -69,6 +69,1667 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-机器学习1" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01/" class="article-date">
+  <time class="post-time" datetime="2020-03-04T06:47:53.784Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">04</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01/">机器学习1</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A01/" data-id="ck7eqa12t0000rkubgxnt1gdt" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java网络" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/03/01/Java%E7%BD%91%E7%BB%9C/" class="article-date">
+  <time class="post-time" datetime="2020-03-01T14:41:47.733Z" itemprop="datePublished">
+    <span class="post-month">3月</span><br/>
+    <span class="post-day">01</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/Java%E7%BD%91%E7%BB%9C/">Java网络</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java网络编程"><a href="#Java网络编程" class="headerlink" title="Java网络编程"></a>Java网络编程</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><ul>
+<li><p>规则:</p>
+<ol>
+<li>先通过IP找到对方</li>
+<li>通过逻辑端口找到对应的应用程序</li>
+<li>使用定义通信规则(协议)[UDP/TCP]</li>
+</ol>
+</li>
+<li><p>网络模型</p>
+<ul>
+<li>OSI参考模型(八层)</li>
+<li>TCP/IP参考模型(四层)</li>
+</ul>
+</li>
+<li><p>Socket</p>
+<ul>
+<li>网络通信两端都有Socket</li>
+<li>网络通信其实就是Socket间的通信</li>
+<li>数据在两个Socket间通过IO传输</li>
+<li>这里的Socket并不是计算机网络TCP中特指的Socket</li>
+</ul>
+</li>
+<li><p>UDP与TCP的不同</p>
+<p><img src="D:%5Cblog%5Csource%5Casset%5Cudp%E5%92%8Ctcp%E5%8C%BA%E5%88%AB.jpg" alt=""></p>
+</li>
+<li><p>所用到的包java.net</p>
+</li>
+</ul>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><ol>
+<li>IP地址对应对象(InetAddress)<ul>
+<li>方法<ul>
+<li><code>public static InetAddress getByName(String host)</code>在给定主机名的情况下确定主机的 IP 地址。</li>
+<li><code>public static InetAddress[] getAllByName(String host)</code>在给定主机名的情况下，根据系统上配置的名称服务返回其 IP 地址所组成的数组。</li>
+<li><code>public String getHostAddress()</code>返回 IP 地址字符串（以文本表现形式）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>2.UDP(对讲机/寄邮件)相关对象</p>
+<pre><code>1. DatagramSocket
++ 此类表示用来发送和接收数据报包的套接字。
++ `public DatagramSocket(int port)`创建数据报套接字并将其绑定到本地主机上的指定端口
++ `void send(DatagramPacket p)`从此套接字发送数据报包。
++ `void receive(DatagramPacket p)`从此套接字接收数据报包。接收一条就结束</code></pre><ol start="2">
+<li><p>DatagramPacket(数据包)</p>
+<ul>
+<li>此类表示数据报包。</li>
+<li><code>public DatagramPacket(byte[] buf,int length)</code>构造 DatagramPacket，用来接收长度为 length 的数据包。 </li>
+<li><code>public DatagramPacket(byte[] buf,int length,InetAddress address,int port)</code>构造数据报包，用来将长度为 length 的包发送到指定主机上的指定端口号。               </li>
+<li><code>public byte[] getData()</code>返回数据。</li>
+<li><code>public InetAddress getAddress()</code>:返回IP地址</li>
+</ul>
+</li>
+<li><p>TCP(打电话)相关对象</p>
+<ul>
+<li>客户端/服务端</li>
+</ul>
+<ol>
+<li><p>Socket(客户端/服务端使用)</p>
+<ul>
+<li>建立时就可以去连接指定主机</li>
+<li><code>public Socket(String host,int port)</code>创建一个流套接字并将其连接到指定主机上的指定端口号。</li>
+<li><code>public OutputStream getOutputStream()</code>返回此套接字的输出流。</li>
+<li><code>public void shutdownOutput()</code>:禁用此套接字的输出流。对于 TCP 套接字，任何以前写入的数据都将被发送，并且后跟 TCP 的正常连接终止序列(结束标记)。用于结束文件传输</li>
+</ul>
+</li>
+<li><p>class ServerSocket(服务端)</p>
+<ul>
+<li><p><code>public ServerSocket(int port)</code>创建绑定到特定端口的服务器套接字。</p>
+</li>
+<li><p><code>public Socket accept()</code>侦听并接受到此套接字的连接。此方法在连接传入之前一直阻塞。接受到的Socket和客户端进行通信。</p>
+</li>
+<li><p><code>public InputStream getInputStream()</code>返回此套接字的输入流。 </p>
+</li>
+</ul>
+</li>
+<li><p>步骤</p>
+<ul>
+<li><p>客户端</p>
+<ol>
+<li>创建Socket对象,指定要连接的主机和端口</li>
+<li>获取socket对象的输出流写入数据,获取输入流接受服务端会写的数据。</li>
+</ol>
+</li>
+<li><p>服务端</p>
+<ol>
+<li>创建ServerSocket绑定接口</li>
+<li>调用accept方法等待连接到来</li>
+<li>获取socket中的输入流,读取数据,输出流回写数据。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>网络层封装对象(上面的都是用于传输层)</p>
+<ol>
+<li><p>URL 封装请求地址对象</p>
+<ul>
+<li>常用方法<ul>
+<li><code>public URL(String spec)</code>:根据 String 表示形式创建 URL 对象。</li>
+<li><code>public String getProtocol()</code> 获取此 URL 的协议名称。 </li>
+<li><code>public String getHost()</code>获取此 URL 的主机名（如果适用）。</li>
+<li><code>public String getPath()</code>获取此 URL 的路径部分。</li>
+<li><code>public int getPort()</code>获取此 URL 的端口号。如果未设置端口号，则返回 -1</li>
+<li><code>public String getQuery()</code>获取此 URL 的查询部分。</li>
+<li><code>public String getFile()</code>:返回的文件部分将与 getPath() 相同，再加上 getQuery() 值的规范化形式（如果有）。</li>
+<li><code>public URLConnection openConnection()</code>:返回一个 URLConnection 对象，它表示到 URL 所引用的远程对象的连接。 </li>
+<li><code>public final InputStream openStream()</code>此方法是下面方法的缩写:openConnection().getInputStream()</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>URLConnection抽象类,子类:HttpURLConnection</p>
+<ul>
+<li>常用方法<ul>
+<li><code>public InputStream getInputStream()</code>返回从此打开的连接读取的输入流。返回的内容只有响应体,响应头信息可以通过其他get方法获取到。</li>
+<li><code>public OutputStream getOutputStream()</code>返回写入到此连接的输出流。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/01/Java%E7%BD%91%E7%BB%9C/" data-id="ck7eqa14c0016rkubh8hrdumm" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java正则" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/25/Java%E6%AD%A3%E5%88%99/" class="article-date">
+  <time class="post-time" datetime="2020-02-25T13:45:49.248Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">25</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/25/Java%E6%AD%A3%E5%88%99/">Java正则</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java正则表达式"><a href="#Java正则表达式" class="headerlink" title="Java正则表达式"></a>Java正则表达式</h1><ol>
+<li><p>简介</p>
+<ul>
+<li>作用:专门用于操作字符串</li>
+<li>好处:简化对字符串的复杂操作</li>
+<li>弊端:符号定义越多,正则越长，阅读性越差</li>
+<li>四种功能:匹配/切割/替换/获取</li>
+<li>除了获取需要用到Pattern类(正则对象)和Matcher类(正则引擎)其他三种只用String就可以完成。</li>
+<li>除了lang包中的String,Pattern类和Matcher类都是java.util.regex包中的</li>
+</ul>
+</li>
+<li><p>常用的符号</p>
+<ol>
+<li><p>字符</p>
+<ul>
+<li>x :字符 x </li>
+<li>[abc]</li>
+<li>[^abc] </li>
+<li>[a-z]</li>
+<li>[XXXX]:其中任意組合^也可以写在任意前</li>
+</ul>
+</li>
+<li><p>预定义字符类</p>
+<ul>
+<li>. 任何字符（与行结束符可能匹配也可能不匹配） </li>
+<li>\d 数字：[0-9] </li>
+<li>\D 非数字： [^0-9]</li>
+<li>\s 空白字符：[ \t\n\x0B\f\r] </li>
+<li>\S 非空白字符：[^\s]</li>
+<li>\w 单词字符：[a-zA-Z_0-9] </li>
+<li>\W 非单词字符：[^\w]</li>
+</ul>
+</li>
+<li><p>Greedy 数量词 </p>
+<ul>
+<li>X? X，零次或一次</li>
+<li>X* X，零次或多次 </li>
+<li>X+ X，一次或多次 </li>
+<li>X{n} X，恰好 n 次 </li>
+<li>X{n,} X，至少 n 次 </li>
+<li>X{n,m} X，至少 n 次，但是不超过 m 次\</li>
+<li>Greedy顾名思义代表贪婪,所有匹配时都会从最大进行匹配,不成功才会往前回溯 。</li>
+</ul>
+</li>
+<li><p>Reluctant 数量词 </p>
+<ul>
+<li>X?? X，一次或一次也没有 </li>
+<li>X*? X，零次或多次 </li>
+<li>X+? X，一次或多次 </li>
+<li>X{n}? X，恰好 n 次 </li>
+<li>X{n,}? X，至少 n 次 </li>
+<li>X{n,m}? X，至少 n 次，但是不超过 m 次 </li>
+<li>Reluctant顾名思义代表屈服,和Greedy相反谨慎的从最小匹配开始,匹配不成功就贪婪一点。</li>
+</ul>
+</li>
+<li><p>Possessive 数量词 </p>
+<ul>
+<li>X?+ X，一次或一次也没有 </li>
+<li>X*+ X，零次或多次 </li>
+<li>X++ X，一次或多次 </li>
+<li>X{n}+ X，恰好 n 次 </li>
+<li>X{n,}+ X，至少 n 次 </li>
+<li>X{n,m}+ X，至少 n 次，但是不超过 m 次</li>
+<li>Possessive顾名思义代表占有欲,只能接受最大匹配,最大匹配不行就认为失败。</li>
+</ul>
+</li>
+<li><p>正则中的转义</p>
+<ul>
+<li>反斜线字符 (‘\‘) 用于引用转义构造，同时还用于引用其他将被解释为非转义构造的字符。</li>
+<li>Java 源代码的字符串中的反斜线被解释为转义。因此必须在字符串字面值中使用两个反斜线，表示正则表达式受到保护，不被 Java 字节码编译器解释。</li>
+<li>字符串的转义和正则的转义是两种不同的转义。</li>
+</ul>
+</li>
+<li><p>捕获组</p>
+<ul>
+<li>捕获组可以通过从左到右计算其小括号来编号。组的编号从1开始,组零始终代表整个表达式。</li>
+<li>捕获的序列组稍后可以通过 Back 引用在表达式中使用，也可以在匹配操作完成后从匹配器获取。</li>
+<li>以 (?) 开头的组是纯的非捕获组,它不捕获文本,也不针对组合计进行计数 </li>
+</ul>
+</li>
+<li><p>Back 引用 </p>
+<ul>
+<li>\n 任何匹配的 nth 捕获组 </li>
+</ul>
+</li>
+<li><p>边界匹配器 </p>
+<ul>
+<li>^ 行的开头 </li>
+<li>$ 行的结尾 </li>
+<li>\b 单词边界 </li>
+<li>\B 非单词边界</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>常用的方法</p>
+<ol>
+<li>String类<ul>
+<li><code>boolean matches(String regex)</code>告知此字符串是否匹配给定的正则表达式。 </li>
+<li><code>String[] split(String regex)</code>根据给定正则表达式的匹配拆分此字符串。 </li>
+<li><code>String replaceAll(String regex,String replacement)</code>使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。 (在replacement获取前面正则表达式的捕获组使用$组号即可。特殊语法,用于替换叠字为单字)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>获取功能的使用</p>
+<ol>
+<li><p>将正则表达式封装成正则对象(Pattern)</p>
+<ul>
+<li><code>static Pattern compile(String regex)</code>将给定的正则表达式编译到模式中。-Pattern</li>
+</ul>
+</li>
+<li><p>将正则对象操作的字符串相关联,获取正则匹配引擎(Matcher)</p>
+<ul>
+<li><code>Matcher matcher(CharSequence input)</code>创建匹配给定输入与此模式的匹配器。 -Pattern</li>
+</ul>
+</li>
+<li><p>通过引擎对象对符合规则的子串进行操作。(Matcher)</p>
+<ul>
+<li><p><code>boolean matches()</code>尝试将整个区域与模式匹配。</p>
+</li>
+<li><p><code>String replaceAll(String replacement)</code>替换模式与给定替换字符串相匹配的输入序列的每个子序列。 </p>
+</li>
+<li><p><code>boolean find()</code>尝试查找与该模式匹配的输入序列的下一个子序列。 </p>
+</li>
+<li><p><code>String group()</code>返回由以前匹配操作所匹配的输入子序列。 </p>
+</li>
+<li><p><code>boolean lookingAt()</code>尝试将从区域开头开始的输入序列与该模式匹配。 </p>
+<ul>
+<li>与 matches 方法类似，此方法始终从区域的开头开始；与之不同的是，它不需要匹配整个区域。 </li>
+</ul>
+</li>
+<li><p><code>int start()</code>返回以前匹配的初始索引。 </p>
+</li>
+<li><p><code>int end()</code>返回以前匹配的结束索引。</p>
+</li>
+<li><p><code>Matcher reset()</code>重置匹配器。 </p>
+</li>
+</ul>
+</li>
+<li><p>一个要注意的点</p>
+<ul>
+<li>matches()/ find()/lookingAt()都会改变匹配引擎的搜索位置,如果先前改变了搜索位置,之后再进行搜索则从先前位置开始,可以调用reset方法重置搜索位置。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/25/Java%E6%AD%A3%E5%88%99/" data-id="ck7eqa13u000nrkubcr4g08sa" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java线程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/23/Java%E7%BA%BF%E7%A8%8B/" class="article-date">
+  <time class="post-time" datetime="2020-02-23T01:58:18.775Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/Java%E7%BA%BF%E7%A8%8B/">Java线程</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h1><ul>
+<li><p>简介</p>
+</li>
+<li><p>进程是一个正在执行的程序,线程就是进程中的一个独立控制单元,进程中实际运行的模块。一个进程至少要有一个线程</p>
+</li>
+<li><p>Java中创建线程的两种方式</p>
+<ul>
+<li><p>继承Thread类</p>
+<ul>
+<li>该子类应重写 Thread 类的 run 方法。调用该类继承的start方法来开启线程并执行run方法</li>
+</ul>
+</li>
+<li><p>实现Runnable接口</p>
+<ul>
+<li>定义类实现Runnable接口,覆盖其中的run方法</li>
+<li>通过Thread类创建对象并将前一步操作创建的对象传入</li>
+<li>调用Thread类的start开启线程</li>
+</ul>
+</li>
+<li><p>只有Thread类和其子类才被称为线程,实现Runnable接口的类并不称为线程</p>
+</li>
+<li><p>Thread类的常用方法</p>
+<ul>
+<li><code>void run()</code> Thread 的子类应该重写该方法。 并不会开启线程</li>
+<li><code>void start()</code>使该线程开始执行;Java 虚拟机调用该线程的 run 方法。多次启动一个线程是非法的。特别是当线程已经结束执行后，不能再重新启动。</li>
+<li><code>Thread(String name)</code>添加线程的名称</li>
+<li><code>final String getName()</code>返回该线程的名称。</li>
+<li><code>final void setName(String name)</code>改变线程名称，使之与参数 name 相同。 </li>
+<li><code>static Thread currentThread()</code>返回对当前正在执行的线程对象的引用。 </li>
+<li><code>static void sleep(long millis)throws InterruptedException</code>在指定的毫秒数内让当前正在执行的线程休眠</li>
+<li>停止线程 stop方法已经被淘汰,停止线程的的方法只有一种就是run方法结束,多线程的运行代码通常是循环结构,所以控制住循环条件就可以让线程退出。</li>
+<li><code>void interrupt()</code>:强制清除wait()方法，或者该类的 join()、sleep(long) 线程冻结状态并且wait(),join(),sleep(long)还将收到一个 InterruptedException。 </li>
+<li><code>void setDaemon(boolean on)</code>:将该线程标记为守护线程或用户线程(后台线程)。当正在运行的线程都是守护线程时，Java 虚拟机退出。 该方法必须在启动线程前调用。</li>
+<li><code>void join()</code>:当A线程执行到了B线程的join方法时A就会冻结,只有等B执行完后,A线程才能抢夺cpu资源，用于插入新的线程。</li>
+<li>优先级<code>final void setPriority(int newPriority)</code></li>
+<li><code>static void yield()</code>暂停当前正在执行的线程对象,并执行其他线程,释放cpu执行权。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>继承Thread和实现Runnable接口的区别?</p>
+<ul>
+<li>实现方式更加灵活,避免了单继承的局限性</li>
+<li>实现方式将线程操作的数据和操作进行了分离,使得可以避免使用静态域。而继承方式将域与执行线程代码绑定在一起,必须使用静态域。写个买票程序就懂了</li>
+</ul>
+</li>
+<li><p>处理多线程安全问题的方法</p>
+<ul>
+<li><p>安全问题</p>
+<ul>
+<li>多线程切换的随机性,可能在执行多条语句操作共享数据时出现问题</li>
+</ul>
+</li>
+<li><p>同步代码块</p>
+<ul>
+<li>synchronized(对象){}:将写在其中的对象称为锁或者监视器通过改变锁的标志位来进行同步操作</li>
+</ul>
+</li>
+<li><p>同步函数</p>
+<ul>
+<li>返回值类型前加synchronized关键字</li>
+<li>加的锁为this</li>
+</ul>
+</li>
+<li><p>同步静态函数</p>
+<ul>
+<li>返回值类型前加synchronized关键字</li>
+<li>加的锁为当前类的字节码对象,在加载类的时候会创建且独一份</li>
+</ul>
+</li>
+<li><p>实现同步的前提</p>
+<ul>
+<li>必须要有两个或两个以上线程</li>
+<li>必须使用同一个锁</li>
+</ul>
+</li>
+<li><p>虽然同步解决了多线程的安全问题,但是增加了操作,消耗了系统资源</p>
+</li>
+</ul>
+</li>
+<li><p>多线程在单例设计模式的应用</p>
+<ul>
+<li><p>饿汉式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Single s = <span class="keyword">new</span> Single();</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Single</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Single <span class="title">getSingle</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>懒汉式(延迟加载)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single2</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  Single2 s = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Single2</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Single2 <span class="title">getSingle</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(s == <span class="keyword">null</span>) </span><br><span class="line">			s = <span class="keyword">new</span> Single2();</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//效率比上面更高一点</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single3</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span>  Single3 s = <span class="keyword">null</span>;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Single3</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  Single3 <span class="title">getSingle</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(s == <span class="keyword">null</span>) </span><br><span class="line">		<span class="keyword">synchronized</span>(Single3<span class="class">.<span class="keyword">class</span>) </span></span><br><span class="line"><span class="class">		</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(s == <span class="keyword">null</span>) </span><br><span class="line">				s = <span class="keyword">new</span> Single3();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><ul>
+<li><p>死锁问题</p>
+<ul>
+<li>同步在进行嵌套时可能会出现死锁的问题,即使写出死锁的代码,也并不是运行一定会死锁,但是死锁是无法接受的，所以一定要避免。</li>
+<li>同步中嵌套同步,但锁不同,一个拿着1号锁要2号锁,一个拿着2号锁要1号锁。</li>
+</ul>
+</li>
+<li><p>线程的五种状态以及转换</p>
+<p><img src="D:%5Cblog%5Csource%5Casset%5C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%87%A0%E7%A7%8D%E7%8A%B6%E6%80%81%E4%BB%A5%E5%8F%8A%E5%88%87%E6%8D%A2%E6%96%B9%E5%BC%8F.jpg" alt=""></p>
+</li>
+<li><p>线程间通信(等待唤醒机制)</p>
+<ul>
+<li><p>使用Object类中的(wait/notify/notifyAll)</p>
+<ul>
+<li><p><code>final void wait()throws InterruptedException</code></p>
+</li>
+<li><p><code>final void notify()</code></p>
+</li>
+<li><p>这三个方法都使用在同步中,因为要对持有监视器的线程操作。调用方法的对象为监视器对象,这也是为啥wait/notify/notifyAll方法定义到了Object类中</p>
+</li>
+<li><p>同一个监视器上的等待线程,只能被同一个监视器上的notify唤醒</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>面对多个生产者/消费者如何保证安全while/notifyAll(重要)</p>
+</li>
+<li><p>JDK5新特性(java.util.concurrent.locks 包中的Lock/Condition)</p>
+<ul>
+<li><p><code>Lock</code> 替代了 <code>synchronized</code> 方法和语句的使用，<code>Condition</code>  替代了 Object 监视器方法的使用。 </p>
+</li>
+<li><p>包含同步块</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">lock.lock();</span><br><span class="line">		<span class="keyword">try</span> </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span>(!flag)</span><br><span class="line">				condition2.await();</span><br><span class="line">			System.out.println(<span class="string">"consume-----"</span>+count);</span><br><span class="line">			flag = <span class="keyword">false</span>;</span><br><span class="line">			condition.signal();</span><br><span class="line">		&#125;<span class="keyword">finally</span> </span><br><span class="line">		&#123;</span><br><span class="line">			lock.unlock();</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Condition</p>
+<ul>
+<li><code>void await()throws InterruptedException</code>==wait</li>
+<li><code>void signal()</code>唤醒一个等待线程。 </li>
+<li><code>void signalAll()</code>唤醒所有等待线程。 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/23/Java%E7%BA%BF%E7%A8%8B/" data-id="ck7eqa13q000drkubcrtc7qys" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-学习开发遇到的单词" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/23/%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E9%81%87%E5%88%B0%E7%9A%84%E5%8D%95%E8%AF%8D/" class="article-date">
+  <time class="post-time" datetime="2020-02-23T01:58:01.094Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">23</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/23/%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E9%81%87%E5%88%B0%E7%9A%84%E5%8D%95%E8%AF%8D/">学习开发遇到的单词</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/English-Words/">English Words</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>activation 活化</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/23/%E5%AD%A6%E4%B9%A0%E5%BC%80%E5%8F%91%E9%81%87%E5%88%B0%E7%9A%84%E5%8D%95%E8%AF%8D/" data-id="ck7eqa14b0013rkubgx3p1rt6" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/English-Words/" rel="tag">English Words</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java常用对象" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/17/Java%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1/" class="article-date">
+  <time class="post-time" datetime="2020-02-17T14:00:07.396Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/17/Java%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1/">Java常用对象</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java小知识点"><a href="#Java小知识点" class="headerlink" title="Java小知识点"></a>Java小知识点</h1><ol>
+<li><p>System(静态工具类)</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li>public final class System<ul>
+<li>extends Object</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p><code>static void arraycopy(Object src,int srcPos,Object dest,int destPos,int length);</code>–复制数组</p>
+</li>
+<li><p><code>static Properties getProperties();</code>获取本机系统的信息</p>
+<ul>
+<li>例如:file.encoding——GBK,user.country——CN,os.name——Windows 10</li>
+<li>实际上返回的Properties可以这么说Properties&lt;String,String&gt;虽然它没泛型,其继承HashTable,虽然HashTable已经被HashMap替代了,但Properties仍然很常用</li>
+</ul>
+</li>
+<li><p><code>static void setProperties(Properties props)</code>:设置本机系统的信息</p>
+<ul>
+<li>在虚拟机运行java 命令时可以通过添加设置参数来动态设置一些参数信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Integer</p>
+<ul>
+<li><code>public static String toBinaryString(int i);</code></li>
+<li><code>public static String toOctalString(int i);</code></li>
+<li><code>public static String toHexString(int i);</code></li>
+</ul>
+</li>
+</ol>
+<p>3.即使是抽象方法也可以定义构造方法来给子类调用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/17/Java%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1/" data-id="ck7eqa13j0005rkuba37w21bx" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-JavaIo" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/17/JavaIo/" class="article-date">
+  <time class="post-time" datetime="2020-02-17T13:59:49.829Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/17/JavaIo/">JavaIo</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IO技术-java-io"><a href="#IO技术-java-io" class="headerlink" title="IO技术(java.io)"></a>IO技术(java.io)</h1><ul>
+<li><p>Java对数据的操作通过流的方式,用完要将流关闭</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li>按操作数据分为字节流和字符流,字符流可以指定编码表</li>
+<li>按流向分为输入流和输出流</li>
+</ul>
+</li>
+<li><p>常用基类</p>
+<ul>
+<li><p>字节流(如果不是指定了缓冲流,字节流并不需要刷新操作,基本用法与字符流相同,就是字符数组变成了字节数组)</p>
+<ul>
+<li>抽象基类:InputStream,OutputStream</li>
+</ul>
+</li>
+<li><p>字符流</p>
+<ul>
+<li>抽象基类:Reader,Writer</li>
+</ul>
+</li>
+<li><p>从上述四个基类中派生出的子类名称都是以父类名作为结尾</p>
+</li>
+</ul>
+</li>
+<li><p>Writer抽象类</p>
+<ul>
+<li><p>常用方法</p>
+<ul>
+<li><code>abstract void write(char[] cbuf, int off, int len) throws IOException</code></li>
+<li><code>void write(char[] cbuf) throws IOException</code></li>
+</ul>
+</li>
+<li><p><code>void write(String str) throws IOException</code></p>
+<ul>
+<li><strong>write方法会写入流的缓冲中,调用flush方法才会刷新,或者用close方法(在关闭前会刷新缓冲)</strong><ul>
+<li><code>void flush()  throws IOException</code></li>
+<li>``void close()  throws IOException  `</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>子类FileWriter</p>
+<ul>
+<li><p>构造方法</p>
+<ul>
+<li><code>FileWriter(String fileName)  throws IOException</code>：:不管原来文件是否存在,都新建文件</li>
+<li><code>FileWriter(String fileName,boolean append)  throws IOException</code>：:通过append布尔值来选定是否可以执行续写操作</li>
+</ul>
+</li>
+<li><p>Windows中换行为\r\n 而Linux中\n代表换行</p>
+</li>
+<li><p>注意<strong>IOException的处理方法:注意要把关闭操作进行判null操作并放在异常处理的finally块中,一定要进行关闭。</strong></p>
+</li>
+</ul>
+</li>
+<li><p>子类BufferWriter缓冲字符流(包装流)</p>
+<ul>
+<li><p>提高封装流对数据的写效率</p>
+</li>
+<li><p>内部封装了缓冲数组</p>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li><code>BufferedWriter(Writer out);</code></li>
+<li><code>BufferedWriter(Writer out,int sz);</code></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><code>void newLine() throws IOException</code> :写入一个行分隔符。不同的系统装的JDK时,实现不同从而可以对不同系统换行的兼容</li>
+<li><code>void close() throws IOException</code>:会关闭<strong>封装的字符流对象</strong>，因此不用重复关闭传入的流对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Reader抽象类</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li><code>int read() throws IOException</code>:读取单个字符,到文件末尾返回-1</li>
+<li><code>int read(char[] cbuf) throws IOException</code>:读取到字符数组中(一般设置为1024的整数倍),返回一次读取的字符数,到文件末尾返回-1</li>
+<li><code>int read(char[] cbuf,int off,int len);</code></li>
+</ul>
+</li>
+<li><p>子类FileReader</p>
+<ul>
+<li>构造方法<ul>
+<li><code>FileReader(String fileName) throws FileNotFoundException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>子类BufferReader缓冲字符流(包装流)</p>
+<ul>
+<li><p>提高封装流对数据的读效率</p>
+</li>
+<li><p>内部封装了缓冲数组</p>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li><code>BufferedReader(Reader in);</code></li>
+<li><code>BufferedReader(Reader in,int sz);</code></li>
+</ul>
+</li>
+<li><p>方法:</p>
+<ul>
+<li><code>String readLine()throws IOException;</code>:读取一个文本行。返回包含该行内容的字符串，不包含任何行终止符，如果已到达流末尾，则返回 null。<strong>(返回的字符串不包含换行符)</strong></li>
+<li><code>void close() throws IOException</code>:会关闭<strong>封装的字符流对象</strong>，因此不用重复关闭传入的流对象</li>
+</ul>
+</li>
+<li><p>子类LineNumberReader(加了行号的缓冲流)</p>
+<ul>
+<li>public class LineNumberReader<pre><code>extends BufferedReader</code></pre></li>
+<li>方法<ul>
+<li><code>int getLineNumber();</code>:获取当前行号,没开始时为0,开始就为1</li>
+<li><code>void setLineNumber(int lineNumber);</code>:设置当前行号。不会实际更改流中的当前位置,只是更改当前行的标识,增加偏移量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>InputStream抽象基类(读取)</p>
+<ul>
+<li><p>一个常用量</p>
+<ul>
+<li>System.in(InputStream的子类对象)</li>
+<li><code>BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));</code></li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><code>int read() throws IOException</code></li>
+<li><code>int read(byte[] b) throws IOException</code></li>
+<li><code>int read(byte[] b,int off,int len) throws IOException</code></li>
+</ul>
+</li>
+<li><p>子类</p>
+<ul>
+<li>FileInputStream</li>
+<li>BufferedInputStream<ul>
+<li>其中没有readLine方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OutputStream抽象基类(写入)</p>
+<ul>
+<li><p>方法</p>
+<ul>
+<li><code>void write(byte[] b);</code></li>
+<li><code>void write(byte[] b,int off,int len);</code></li>
+</ul>
+</li>
+<li><p>子类</p>
+<ul>
+<li>FileOutputStream</li>
+<li>BufferedOutputStream<ul>
+<li>其中没有newLine方法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>转换流(将字节输入流转换为字符输入流,将字节输出流转换为字符输出流,可以改变默认编码表)</p>
+<ul>
+<li><p>InputStreamReader</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p>public class InputStreamReader</p>
+<p>​    extends Reader</p>
+</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>InputStreamReader(InputStream in);</code></li>
+<li><code>InputStreamReader(InputStream in,String charsetName) throws UnsupportedEncodingException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>OutputStreamWriter</p>
+<ul>
+<li><p>定义</p>
+<ul>
+<li><p>public class OutputStreamWriter</p>
+<p>extends Writer</p>
+</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>OutputStreamWriter(OutputStream out);</code></li>
+<li><code>OutputStreamWriter(OutputStream out,String charsetName) throws UnsupportedEncodingException</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>有关于输入输出流的编码自我理解</p>
+<ul>
+<li>中间写入的都是字节只是不同编码表对应的字符的字节内容不同,乱码在于展示时使用什么编码去解读这些字节。</li>
+</ul>
+</li>
+<li><p>改变输入输出流的方法</p>
+<ul>
+<li>使用System类中的方法可以实现<ul>
+<li><code>static void setIn(InputStream in);</code></li>
+<li><code>static void setOut(PrintStream out);</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>异常信息改变打印位置</p>
+<ul>
+<li><p>使用Throwable类中的方法</p>
+<ul>
+<li><p><code>void printStackTrace(PrintStream s);</code>将异常信息输出到指定的输出流。</p>
+</li>
+<li><p><code>void printStackTrace(PrintWriter s);</code>将异常信息输出到指定的 PrintWriter </p>
+</li>
+</ul>
+</li>
+<li><p>开发可以使用log4j工具来打印异常</p>
+</li>
+</ul>
+</li>
+<li><p>File文件对象(前面的流对象的构造方法也可以使用File对象)</p>
+<ul>
+<li><p>文件和目录路径名的抽象表示形式,方便对文件和文件夹的属性信息进行操作</p>
+</li>
+<li><p>字段</p>
+<ul>
+<li><code>public static final String separator;</code>系统的默认分分隔符保证跨系统</li>
+<li>Windows里是\\。</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>public File(String pathname);</code></li>
+<li><code>public File(String parent,String child);</code>:将目录和文件分离</li>
+</ul>
+</li>
+<li><p>方法</p>
+<ul>
+<li><p>创建</p>
+<ul>
+<li><p><code>boolean createNewFile() throws IOException;</code>:如果指定的文件不存在并成功地创建，则返回 true；如果指定的文件已经存在,不会创建,则返回 false </p>
+</li>
+<li><p><code>static File createTempFile(String prefix, String suffix,File directory)throws IOException</code></p>
+</li>
+<li><p><code>static File createTempFile(String prefix,String suffix)
+  throws IOException</code></p>
+</li>
+<li><p><code>boolean mkdir();</code>:创建此抽象路径名指定的目录。 单层目录           </p>
+</li>
+<li><p><code>boolean mkdirs();</code>:创建此抽象路径名指定的目录，包括所有必需但不存在的父目录。注意，此操作失    败时也可能已经成功地创建了一部分必需的父目录。 </p>
+</li>
+<li><p>删除(这会直接删除,不能从回收站恢复)</p>
+</li>
+<li><p><code>boolean delete();</code>:删除此抽象路径名表示的文件或目录。如果此路径名表示一个目录，则该目录必须    为空才能删除。 </p>
+</li>
+<li><p><code>void deleteOnExit();</code>:在虚拟机终止时，请求删除此抽象路径名表示的文件或目录。</p>
+</li>
+</ul>
+</li>
+<li><p>判断</p>
+<ul>
+<li><p><code>boolean exists();</code>:测试此抽象路径名表示的文件或目录是否存在。 </p>
+<ul>
+<li><code>boolean canExecute();</code>:测试应用程序是否可以执行此抽象路径名表示的文件。 </li>
+<li><code>boolean canRead();</code>:测试应用程序是否可以读取此抽象路径名表示的文件。</li>
+<li><code>boolean canWrite()</code>:测试应用程序是否可以修改此抽象路径名表示的文件。 </li>
+<li><code>int compareTo(File pathname);</code>按字母顺序比较两个抽象路径名</li>
+<li><code>boolean isHidden();</code>测试此抽象路径名指定的文件是否是一个隐藏文件。`</li>
+<li><code>boolean isFile();</code>测试此抽象路径名表示的文件是否是一个标准文件。`</li>
+<li><code>boolean isDirectory();</code>测试此抽象路径名表示的文件是否是一个目录。 </li>
+<li><code>boolean isAbsolute()</code>测试此抽象路径名是否为绝对路径名。</li>
+<li>注意:在判断文件的属性时一定要先判断文件或目录本身是否存在</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>获取</p>
+<ul>
+<li><p><code>String getName()</code>返回由此抽象路径名表示的文件或目录的名称。该名称是路径名名称序列中的最后一个名称。</p>
+</li>
+<li><p><code>String getPath()==toString()</code>将此抽象路径名转换为一个路径名字符串。</p>
+</li>
+<li><p><code>String getParent()</code>返回此抽象路径名父目录的路径名字符串；如果此路径名没有指定父目录，则返回 null。</p>
+</li>
+<li><p><code>String getAbsolutePath()</code>返回此抽象路径名的绝对路径名字符串。</p>
+</li>
+<li><p><code>long lastModified()</code>返回此抽象路径名表示的文件最后一次被修改的时间。 </p>
+</li>
+<li><p><code>long length()</code>返回由此抽象路径名表示的文件的长度。以字节为单位；</p>
+</li>
+<li><p><code>static File[] listRoots();</code>列出可用的文件系统根。 </p>
+</li>
+<li><p><code>String[] list();</code>返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中的文件和目录。</p>
+</li>
+<li><p><code>String[] list(FilenameFilter filter);</code> 返回一个字符串数组，这些字符串指定此抽象路径名表示的目录中满足指定过滤器的文件和目录。</p>
+</li>
+<li><p><code>File[] listFiles()</code>返回一个抽象路径名数组</p>
+</li>
+<li><p><code>File[] listFiles(FilenameFilter filter)</code>返回抽象路径名数组，这些路径名表示此抽象路径名表示的目录中满足指定过滤器的文件和目录。</p>
+</li>
+</ul>
+</li>
+<li><p>重命名</p>
+<ul>
+<li><code>boolean renameTo(File dest)</code>重新命名此抽象路径名表示的文件。这个操作还可以移动文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>列出指定目录下的所有内容(递归)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getLevel</span><span class="params">(<span class="keyword">int</span> level)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">	<span class="keyword">if</span>(level&gt;=<span class="number">1</span>) </span><br><span class="line">	&#123;</span><br><span class="line">		sb.append(<span class="string">"|--"</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;level-<span class="number">1</span>;i++)</span><br><span class="line">			sb.insert(<span class="number">0</span>, <span class="string">"   "</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归实现列出指定目录下所有内容</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">practise3</span><span class="params">(File file,<span class="keyword">int</span> level)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	level++;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(getLevel(level)+file2);</span><br><span class="line">			practise3(file2,level);</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(getLevel(level)+ file2);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归实现删除指定目录下所有内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeDirOrFile</span><span class="params">(File file)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			removeDirOrFile(file2);</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(file2.toString()+<span class="string">"::"</span>+file2.delete());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(file.toString()+<span class="string">"::"</span>+file.delete());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建清单文件列表</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fileToList</span><span class="params">(File file,List&lt;File&gt; list)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	File [] files = file.listFiles();</span><br><span class="line">	<span class="keyword">if</span>(files !=<span class="keyword">null</span>)</span><br><span class="line">	<span class="keyword">for</span>(File file2: files) </span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(file2.isDirectory()) </span><br><span class="line">		&#123;</span><br><span class="line">			fileToList(file2,list);</span><br><span class="line">			</span><br><span class="line">		&#125;<span class="keyword">else</span> </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(file2.getName().endsWith(<span class="string">".py"</span>)) </span><br><span class="line">			&#123;</span><br><span class="line">				list.add(file2);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Properties对象</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>public class Properties extends Hashtable&lt;Object,Object&gt;</li>
+<li>Properties 类表示了一个持久的属性集。Properties 可保存在流中或从流中加载。<br>属性列表中每个键及其对应值都是一个字符串。 此类是线程安全的：多个线程可以共享单个 Properties 对象而无需进行外部同步。</li>
+<li>在properties的配置文件中#代表单行注释信息</li>
+</ul>
+</li>
+<li><p>构造函数和方法</p>
+<ul>
+<li><code>Properties()</code>创建一个无默认值的空属性列表。</li>
+<li><code>void list(PrintStream out)</code>将属性列表输出到指定的输出流。 </li>
+<li><code>void list(PrintWriter out)</code>将属性列表输出到指定的输出流。</li>
+<li><code>void load(InputStream inStream)throws IOException</code>从输入流中读取属性列表（键和元素对）。</li>
+<li><code>void load(Reader reader)throws IOException</code>按简单的面向行的格式从输入字符流中读取属性列表（键和元素对）。jdk1.6</li>
+<li><code>Set&lt;String&gt; stringPropertyNames()</code>返回此属性列表中的键集</li>
+<li><code>void store(Writer writer,String comments) throws IOException</code>将此 Properties 表中的属性列表（键和元素对）写入输出字符。 </li>
+<li><code>void store(OutputStream out,String comments)throws IOException</code>将此 Properties 表中的属性列表（键和元素对）写入输出流。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>打印流(printStream/printWriter[构造函数字节字符流都可以])</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>为其他输出流添加了功能，使它们能够方便地打印各种数据值表示形式。可以指定<strong>自动刷新和编码集操作</strong></li>
+<li>print,printf，println等相关方法</li>
+</ul>
+</li>
+<li><p>PrintStream构造函数可接受的类型</p>
+<ul>
+<li>File</li>
+<li>字符串路径String</li>
+<li><strong>字节输出流OutputStream</strong></li>
+</ul>
+</li>
+<li><p>PrintWriter构造函数可接受的类型</p>
+<ul>
+<li>File</li>
+<li>字符串路径String</li>
+<li><strong>字节输出流OutputStream</strong></li>
+<li><strong>字符输出流Writer</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>序列流(合并字节输入流)</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>SequenceInputStream 表示其他输入流的逻辑串联。</li>
+<li>它从输入流的有序集合开始，并从第一个输入流开始读取，直到到达文件末尾，接着从第二个输入流读取，依次类推，直到到达包含的最后一个输入流的文件末尾为止。 </li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>SequenceInputStream(InputStream s1,InputStream s2);</code></li>
+<li><code>SequenceInputStream(Enumeration&lt;? extends InputStream&gt; e)</code>通过枚举参数来初始化新创建的 SequenceInputStream。</li>
+</ul>
+</li>
+<li><p>Java并未提供切割文件保存的方式,可以自己实现</p>
+</li>
+</ul>
+</li>
+<li><p>对象流</p>
+<ul>
+<li><p>对象的本地序列化</p>
+<ul>
+<li>操作的对象必须实现java.io.Serializable接口</li>
+<li>只能序列化堆中的内容,并不能序列化静态,如果不想被序列化  可以加上transient(瞬时)</li>
+<li>一般存成的序列化文件为xxx.object</li>
+</ul>
+</li>
+<li><p>ObjectInputStream</p>
+<ul>
+<li><code>ObjectInputStream(InputStream in)throws IOException</code></li>
+<li><code>Object readObject()throws IOException,ClassNotFoundException</code>从 ObjectInputStream 读取对象。一次读一个对象</li>
+</ul>
+</li>
+<li><p>ObjectOutputStream</p>
+<ul>
+<li><code>ObjectOutputStream(OutputStream out)throws IOException</code></li>
+<li><code>final void writeObject(Object obj)throws IOException</code>将指定的对象写入 ObjectOutputStream。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>管道流(用于多线程中)</p>
+<ul>
+<li><p>PipedInputStream/PipedOutputStream(有对应的Reader/Writer的类),输入输出直接对接在一起,结合线程使用,因为如果单线程使用会导致死锁的发生。</p>
+</li>
+<li><p>管道输入流应该连接到管道输出流；管道输入流提供要写入管道输出流的所有数据字节。</p>
+<p>通常，数据由某个线程从 PipedInputStream 对象读取，并由其他线程将其写入到相应的 PipedOutputStream。</p>
+</li>
+<li><p>用途:多线程之间进行通信</p>
+</li>
+<li><p>PipedInputStream</p>
+<ul>
+<li>构造方法和普通方法<ul>
+<li><code>public PipedInputStream()</code>创建尚未连接的 PipedInputStream。</li>
+<li><code>public PipedInputStream(PipedOutputStream src)</code>创建 PipedInputStream，使其连接到管道输出流 src。</li>
+<li><code>public void connect(PipedOutputStream src)</code>使此管道输入流连接到管道输出流 src。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>PipedOutputStream</p>
+<ul>
+<li>构造方法和普通方法<ul>
+<li><code>public PipedOutputStream()</code>创建尚未连接到管道输入流的管道输出流。</li>
+<li><code>public PipedOutputStream(PipedInputStream snk)</code>创建连接到指定管道输入流的管道输出流。</li>
+<li><code>public void connect(PipedInputStream snk)</code>将此管道输出流连接到接收者。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>随机读写文件( RandomAccessFile)</p>
+<ul>
+<li><p>简介</p>
+<ul>
+<li>只继承Object和其他流不同</li>
+<li>内部封装字节流,文件中提供字节指针来进行随机访问</li>
+<li>可以读和写</li>
+</ul>
+</li>
+<li><p>构造方法</p>
+<ul>
+<li><code>RandomAccessFile(File file,String mode);</code></li>
+<li><code>RandomAccessFile(String name,String mode);</code></li>
+<li>mode解释<ul>
+<li>“r” 以只读方式打开。调用结果对象的任何 write 方法都将导致抛出 IOException。  文件不存在会抛出异常</li>
+<li>“rw” 打开以便读取和写入。如果该文件尚不存在，则尝试创建该文件。 文件存在则使用和输出流不同 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>常用方法</p>
+<ul>
+<li><code>void seek(long pos)</code>设置到此文件开头测量到的文件指针偏移量，在该位置发生下一个读取或写入操作。–任意跳</li>
+<li><code>int skipBytes(int n)</code>尝试跳过输入的 n 个字节以丢弃跳过的字节。 –只能向后跳</li>
+<li>有各种类型的write/read方法</li>
+</ul>
+</li>
+<li><p>用途</p>
+<ul>
+<li>实现数据的多线程分段下载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作基本数据类型的流(DataInputStream/DataOutputStream)</p>
+<ul>
+<li><p>将流和基本数据类型结合在一起</p>
+</li>
+<li><p>DataInputStream</p>
+<ul>
+<li><code>public DataInputStream(InputStream in)</code>使用指定的底层 InputStream 创建一个 DataInputStream。 </li>
+<li><code>public readXXX();</code></li>
+<li><code>static final String readUTF(DataInput in)</code>从流 in 中读取用 UTF-8 修改版格式编码的 Unicode 字符格式的字符串；( UTF-8 修改版和UTF-8不一样)</li>
+</ul>
+</li>
+<li><p>​    DataOutputStream</p>
+<ul>
+<li><code>public DataOutputStream(OutputStream out)</code>创建一个新的数据输出流，将数据写入指定基础输出流。</li>
+<li><code>final void writeUTF(String str)</code>以与机器无关方式使用 UTF-8 修改版编码将一个字符串写入基础输出流。 ( UTF-8 修改版和UTF-8不一样)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作数组(字节/字符)/字符串的对象—先从硬盘读取数据到内存(再从内存读取数据将数据写到自定义的内存数组中)</p>
+<ul>
+<li><p>ByteArrayInputStream/ByteArrayOutputStream</p>
+<ul>
+<li>ByteArrayInputStream<ul>
+<li>ByteArrayInputStream 包含一个内部缓冲区，该缓冲区包含从流中读取的字节。内部计数器跟踪 read 方法要提供的下一个字节。 关闭 ByteArrayInputStream 无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何 IOException。(因为操作的是内存和文件毫无关系) </li>
+<li><code>public ByteArrayInputStream(byte[] buf)</code>创建一个 ByteArrayInputStream，使用 buf 作为其缓冲区数组。</li>
+</ul>
+</li>
+<li>ByteArrayOutputStream<ul>
+<li>此类实现了一个输出流，其中的数据被写入一个 byte 数组。缓冲区会随着数据的不断写入而自动增长。可使用 toByteArray() 和 toString() 获取数据。 关闭此流无效。此类中的方法在关闭此流后仍可被调用，而不会产生任何 IOException。</li>
+<li><code>public ByteArrayOutputStream()</code>创建一个新的 byte 数组输出流。缓冲区的容量最初是 32 字节，如有必要可增加其大小。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>操作字符数组的对象CharArrayInputStream/CharArrayOutputStream</p>
+</li>
+<li><p>操作字符串的对象StringReader/StringWriter</p>
+</li>
+<li><p>和操作字节数组的对象基本一样</p>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/17/JavaIo/" data-id="ck7eqa13f0001rkub5ado8mgv" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-JavaString" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/15/JavaString/" class="article-date">
+  <time class="post-time" datetime="2020-02-15T14:47:52.345Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">15</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/15/JavaString/">JavaString</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h2><h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h3><p>public final class String<br>      extends Object<br>      implements Serializable, Comparable<String>, CharSequence</p>
+<ol>
+<li>一旦被初始化就不能改变</li>
+<li>String s1 = “abc”;和String s2 = new String(“abc”);区别<ul>
+<li>前者只创建一个对象,后者创建两个对象</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-常用方法"><a href="#2-常用方法" class="headerlink" title="2.常用方法"></a>2.常用方法</h3><ol>
+<li><p>获取</p>
+<p>1.1 字符串长度</p>
+<ul>
+<li><code>int length();</code></li>
+</ul>
+<p>1.2 根据位置获取字符</p>
+<ul>
+<li><code>char charAt(int index);</code></li>
+</ul>
+<p>1.3 根据字符/字符串获取第一个位置</p>
+<ul>
+<li><pre><code class="java">                      <span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(<span class="keyword">int</span> ch)</span></span>;
+                       <span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(<span class="keyword">int</span> ch,<span class="keyword">int</span> fromIndex)</span></span>;
+                        <span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str)</span></span>;
+                        <span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str,<span class="keyword">int</span> fromIndex)</span></span>;
+                        <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(<span class="keyword">int</span> ch)</span></span>;
+                       <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(<span class="keyword">int</span> ch,<span class="keyword">int</span> fromIndex)</span></span>;
+                       <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str)</span></span>;
+                       <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str,<span class="keyword">int</span> fromIndex)</span></span>;
+&lt;!--￼<span class="number">0</span>--&gt;
+
+
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p>   3.2 将基本数据类型和char[]转换成字符串</p>
+<ul>
+<li><code>static String valueOf(dateType data);</code></li>
+</ul>
+<p>   3.3 将字符串转换为字符数组</p>
+<ul>
+<li><code>char[] toCharArray();</code></li>
+</ul>
+<p>   3.4 字节数组转换为字符串</p>
+<ul>
+<li><code>String(byte[] bytes);</code></li>
+<li><code>String(byte[] bytes, int offset, int length);</code></li>
+</ul>
+<p>   3.5 字符串转换成字节数组</p>
+<ul>
+<li><code>byte[] getBytes();</code></li>
+</ul>
+<p>   3.6 把字符串转换成大写/小写</p>
+<ul>
+<li><code>String toLowerCase();</code></li>
+<li><code>String toUpperCase();</code></li>
+</ul>
+<ul>
+<li>特殊之处:字符串和字节数组转换过程中,可以指定编码表,所以在处理编码问题时可以以此来进行转换。</li>
+</ul>
+<ol start="4">
+<li><p>替换</p>
+<ul>
+<li><code>String replace(char oldChar,char newChar);</code></li>
+<li><code>String replace(CharSequence target,CharSequence replacement);</code></li>
+</ul>
+</li>
+<li><p>切割</p>
+<ul>
+<li><code>String[] split(String regex);</code></li>
+</ul>
+</li>
+<li><p>子串</p>
+<ul>
+<li><code>String substring(int beginIndex);</code></li>
+<li><code>String substring(int beginIndex,int endIndex);</code></li>
+</ul>
+</li>
+<li><p>去除空格,比较</p>
+<ul>
+<li><p><code>String trim();</code>–忽略前导空白和尾部空白</p>
+</li>
+<li><p><code>int compareTo(String anotherString);</code></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-StringBuffer-缓冲区容器对象-jdk1-0"><a href="#3-StringBuffer-缓冲区容器对象-jdk1-0" class="headerlink" title="3.StringBuffer(缓冲区容器对象):jdk1.0"></a>3.StringBuffer(缓冲区容器对象):jdk1.0</h3><ol>
+<li><p>简介</p>
+<ul>
+<li><p>public final class StringBuffer</p>
+<ul>
+<li>extends Object<ul>
+<li>implements Serializable, CharSequence</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>线程安全的可变字符序列。</p>
+</li>
+<li><p>本身是一个容器，创建以后始终只有一个容器对象,本身并不会新建容器对象。</p>
+</li>
+</ul>
+</li>
+<li><p>常用构造方法</p>
+<ul>
+<li>StringBuffer()<br>构造一个其中不带字符的字符串缓冲区，其初始容量为 16 个字符。</li>
+<li>StringBuffer(String str);</li>
+</ul>
+</li>
+</ol>
+<p>3.常用方法</p>
+<ol>
+<li><p>存储</p>
+<ul>
+<li><code>StringBuffer append(dataType data);</code></li>
+<li><code>StringBuffer insert(int offset,dataType data);</code></li>
+</ul>
+</li>
+<li><p>删除</p>
+<ul>
+<li><code>StringBuffer delete(int start,int end);</code></li>
+<li><code>StringBuffer deleteCharAt(int index);</code></li>
+</ul>
+</li>
+<li><p>获取</p>
+<ul>
+<li><pre><code class="java"><span class="function"><span class="keyword">char</span> <span class="title">charAt</span><span class="params">(<span class="keyword">int</span> index)</span></span>;
+<span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">()</span></span>;
+<span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str)</span></span>;
+ <span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str,<span class="keyword">int</span> fromIndex)</span></span>;
+ <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str)</span></span>;
+ <span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str,<span class="keyword">int</span> fromIndex)</span></span>;
+<span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> start)</span></span>;
+ <span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span>;
+ <span class="function"><span class="keyword">void</span> <span class="title">getChars</span><span class="params">(<span class="keyword">int</span> srcBegin,<span class="keyword">int</span> srcEnd,<span class="keyword">char</span>[] dst,<span class="keyword">int</span> dstBegin)</span></span>;</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="4">
+<li><p>修改</p>
+<ul>
+<li><code>void setCharAt(int index,char ch);</code></li>
+<li><code>StringBuffer replace(int start,int end, String str);</code></li>
+</ul>
+</li>
+<li><p>反转</p>
+<ul>
+<li><code>StringBuffer reverse();</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="4-StringBuilder-jdk1-5"><a href="#4-StringBuilder-jdk1-5" class="headerlink" title="4.StringBuilder  jdk1.5"></a>4.StringBuilder  jdk1.5</h3><ol>
+<li><p>简介</p>
+<ul>
+<li><p>public final class StringBuilder</p>
+<ul>
+<li>extends Object<ul>
+<li>implements Serializable, CharSequence</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>一个可变的字符序列。该类被设计用作 StringBuffer 的一个简易替换,不保证同步。单线程时效率高。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-Java在升级时的三个要素"><a href="#5-Java在升级时的三个要素" class="headerlink" title="5.  Java在升级时的三个要素"></a>5.  Java在升级时的三个要素</h3><ol>
+<li>提高效率(StringBuilder)</li>
+<li>简化书写(泛型)</li>
+<li>提高安全性 </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/15/JavaString/" data-id="ck7eqa13k0006rkub65ix7k5i" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-eclipse常用快捷键" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/14/eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="article-date">
+  <time class="post-time" datetime="2020-02-14T14:08:02.403Z" itemprop="datePublished">
+    <span class="post-month">2月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/14/eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">eclipse常用快捷键</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/eclipse/">eclipse</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>ctrl+o:提供类中域和方法的outline</li>
+<li>crtl+shift+t:提供搜索的视窗</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/14/eclipse%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" data-id="ck7eqa14g001hrkub75ox958w" class="article-share-link">分享</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/" rel="tag">eclipse</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-Java继承" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -112,7 +1773,7 @@
 <li><p>注意事项</p>
 <ol>
 <li>子类覆盖父类方法保证权限大于等于父类</li>
-<li><strong>静态方法只能被静态方法覆盖</strong></li>
+<li><strong>静态方法只能被静态方法隐藏</strong></li>
 </ol>
 </li>
 <li><p>重写和重载的区别</p>
@@ -182,7 +1843,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/12/Java%E7%BB%A7%E6%89%BF/" data-id="ck6ksz7zk0009nwubh9tke230" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/12/Java%E7%BB%A7%E6%89%BF/" data-id="ck7eqa14d001arkubag1k0ggq" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -196,1066 +1857,11 @@
 
 
   
-    <article id="post-Java对象" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time class="post-time" datetime="2020-02-09T03:21:34.076Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">09</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/09/Java%E5%AF%B9%E8%B1%A1/">Java对象</a>
-    </h1>
-  
 
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
 
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-一些细节知识点"><a href="#1-一些细节知识点" class="headerlink" title="1. 一些细节知识点"></a>1. 一些细节知识点</h2><ul>
-<li><p>堆内存中都有默认初始化值</p>
-</li>
-<li><p>成员变量和局部变量的区别</p>
-<ul>
-<li>存储位置不同,成员变量在堆内存,局部变量在栈内存</li>
-<li>作用域不同</li>
-</ul>
-</li>
-<li><p>if-else与三元运算符的区别</p>
-</li>
-<li><p>三元运算符一定会有一个返回值,但if-else不需要</p>
-</li>
-<li><p>第三块内存区域(方法区/数据区/共享区)</p>
-<ul>
-<li>用于存放方法代码和static成员变量</li>
-</ul>
-</li>
-<li><p>构造代码块{}</p>
-<ul>
-<li>作用:给对象进行统一初始化,优先于构造函数执行</li>
-</ul>
-</li>
-<li><p>和构造函数的区别:构造代码块是给所有对象进行统一初始化,而构造函数是给对应的对象进行初始化</p>
-</li>
-<li><p>静态代码块static{}</p>
-<ul>
-<li>作用:给类进行初始化</li>
-<li>注意:只有使用到类中的内容才进行类的加载，dataType d = null可不会进行类的加载</li>
-<li>随着类的加载而执行且<strong>只执行一次</strong></li>
-</ul>
-</li>
-<li><p>静态的使用注意</p>
-<ul>
-<li><p>随着类的加载而加载,随着类的消失而消失</p>
-</li>
-<li><p>静态成员是用于对所有对象<strong>共享</strong>的数据进行存储</p>
-</li>
-<li><p>静态成员生命周期过长,不要定义过多的静态变量</p>
-</li>
-<li><p>静态函数中不能使用this,super关键字</p>
-</li>
-</ul>
-</li>
-<li><p>什么时候定义静态函数?</p>
-<ul>
-<li>当功能内部没有访问到非静态数据,那么该功能可以定义成静态的</li>
-</ul>
-</li>
-<li><p>由系统生成的默认空参构造函数的权限</p>
-<ul>
-<li>一个类中默认会有一个空参构造函数,这个构造函数的权限和所属类的权限相同(public/default)</li>
-</ul>
-</li>
-<li><p>封装(Encapsulation)</p>
-<ul>
-<li><p>好处</p>
-<ul>
-<li>内部变化不会显式出现</li>
-<li>便于使用</li>
-<li>提高重用性</li>
-<li>提高安全性</li>
-</ul>
-</li>
-<li><p>注意:private仅仅是封装的一种的表现形式,不要认为封装就是private</p>
-</li>
-</ul>
-</li>
-<li><p>this关键字</p>
-<ul>
-<li>代表一个调用本函数的本类对象,可以用于构造函数之间互相调用</li>
-<li>this语句(就是指构造函数之间互相调用)必须放在构造函数的第一行(只能调用一次),因为初始化动作要最先发生,且只有一次。</li>
-</ul>
-</li>
-<li><p>eclipse传入命令行参数方法</p>
-<ul>
-<li>Run as按钮下有Run Configurations可以配置</li>
-</ul>
-</li>
-<li><p>对象的加载过程(无继承)</p>
-<ul>
-<li>加载类(加载方法区的方法代码和静态成员)-&gt;执行静态成员默认初始化-&gt;执行静态成员显式初始化-&gt;static代码块执行-&gt;堆中开辟对象空间-&gt;执行成员变量默认初始化-&gt;执行成员变量显式初始化-&gt;执行构造代码块-&gt;执行对应的构造函数-&gt;将内存地址返回</li>
-</ul>
-</li>
-<li><p>枚举类型(enum)</p>
-<ul>
-<li>定义:<code>enum Result{SUCCESS,FAIL;}</code></li>
-<li>默认继承java.lang.Enum类实现Comparable和Serializable接口,里面定义的都是实例对象且为public static final</li>
-<li>判断枚举类型相等可以直接用==</li>
-<li>java.lang.Enum类有一些方法可以直接用</li>
-</ul>
-</li>
-<li><p>常用修饰符</p>
-<ul>
-<li>public static final void </li>
-</ul>
-</li>
-<li><p>继承的小知识</p>
-<ul>
-<li>对父类私有的方法不视为重写,因为对子类不可见</li>
-</ul>
-</li>
-</ul>
-<h2 id="2-包与访问权限"><a href="#2-包与访问权限" class="headerlink" title="2.包与访问权限"></a>2.包与访问权限</h2><ul>
-<li><p>Java中有四种访问权限(public/protected/default/private)</p>
-<p><img src="D:%5Cblog%5Csource%5Casset%5Cjava%E7%9A%84%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90.jpg" alt="Java访问权限"></p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/09/Java%E5%AF%B9%E8%B1%A1/" data-id="ck6ksz7zh0004nwubesgncx7f" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-JavaWeb01" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/08/JavaWeb01/" class="article-date">
-  <time class="post-time" datetime="2020-02-08T14:01:13.223Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">08</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/08/JavaWeb01/">JavaWeb01</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaWeb/">JavaWeb</a>,<a class="article-category-link" href="/categories/JavaWeb/JavaWeb%E5%AD%98%E7%96%91/">JavaWeb存疑</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-tomcat端口更改"><a href="#1-tomcat端口更改" class="headerlink" title="1.tomcat端口更改"></a>1.tomcat端口更改</h2><p>tomcat默认端口为8080,在conf/server.xml中70行左右connector标签的port值修改</p>
-<h2 id="2-状态码"><a href="#2-状态码" class="headerlink" title="2.状态码"></a>2.状态码</h2><p>200:一切正常<br>3xx:重定向<br>403:权限问题<br>404:资源不存在<br>4xx:客户端错误<br>5xx:服务器端错误<br>500:服务器端错误</p>
-<h2 id="3-把项目放到其他路径配置"><a href="#3-把项目放到其他路径配置" class="headerlink" title="3.把项目放到其他路径配置"></a>3.把项目放到其他路径配置</h2><p>1.在conf/server.xml的Host标签中配置<br><code>&lt;Context docBase = &quot;表示实际转定位到的路径&quot; path = &quot;表示网页要访问的路径&quot; /&gt;</code><br>path:可以写相对(相对于webapps因为Host在localhost中首先找的就是webapps),写绝对也没事<br>例如 /jspTest<br>docBase:表示实际转定位到的路径<br>D:\apache-tomcat-8.5.50\jspTest<br>写完重启服务器<br>另一种方法<br>2.conf\Catalina\localhost  新建项目名.xml文件<br>在里面写<code>&lt;Context docBase = &quot;实际项目路径&quot;/&gt;</code><br>就行</p>
-<h2 id="4-其他的细节"><a href="#4-其他的细节" class="headerlink" title="4.其他的细节"></a>4.其他的细节</h2><ol>
-<li><p>浏览器可以直接访问WebContent中的文件<br>但是其中WEB-INF中的文件无法通过客户端直接进行访问,可以通过请求转发来访问</p>
-</li>
-<li><p>Jsp中的编码问题</p>
-<ol>
-<li><p>pageEncoding:<code>&lt;%@ page pageEncoding=&quot;UTF-8&quot;%&gt;</code></p>
-<p>jsp页面编码: jsp文件本身的编码 </p>
-</li>
-<li><p>contentType: <code>&lt;%@ page contentType=&quot;text/html; charset=UTF-8&quot;%&gt;</code></p>
-<p>web页面显示编码:jsp的输出流在浏览器中显示的编码 </p>
-</li>
-<li><p>html页面charset:<code>&lt;META http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;</code></p>
-<p>web页面输入编码: 输入框输入的字体编码  {这个编码存疑,测试不出}</p>
-</li>
-</ol>
-</li>
-<li><p>重定向与请求转发的区别</p>
-<ul>
-<li>重定向地址栏改变,转发不改变</li>
-<li>请求转发保留第一次请求时的数据,而重定向不会</li>
-<li>重定向请求2次响应2次,转发请求1次响应1次</li>
-<li>转发在服务器端跳转,重定向在客户端跳转</li>
-</ul>
-</li>
-</ol>
-<h2 id="5-jSP的页面元素"><a href="#5-jSP的页面元素" class="headerlink" title="5.jSP的页面元素"></a>5.jSP的页面元素</h2><ol>
-<li><p>jsp脚本标识</p>
-<ul>
-<li>&lt;%  局部变量/Java语句   %&gt;–JSP表达式</li>
-<li>&lt;%!  成员变量/成员方法  %&gt;–声明标识</li>
-<li>&lt;%= 变量/有返回值的函数或表达式%&gt;不用分号,会调用对象的toString方法–脚本程序</li>
-</ul>
-</li>
-<li><p>jsp指令标识(&lt;%@指令名称 属性1=”” 属性2=””%&gt;)</p>
-<ul>
-<li>page指令(页面指令)<ul>
-<li>&lt;%@ page language=”java” contentType=”text/html; charset=UTF-8”  pageEncoding=”UTF-8” import=”java.util.Date”%&gt;</li>
-<li>主要是import指令引入java类,多个包之间用,分隔</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>注释</p>
-<ul>
-<li>Html注释<!-- --></li>
-<li>jsp注释:&lt;%– –%&gt;</li>
-<li>java程序中的注释</li>
-<li>其中第2,3不会被用户在浏览器中查看源码时看见</li>
-</ul>
-</li>
-</ol>
-<h2 id="九大内置对象"><a href="#九大内置对象" class="headerlink" title="九大内置对象"></a>九大内置对象</h2><ol>
-<li><p>out –输出流</p>
-</li>
-<li><p>request –请求对象,客户端向服务器端发送的请求</p>
-<ul>
-<li><p>常用方法</p>
-<ul>
-<li><p>String getParameter(String name)</p>
-</li>
-<li><p>String[]getParameterValues(String name):根据name,返回多个值[用于多选框]</p>
-</li>
-<li><p>void setCharacterEncoding(String name):设置post请求编码(如果不设置服务器会使用默认的,如果是tomcat7以前是iso-885901,8及以后都是utf-8)</p>
-</li>
-<li><p>getRequestDispatcher(String pagePath).forward(request.response);:请求转发</p>
-</li>
-<li><p>getServletContext();:获取项目的ServletContext对象</p>
-</li>
-<li><p>用get/post方式提交的乱码解决问题方式</p>
-<ul>
-<li><p>get:</p>
-<ol>
-<li><p>统一乱码变量的编码(不推荐)</p>
-<ul>
-<li>改变字符串变量的编码方式</li>
-<li>new String(str.getBytes(“旧编码”),”新编码”);</li>
-</ul>
-</li>
-<li><p>修改server.xml,一次性修改tomcat默认get提交方式的编码</p>
-<ul>
-<li>在修改端口的标签中加入URIEncoding = “所需编码”</li>
-</ul>
-</li>
-</ol>
-</li>
-<li><p>post:</p>
-<ol>
-<li>request.setCharacterEncoding(“所需编码”)</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>response:响应对象</p>
-<ul>
-<li>常用方法<ul>
-<li>void addCookie(Cookie cookie):服务端向客户端增加Cookie对象</li>
-<li>void sendRedirect(String path)[throws IOException]:页面重定向</li>
-<li>void setContentType(String type):设置相应类型和编码</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Cookie(客户端,不是内置对象)伪</p>
-<ul>
-<li><p>Cookie是服务端生成的,在发给客户端保存,包含键值对[java.servlet.http.Cookie]</p>
-</li>
-<li><p>常用方法</p>
-<ul>
-<li>public Cookie(String name,String value);</li>
-<li>String getName();</li>
-<li>String getValue();</li>
-<li>void setMaxAge(int expiry);最大有效期</li>
-</ul>
-</li>
-<li><p>服务端准备客户端Cookie,重定向/转发时返回客户端时添加</p>
-<ul>
-<li>response.addCookie(Cookie cookie);</li>
-</ul>
-</li>
-<li><p>客户端获取Cookie:</p>
-<ul>
-<li>request.getCookies();—没有拿特定Cookie的方法</li>
-</ul>
-</li>
-<li><p>服务端会自动产生一个名称为JSEESSIONID的Cookie</p>
-</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/08/JavaWeb01/" data-id="ck6ksz7zg0003nwub8zur77z6" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb%E5%AD%98%E7%96%91/" rel="tag">JavaWeb存疑</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java集合" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/04/Java%E9%9B%86%E5%90%88/" class="article-date">
-  <time class="post-time" datetime="2020-02-04T08:47:35.840Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">04</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/04/Java%E9%9B%86%E5%90%88/">Java集合</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
-<li><p>既然有数组了为什么还要有集合</p>
-<p>答:因为数组定长且只能存储一种类型的数据</p>
-</li>
-<li><p>为什么会有这么多的容器</p>
-<p>答:内部的数据存储结构不同</p>
-</li>
-</ol>
-<h2 id="集合继承实现图"><a href="#集合继承实现图" class="headerlink" title="集合继承实现图"></a>集合继承实现图</h2><p><img src="D:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg" alt="集合" title="集合"></p>
-<h2 id="Collection接口"><a href="#Collection接口" class="headerlink" title="Collection接口"></a>Collection接口</h2><ul>
-<li>List和Set接口的父接口</li>
-<li>List和Set接口的区别<ul>
-<li>List:元素可以重复,有索引</li>
-<li>Set:元素无序且不能重复</li>
-<li>此处指的顺序是指存入和取出顺序不同</li>
-</ul>
-</li>
-<li>要记得特有方法<ul>
-<li><code>obj.isEmpty();</code></li>
-<li><code>obj.size();</code></li>
-<li><code>obj.contains(Object o);</code></li>
-<li><code>obj.retainAll(Collection&lt;?&gt; c)</code>:求交集并改变调用的集合</li>
-<li><code>obj.add(E e)</code></li>
-<li><code>obj.remove(Object o)</code></li>
-</ul>
-</li>
-<li>迭代器(Iterator接口)<ul>
-<li><code>Iterator obj.iterator();</code></li>
-<li>每一个容器中都定义了一个迭代器用于操作容器本身</li>
-</ul>
-</li>
-</ul>
-<h2 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h2><ul>
-<li><p>集合的常用方法</p>
-<ul>
-<li>增:add(）    </li>
-<li>删:remove()</li>
-<li>改:set()</li>
-<li>查:get(),subList()[对其操作会反馈到原集合],ListIterator()</li>
-<li>获取下标:indexOf()</li>
-</ul>
-</li>
-<li><p>List集合中引入了ListIterator迭代器</p>
-<ul>
-<li>因为原来的Iterator接口只提供了remove和next两种操作,为了避免并发修改异常在该迭代器中提供了增删改查操作,以及与next相反的previous操作</li>
-<li>java.util.ConcurrentModificationException 并发修改异常 出现在使用迭代器的next的同时使用了集合的修改方法引发的异常</li>
-</ul>
-</li>
-<li><p>引出的子类对象</p>
-<ul>
-<li><p>ArrayList:数组结构,查找快增删慢,jdk1.2出现用于替代Vector,空间增长为50%增长,线程不同步</p>
-</li>
-<li><p>LinkedList:链表结构,查找慢,增删快,线程不同步</p>
-<ul>
-<li>特有方法(First/Last)<ul>
-<li>removeFirst/Last()[集合为空会出异常] —–pollFirst/Last()[jdk1.6]集合为空返回null</li>
-<li>addFirst/Last()void —–offerFirst/Last()[jdk1.6]Boolean</li>
-<li>getFirst/Last()[集合为空会出异常]  —–peekFirst/Last()[jdk1.6]集合为空返回null</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Vector:数组结构,jdk1.0出现,线程同步,空间100%增长</p>
-<ul>
-<li>特有方法(Element)<ul>
-<li><code>Enumeration obj.elements();</code></li>
-<li>Enumeration 枚举类型 其实就是Iterator前身,用法相同</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>判断元素是否相同根据equals方法来确定</p>
-</li>
-</ul>
-<h2 id="Set接口"><a href="#Set接口" class="headerlink" title="Set接口"></a>Set接口</h2><ul>
-<li><p>基本方法于Collection接口相同</p>
-</li>
-<li><p>引出的子类对象</p>
-<ul>
-<li>HashSet:哈希表结构,线程不同步,避免哈希冲突的方式类似于链地址法<ul>
-<li>存储时先比较hashCode方法值是否相同,不同则存储,相同则比较equals判断,如果仍然相同,认为是统一对象,否则在hachCode值存储的位置下扩展链。</li>
-<li>比较对象是否相同先比较hashCode再比较equals,只有两者都相同才认为两对象相等。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>TreeSet:红黑树结构(属于二叉排序树),线程不同步,有两种比较方式</p>
-<ul>
-<li>存储类实现java.lang.Comparable接口,实现compareTo方法,称为自然顺序,很多类都实现了(String,Integer)</li>
-<li>构造器类实现java.util.Comparator接口,实现compare方法,称为构造器,将构造器传入集合构造方法,实现排序</li>
-<li>如果上述两种方式都实现了以构造器为主</li>
-<li>TreeSet标识元素相等的条件为compareTo方法或者compare方法的返回值(0)</li>
-</ul>
-</li>
-</ul>
-<h2 id="Java泛型-jdk1-5"><a href="#Java泛型-jdk1-5" class="headerlink" title="Java泛型(jdk1.5)"></a>Java泛型(jdk1.5)</h2><ul>
-<li>虽然集合可以存储任意对象带来了方便,但是因为类型不明确导致强制类型转换操作过多,且代码不明确,引入了泛型,泛型只能用于引用数据类型</li>
-<li><code>ArrayList &lt;String&gt; list = new ArrayList&lt;String&gt;();</code></li>
-<li>泛型可以定义在类上,方法上,接口上</li>
-<li>注意:在静态方法中是不能访问定义在类上的泛型的,因为只有在定义对象时才能确定类上的泛型,而在此之前静态方法已经出现</li>
-<li><code>this.&lt;String&gt;show();</code></li>
-<li>调用定义了泛型的方法为:在方法名前加&lt;具体数据类型&gt;,但是可以通过形式参数来推断,所以大多数时候可以省略</li>
-<li>&lt;?&gt;代表任意类型,?代表统配符,之后又提出了泛型限定&lt;? extends E&gt;,&lt;? super E&gt;,前者在Collection中有应用,后者在Comparator接口中有应用。泛型限定用于对？的功能进行进一步的限定。</li>
-<li><code>ArrayList &lt;Object&gt; list = new ArrayList&lt;String&gt;();</code></li>
-<li>上面这样的代码会出错,泛型并不支持这种多态,这样会导致声明为String的列表中有可能会存放其他Object的子类对象造成类型转换异常。</li>
-</ul>
-<h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><ul>
-<li><p>虽然Map接口并没有实现Collection接口但是仍然属于集合框架</p>
-</li>
-<li><p>Map&lt;K,V&gt;,用于存储键值对,其中键唯一,值不唯一</p>
-</li>
-<li><p>常用方法</p>
-<ul>
-<li><p>1.添加:</p>
-<ul>
-<li><code>V put(K key, V value)</code>:存相同的键会替代前键值对并返回原来的值,如果没有相同的键会返回null(与Set集合不同要注意)</li>
-</ul>
-</li>
-<li><p>2.删除</p>
-<ul>
-<li><p><code>clear()</code></p>
-</li>
-<li><p><code>remove(Object key)</code></p>
-</li>
-</ul>
-</li>
-<li><p>3.判断</p>
-<ul>
-<li><p><code>containsKey(Object key)</code></p>
-</li>
-<li><p><code>isEmpty()</code></p>
-</li>
-</ul>
-</li>
-<li><p>4.获取</p>
-<ul>
-<li><p><code>get(Object key)</code></p>
-</li>
-<li><p><code>size()</code></p>
-</li>
-<li><p><code>Set&lt;V&gt; values()</code>:获取值的Set集合</p>
-</li>
-<li><p>Map.Entry&lt;K, V&gt;[内部的静态接口] entrySet()</p>
-</li>
-<li><p><code>Set&lt;K&gt; keySet()</code></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>常用的子类(所用比较的方法都是对键操作,与Set集合类似)</p>
-</li>
-<li><p>Hashtable</p>
-<ul>
-<li>底层是哈希表,不能存入null键或null值 jdk1.0 线程同步 </li>
-</ul>
-</li>
-<li><p>HashMap</p>
-<ul>
-<li>底层也是哈希表,允许使用null键或null值 jdk1.2  线程不同步 效率高  </li>
-</ul>
-</li>
-<li><p>TreeMap</p>
-<ul>
-<li>底层二叉树排序树结构,线程不同步,给map集合中的键进行排序</li>
-</ul>
-</li>
-<li><p>Set底层就是用了Map的相关实现方法</p>
-</li>
-</ul>
-<h2 id="Utils接口"><a href="#Utils接口" class="headerlink" title="Utils接口"></a>Utils接口</h2><ul>
-<li><p>Collections类(里面全是静态方法)</p>
-<ul>
-<li><p>常用方法</p>
-</li>
-<li><p>排序</p>
-<ul>
-<li><code>&lt;T extends Comparable&lt;? super T&gt;&gt; void sort(List&lt;T&gt; list)</code></li>
-<li><code>void sort(List&lt;T&gt; list,Comparator&lt;? super T&gt; c)</code></li>
-</ul>
-</li>
-<li><p>最大最小</p>
-<ul>
-<li><code>&lt;T extends Object &amp; Comparable&lt;? super T&gt;&gt; T max(Collection&lt;? extends T&gt; coll)</code></li>
-<li><code>&lt;T&gt; T max(Collection&lt;? extends T&gt; coll,Comparator&lt;? super T&gt; comp)</code></li>
-<li>为什么只有List有比较和最大值/最小值  因为Set有TreeSet,Map有TreeMap且它们都有相对应的First/Last方法</li>
-</ul>
-</li>
-<li><p>查找</p>
-<ul>
-<li><code>int binarySearch(List&lt;? extends Comparable&lt;? super T&gt;&gt; list,T key)</code></li>
-<li><code>&lt;T&gt; int binarySearch(List&lt;? extends T&gt; list,T key,Comparator&lt;? super T&gt; c)</code></li>
-<li>为什么只有List有二分查找,因为只有它有脚标</li>
-</ul>
-</li>
-<li><p>填充/替换/反转/交换/随机排序</p>
-<ul>
-<li><code>&lt;T&gt; void fill(List&lt;? super T&gt; list,T obj)</code></li>
-<li><code>boolean replaceAll(List&lt;T&gt; list,T oldVal,T newVal)</code></li>
-<li><code>void reverse(List&lt;?&gt; list)</code></li>
-<li><code>void swap(List&lt;?&gt; list,int i,int j)</code></li>
-<li><code>void shuffle(List&lt;?&gt; list)</code></li>
-<li>如果要对列表的一部分填充的话可以用list中的subList对原列表进行填充</li>
-</ul>
-</li>
-<li><p>获取逆向的比较器</p>
-<ul>
-<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder()</code>:获取自然顺序逆序的比较器</li>
-<li><code>&lt;T&gt; Comparator&lt;T&gt; reverseOrder(Comparator&lt;T&gt; cmp)</code>:获取指定比较器的逆向比较器</li>
-</ul>
-</li>
-<li><p>获取线程同步的集合</p>
-<ul>
-<li><code>&lt;T&gt; List&lt;T&gt; synchronizedList(List&lt;T&gt; list)</code></li>
-<li><code>&lt;T&gt; Set&lt;T&gt; synchronizedSet(Set&lt;T&gt; s)</code></li>
-<li><code>&lt;K,V&gt; Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m)</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="数组与集合的转换"><a href="#数组与集合的转换" class="headerlink" title="数组与集合的转换"></a>数组与集合的转换</h2><ul>
-<li><p>Arrays类提供了许多数组操作的方法[数组转集合]</p>
-<ul>
-<li><code>&lt;T&gt; List &lt;T&gt; asList(T... a)</code>:数组转换为List集合,</li>
-</ul>
-</li>
-<li><p>原因在于可以方便去判断元素包含于集合[使用集合的方法来操作数组]</p>
-</li>
-<li><p>生成的集合是定长的且改变会反馈到数组</p>
-</li>
-<li><p>如果数组中的元素是基本数据类型,则会直接把数组本身存入到集合中</p>
-</li>
-<li><p>Collection类中的toArray方法[集合变数组]</p>
-<ul>
-<li><p><code>Object[] toArray()</code></p>
-</li>
-<li><p><code>&lt;T&gt; T[] toArray(T[] a)</code></p>
-</li>
-</ul>
-</li>
-<li><p><code>arrayList.toArray(new String[arrayList.size()])</code></p>
-<ul>
-<li><p>注意如果指定类型的数组长度小于集合的长度,那么方法内部会创建一个新的数组。长度为集合的长度</p>
-</li>
-<li><p>如果如果指定类型的数组长度大于集合的长度,那么方法内部会使用传入的数组。多余的空间设置为null</p>
-</li>
-<li><p>所以尽量指定一个大小刚好的数组,可以节省空间</p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="jdk1-5引入的新特性"><a href="#jdk1-5引入的新特性" class="headerlink" title="jdk1.5引入的新特性"></a>jdk1.5引入的新特性</h2><ol>
-<li><p>foreach循环</p>
-</li>
-<li><p>可变参数</p>
-<ul>
-<li>一个方法 可以有可变参数和普通参数，但是可变参数必须放到参数列表末尾；</li>
-<li>一个方法 有且只能有一个可变参数;</li>
-</ul>
-</li>
-<li><p>静态导入</p>
-<ul>
-<li><code>import static java.util.Arrays.*</code></li>
-<li>导入一个类/接口的静态成员，之后调用可以省略类名/接口名</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>如果出现重名的函数,则要恢复会原来的调用方式<ul>
-<li>主要用于对都是静态成员的工具类的引入,简化书写。比如Collections,Arrays</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6ksz7zm000enwub89td1qg2" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java异常" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/03/Java%E5%BC%82%E5%B8%B8/" class="article-date">
-  <time class="post-time" datetime="2020-02-03T05:21:47.473Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">03</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/03/Java%E5%BC%82%E5%B8%B8/">Java异常</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 注意事项</p>
-<ul>
-<li>try 代码后不能既没 catch 块也没 finally 块。</li>
-<li>子类继承的方法声明的异常不能比父类声明的异常更通用</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/03/Java%E5%BC%82%E5%B8%B8/" data-id="ck6ksz7zj0006nwubfcxb1nxy" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-算法笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="post-time" datetime="2020-02-02T13:22:36.586Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">02</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/">算法笔记</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-交换两个数的简写形式出现的问题"><a href="#1-交换两个数的简写形式出现的问题" class="headerlink" title="1.交换两个数的简写形式出现的问题"></a>1.交换两个数的简写形式出现的问题</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	arr[p] += arr[q];</span><br><span class="line">	arr[q] = arr[p] - arr[q];</span><br><span class="line">	arr[p] -= arr[q];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在写快速排序的时候使用发现出现了问题,在p==q时出错,因为你在改变arr[p]的同时也改变了arr[q]使得arr[p]变为了0。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确写法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (p == q)<span class="keyword">return</span>;</span><br><span class="line">	arr[p] += arr[q];</span><br><span class="line">	arr[q] = arr[p] - arr[q];</span><br><span class="line">	arr[p] -= arr[q];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" data-id="ck6ksz8060010nwubgi397uoj" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" rel="tag">算法笔记</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java日期" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/02/Java%E6%97%A5%E6%9C%9F/" class="article-date">
-  <time class="post-time" datetime="2020-02-02T09:27:50.930Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">02</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/02/Java%E6%97%A5%E6%9C%9F/">Java日期</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java日期格式"><a href="#Java日期格式" class="headerlink" title="Java日期格式"></a>Java日期格式</h1><h2 id="1-JDK7之前的方式"><a href="#1-JDK7之前的方式" class="headerlink" title="1.JDK7之前的方式"></a>1.JDK7之前的方式</h2><ol>
-<li>java.util.Date<ul>
-<li>new Date():以当前时间为准</li>
-<li>new Date(Long date):以毫秒时间创建对象</li>
-<li>object.getTime():获取毫秒数</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>form(Instant instant):通过Instant对象创建Date对象-static<ul>
-<li>object.toInstant():返回对应date的Instant对象</li>
-</ul>
-</li>
-</ul>
-<ol start="2">
-<li><p>java.sql.Date</p>
-<ul>
-<li>与数据库的Date类型对接的类型.是java.util.Date的子类</li>
-<li>new Date(Long date):以毫秒时间创建对象</li>
-<li>通过毫秒数与java.util.Date进行转换</li>
-</ul>
-</li>
-<li><p>java.text.SimpleDateFormat</p>
-<ul>
-<li>格式化日期类</li>
-<li>new SimpleDateFormat():默认格式</li>
-<li>new SimpleDateFormat(String pattern):通过指定格式来格式化日期</li>
-<li>object.format(Date date):格式化Date返回一个字符串</li>
-<li>object.parse(String source):解析一个字符串返回Date对象</li>
-<li>注意:Date指的都是java.util.Date</li>
-</ul>
-</li>
-<li><p>java.util.Calendar</p>
-<ul>
-<li>日历类</li>
-<li>Calendar.getInstance():创建一个Calendar对象</li>
-<li>object.get(int field):获取类中定义的常量字段</li>
-<li>object.set(int field, int value):设置类中定义的常量字段,改变对象</li>
-<li>object.add(int field, int amount):增加类中定义的常量字段,改变对象</li>
-<li>object.getTime():返回对应的Date对象</li>
-<li>object.setTime(Date date):通过对应的Date对象,设置Calendar,改变对象</li>
-<li>注意:Date指的都是java.util.Date    </li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>月份从0(一月)开始，星期从1(周日)开始<ul>
-<li>对象可变</li>
-</ul>
-</li>
-</ul>
-<ol start="5">
-<li>因为上述的处理线程不同步,且对日期的处理并不完善在JDK8中有提出了新方式</li>
-</ol>
-<h2 id="2-JDK8的新方式"><a href="#2-JDK8的新方式" class="headerlink" title="2.JDK8的新方式"></a>2.JDK8的新方式</h2><ol>
-<li><p>java.time.LocalDate,java.time.LocalTime,java.time.LocalDateTime</p>
-<ul>
-<li>都是线程安全且不可变对象</li>
-<li>通用方法:</li>
-<li>now():创建当前时间的对象-static</li>
-<li>of(xxxxxx):创建指定时间的对象-static</li>
-<li>object.getXXX():获取指定的信息</li>
-<li>object.withXXX(xxxx)[等于set]:设置指定信息并返回相应对象</li>
-<li>object.plusXXX(xxxx):给对应信息加上指定数值并返回相应对象</li>
-<li>object.minusXXX(xxxx):给对应信息减去指定数值并返回相应对象</li>
-<li>parse(CharSequence text, DateTimeFormatter formatter):解析指定字符串并返回相应对象-static</li>
-<li>obj.format(DateTimeFormatter formatter):返回格式化对象</li>
-</ul>
-</li>
-<li><p>java.time.Instant</p>
-<ul>
-<li>时间线上的瞬时点</li>
-<li>注意如果不设置时区偏移,则返回的时间是本初子午线上的时间</li>
-<li>now():创建当前时间的对象-static</li>
-<li>ofEpochMill(long epochMill):设置指定毫秒数的对象-static</li>
-<li>object.toEpochMill():返回毫秒数</li>
-<li>obj.atOffset(ZoneOffset offset):设置时区的偏移如ZoneOffset.ofHours(8)</li>
-</ul>
-</li>
-<li><p>java.time.format.DateTimeFormatter</p>
-<ul>
-<li>ofPattern(String pattern):创建对应格式的DateTimeFormatter对象-static</li>
-<li>注意在DateTimeFormatter格式字符串中小时用H表示</li>
-</ul>
-</li>
-<li><p>各种转换</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 01. java.util.Date --&gt; java.time.LocalDateTime</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalDateTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 02. java.util.Date --&gt; java.time.LocalDate</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">    LocalDate localDate = localDateTime.toLocalDate();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 03. java.util.Date --&gt; java.time.LocalTime</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">UDateToLocalTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    java.util.Date date = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">    Instant instant = date.toInstant();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, zone);</span><br><span class="line">    LocalTime localTime = localDateTime.toLocalTime();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 04. java.time.LocalDateTime --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalDateTimeToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDateTime.atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 05. java.time.LocalDate --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalDateToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalDate localDate = LocalDate.now();</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDate.atStartOfDay().atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 06. java.time.LocalTime --&gt; java.util.Date</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">LocalTimeToUdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LocalTime localTime = LocalTime.now();</span><br><span class="line">    LocalDate localDate = LocalDate.now();</span><br><span class="line">    LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);</span><br><span class="line">    ZoneId zone = ZoneId.systemDefault();</span><br><span class="line">    Instant instant = localDateTime.atZone(zone).toInstant();</span><br><span class="line">    java.util.Date date = Date.from(instant);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>代码来自博客 <a href="https://www.cnblogs.com/exmyth/p/6425878.html" target="_blank" rel="noopener" title="转换">Java日期转换</a></p>
-</li>
-<li><p>遇到的一个问题</p>
-<ul>
-<li><pre><code class="java">LocalDateTime dateTime = LocalDateTime.parse(<span class="string">"2020-02-02 03:10:10"</span>, DateTimeFormatter.ofPattern(<span class="string">"yyyy-MM-dd hh:mm:ss"</span>));</code></pre>
-</li>
-<li><p>上面的代码使用H可以运行但是换成h就无法运行</p>
-</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/02/Java%E6%97%A5%E6%9C%9F/" data-id="ck6ksz7zl000anwubeuoc93ea" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E5%AD%98%E7%96%91/" rel="tag">Java存疑</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java反射" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/01/Java%E5%8F%8D%E5%B0%84/" class="article-date">
-  <time class="post-time" datetime="2020-02-01T08:00:42.462Z" itemprop="datePublished">
-    <span class="post-month">2月</span><br/>
-    <span class="post-day">01</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/01/Java%E5%8F%8D%E5%B0%84/">Java反射</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h1><h2 id="1-对java-lang-Class类的理解"><a href="#1-对java-lang-Class类的理解" class="headerlink" title="1.对java.lang.Class类的理解"></a>1.对java.lang.Class类的理解</h2><h3 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h3><p>程序经过javac.exe命令以后会生成一个或多个字节码文件(.class结尾)  接着我们使用java.exe命令对某个字节码文件进行解释运行。相当于将某个字节码文件加载到内存中,这个过程称为类的加载,加载到内存中的类称作运行时类,作为Class的一个实例。换句话说，Class的一个实例就对应一个运行时类。<br></p>
-<h3 id="获取一个类的Class类对象"><a href="#获取一个类的Class类对象" class="headerlink" title="获取一个类的Class类对象"></a>获取一个类的Class类对象</h3><ul>
-<li><p>T.class</p>
-</li>
-<li><p>new T(xxx).getClass();</p>
-</li>
-<li><p>Class.forName(完整类名);</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/01/Java%E5%8F%8D%E5%B0%84/" data-id="ck6ksz7ze0001nwub42ag134u" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-JDBC中出现的问题" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
-  <time class="post-time" datetime="2020-01-31T07:02:20.000Z" itemprop="datePublished">
-    <span class="post-month">1月</span><br/>
-    <span class="post-day">31</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/">JDBC中出现的问题</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>update `order` set order_name = ? where order_id = ?</p>
-<p><code>ResultSetMetaData metaData = rs.getMetaData();</code></p>
-<p>//可以用来获取字段的别名,用于让数据库中的名字与类中的不同的情况  </p>
-<p>如果没有别名则获取原名</p>
-<p><code>String columnName = metaData.getColumnLabel(j+1);</code></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/31/JDBC%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ck6ksz7za0000nwub2o0i0w22" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JDBC/" rel="tag">JDBC</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">next &amp;raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -1295,8 +1901,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
 

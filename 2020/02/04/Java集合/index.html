@@ -14,7 +14,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="d:%5Cblog%5Csource%5Casset%5C%E9%9B%86%E5%90%882.jpg">
 <meta property="article:published_time" content="2020-02-04T08:47:35.840Z">
-<meta property="article:modified_time" content="2020-02-09T11:27:09.072Z">
+<meta property="article:modified_time" content="2020-02-26T02:38:26.493Z">
 <meta property="article:author" content="Yang Nan">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
@@ -49,8 +49,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
     <ul class="blog-link">
@@ -177,7 +177,7 @@
 <ul>
 <li>特有方法(Element)<ul>
 <li><code>Enumeration obj.elements();</code></li>
-<li>Enumeration 枚举类型 其实就是Iterator前身,用法相同</li>
+<li>Enumeration 枚举类 其实就是Iterator前身,用法相同</li>
 </ul>
 </li>
 </ul>
@@ -192,11 +192,10 @@
 </li>
 <li><p>引出的子类对象</p>
 <ul>
-<li>HashSet:哈希表结构,线程不同步,避免哈希冲突的方式类似于链地址法<ul>
+<li><p>HashSet:哈希表结构,线程不同步,避免哈希冲突的方式类似于链地址法</p>
+<ul>
 <li>存储时先比较hashCode方法值是否相同,不同则存储,相同则比较equals判断,如果仍然相同,认为是统一对象,否则在hachCode值存储的位置下扩展链。</li>
 <li>比较对象是否相同先比较hashCode再比较equals,只有两者都相同才认为两对象相等。</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p>TreeSet:红黑树结构(属于二叉排序树),线程不同步,有两种比较方式</p>
@@ -205,6 +204,16 @@
 <li>构造器类实现java.util.Comparator接口,实现compare方法,称为构造器,将构造器传入集合构造方法,实现排序</li>
 <li>如果上述两种方式都实现了以构造器为主</li>
 <li>TreeSet标识元素相等的条件为compareTo方法或者compare方法的返回值(0)</li>
+</ul>
+</li>
+<li><p>LinkedHashMap</p>
+<ul>
+<li><p>继承HashMap实现Set接口</p>
+</li>
+<li><p>底层Hash表加链表(记录元素的存储顺序),保证元素有序</p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -280,6 +289,14 @@
 <li>底层二叉树排序树结构,线程不同步,给map集合中的键进行排序</li>
 </ul>
 </li>
+<li><p>LinkedHashMap</p>
+<ul>
+<li><p>继承HashMap,实现Map接口</p>
+</li>
+<li><p>底层Hash表加链表(记录元素的存储顺序),保证元素键有序</p>
+</li>
+</ul>
+</li>
 <li><p>Set底层就是用了Map的相关实现方法</p>
 </li>
 </ul>
@@ -337,14 +354,15 @@
 <h2 id="数组与集合的转换"><a href="#数组与集合的转换" class="headerlink" title="数组与集合的转换"></a>数组与集合的转换</h2><ul>
 <li><p>Arrays类提供了许多数组操作的方法[数组转集合]</p>
 <ul>
-<li><code>&lt;T&gt; List &lt;T&gt; asList(T... a)</code>:数组转换为List集合,</li>
-</ul>
+<li><p><code>&lt;T&gt; List &lt;T&gt; asList(T... a)</code>:数组转换为List集合,</p>
 </li>
 <li><p>原因在于可以方便去判断元素包含于集合[使用集合的方法来操作数组]</p>
 </li>
 <li><p>生成的集合是定长的且改变会反馈到数组</p>
 </li>
 <li><p>如果数组中的元素是基本数据类型,则会直接把数组本身存入到集合中</p>
+</li>
+</ul>
 </li>
 <li><p>Collection类中的toArray方法[集合变数组]</p>
 <ul>
@@ -376,22 +394,22 @@
 </li>
 <li><p>静态导入</p>
 <ul>
-<li><code>import static java.util.Arrays.*</code></li>
-<li>导入一个类/接口的静态成员，之后调用可以省略类名/接口名</li>
+<li><p><code>import static java.util.Arrays.*</code></p>
+</li>
+<li><p>导入一个类/接口的静态成员，之后调用可以省略类名/接口名</p>
+</li>
+<li><p>如果出现重名的函数,则要恢复会原来的调用方式</p>
+</li>
+<li><p>主要用于对都是静态成员的工具类的引入,简化书写。比如Collections,Arrays</p>
+</li>
 </ul>
 </li>
 </ol>
-<ul>
-<li>如果出现重名的函数,则要恢复会原来的调用方式<ul>
-<li>主要用于对都是静态成员的工具类的引入,简化书写。比如Collections,Arrays</li>
-</ul>
-</li>
-</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck6ksz7zm000enwub89td1qg2" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2020/02/04/Java%E9%9B%86%E5%90%88/" data-id="ck7eqa14e001crkubfle7dvpl" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
@@ -463,8 +481,8 @@
     <h2 class="author">Yang Nan</h2>
     <h3 class="description"></h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>9</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>3</strong><br>分类</div></a>
+      <a href="/archives"><div><strong>18</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>4</strong><br>分类</div></a>
       <a href="/tags"><div><strong>6</strong><br>标签</div></a>
     </div>
 
